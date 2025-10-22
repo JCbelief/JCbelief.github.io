@@ -17,15 +17,15 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jcbelief.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"jcbelief.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="PJC的博客">
+  <meta name="description" content="雨下一整晚">
 <meta property="og:type" content="website">
 <meta property="og:title" content="JCbelief">
 <meta property="og:url" content="https://jcbelief.github.io/categories/github%E7%9B%B8%E5%85%B3/index.html">
 <meta property="og:site_name" content="JCbelief">
-<meta property="og:description" content="PJC的博客">
+<meta property="og:description" content="雨下一整晚">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Peng Jia Cheng">
 <meta property="article:tag" content="Unity">
@@ -81,6 +81,10 @@
   <div class="container use-motion">
     <div class="headband"></div>
 
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
@@ -91,16 +95,13 @@
     </div>
   </div>
 
-  <div class="site-meta custom-logo">
+  <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <h1 class="site-title">JCbelief</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <a>
-        <img class="custom-logo-image" src="./avatar.webp" alt="JCbelief">
-      </a>
   </div>
 
   <div class="site-nav-right">
@@ -262,8 +263,10 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Peng Jia Cheng"
+      src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">Peng Jia Cheng</p>
-  <div class="site-description" itemprop="description">PJC的博客</div>
+  <div class="site-description" itemprop="description">雨下一整晚</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -421,5 +424,5 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":180,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
