@@ -1,55 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>K次操作求数组出现次数最多的元素个数</title>
-    <url>/2025/10/23/K%E6%AC%A1%E6%93%8D%E4%BD%9C%E6%B1%82%E6%95%B0%E7%BB%84%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0/</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>小红拿到了一个长度为n的数组，<strong>每次操作可以让某个数加1或减1</strong>，最多可以进行k次操作，求数组出现次数最多的元素个数</p>
-<p>1&lt;&#x3D;n&lt;&#x3D;10^5</p>
-<p>1&lt;&#x3D;Ai&lt;&#x3D;10^9</p>
-<p>1&lt;&#x3D;k&lt;&#x3D;10^12</p>
-<p>输入：第一行第一数是长度n，第二个数是最多操作次数k</p>
-<p>第二行是n个数</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">测试用例</span><br><span class="line">输入:</span><br><span class="line">5 3</span><br><span class="line">6 3 20 8 1</span><br><span class="line">输出: 2</span><br><span class="line">用例解释：</span><br><span class="line">输入5表示有5个元素</span><br><span class="line">输入3表示最多进行k次操作</span><br><span class="line">输入一行表示5个元素的值</span><br><span class="line">输出2表示最多进行k次操作后，数组出现次数最多的元素个数是2个</span><br><span class="line">举例：</span><br><span class="line">6 3 20 8 1   //原始</span><br><span class="line">7 3 20 8 1   //第一个6 + 1</span><br><span class="line">7 3 20 7 1   //第四个8 - 1</span><br><span class="line">7 2 20 7 1   //第二个3 - 1</span><br><span class="line">结论:三次操作后有两个相同元素7</span><br><span class="line">答案不唯一,但是最多能统计出的相同元素个数唯一</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Unity笔试-编程题</category>
-      </categories>
-      <tags>
-        <tag>Unity笔试-编程题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenGL初级-渲染管线梳理</title>
-    <url>/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/</url>
-    <content><![CDATA[<h1 id="一、渲染管线流程"><a href="#一、渲染管线流程" class="headerlink" title="一、渲染管线流程"></a>一、渲染管线流程</h1><h2 id="顶点数据"><a href="#顶点数据" class="headerlink" title="顶点数据"></a>顶点数据</h2><p>定义基础顶点的位置和顶点的属性</p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026195418821.png" alt="image-20251026195418821"></p>
-<h2 id="三维变换"><a href="#三维变换" class="headerlink" title="三维变换"></a>三维变换</h2><p>对顶点的位置进行变换</p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026195713834.png" alt="image-20251026195713834"></p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026195856877.png" alt="image-20251026195856877"></p>
-<h2 id="图元装配"><a href="#图元装配" class="headerlink" title="图元装配"></a>图元装配</h2><p>变换完毕的顶点进行组装</p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200043482.png" alt="image-20251026200043482"></p>
-<h2 id="剪裁剔除"><a href="#剪裁剔除" class="headerlink" title="剪裁剔除"></a>剪裁剔除</h2><p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200422814.png" alt="image-20251026200422814"></p>
-<p>看箭头的顺时针和逆时针方向确定顺时针或逆时针</p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200541687.png" alt="image-20251026200541687"></p>
-<h2 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h2><p>顶点打到像素上</p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200909842.png" alt="image-20251026200909842"></p>
-<p>计算顶点围成的三角形的像素</p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200931193.png" alt="image-20251026200931193"></p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201029805.png" alt="image-20251026201029805"></p>
-<h2 id="片元着色"><a href="#片元着色" class="headerlink" title="片元着色"></a>片元着色</h2><p>每个像素都会单独计算</p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201121790.png" alt="image-20251026201121790"></p>
-<h2 id="混合与测试"><a href="#混合与测试" class="headerlink" title="混合与测试"></a>混合与测试</h2><p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201235637.png" alt="image-20251026201235637"></p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201344574.png" alt="image-20251026201344574"></p>
-]]></content>
-      <categories>
-        <category>OpenGL</category>
-      </categories>
-      <tags>
-        <tag>OpenGL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo基本操作</title>
     <url>/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h1 id="一、Hexo创建新的博客"><a href="#一、Hexo创建新的博客" class="headerlink" title="一、Hexo创建新的博客"></a>一、Hexo创建新的博客</h1><h2 id="1、输入命令"><a href="#1、输入命令" class="headerlink" title="1、输入命令"></a>1、输入命令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new &quot;标题名&quot;</span><br></pre></td></tr></table></figure>
@@ -76,24 +27,15 @@
       </tags>
   </entry>
   <entry>
-    <title>abb型语句</title>
-    <url>/2025/10/26/abb%E5%9E%8B%E8%AF%AD%E5%8F%A5/</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>leafee最近爱上了abb型语句，比如”叠词词”、“恶心心”leafee拿到了一个只含有小写字母的字符串，她想知道有多少个”abb”型的子序列？</p>
-<p>定义：abb型字符串满足以下条件</p>
-<p>1：字符串长度为3</p>
-<p>2：字符串后两位相同</p>
-<p>3：字符串的前两位不同</p>
-<p>输入：第一行一个正整数n</p>
-<p>第二行一个长度为n的字符串(只包含小写字母)(1&lt;&#x3D;n&gt;&#x3D;10^5)</p>
-<p>输出：ab型的子序列个数</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">测试用例</span><br><span class="line">示例1：</span><br><span class="line">输入：</span><br><span class="line">6</span><br><span class="line">a b c b c c</span><br><span class="line">输出：8   1个abb   3个acc   4个bcc</span><br><span class="line">示例2：</span><br><span class="line">输入：</span><br><span class="line">4</span><br><span class="line">a b b b</span><br><span class="line">输出：3</span><br></pre></td></tr></table></figure>
-
-<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>思路：</p>
-<p>对于每个字符，将其当作中间字符</p>
-<p>判断前面有几个和它不相同的字符   prefix</p>
-<p>判断后面有几个和它相同的字符   suffix</p>
-<p>能构成的abb型数量 &#x3D; prefix * suffix</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    </span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">suffix</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;   <span class="comment">//后缀</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">prefix</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;   <span class="comment">//前缀</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//统计后缀和</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        suffix[s[i] - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> idx = s[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        suffix[idx]--;   <span class="comment">//后缀不包含当前字符</span></span><br><span class="line">        <span class="type">int</span> front = i - prefix[idx];   <span class="comment">//计算前面有几个和当前字符不相同的字符</span></span><br><span class="line">        ans += front * suffix[idx];</span><br><span class="line">        prefix[idx]++;   <span class="comment">//当前字符遍历结束就变成前缀字符</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>K次操作求数组出现次数最多的元素个数</title>
+    <url>/2025/10/23/K%E6%AC%A1%E6%93%8D%E4%BD%9C%E6%B1%82%E6%95%B0%E7%BB%84%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>小红拿到了一个长度为n的数组，<strong>每次操作可以让某个数加1或减1</strong>，最多可以进行k次操作，求数组出现次数最多的元素个数</p>
+<p>1&lt;&#x3D;n&lt;&#x3D;10^5</p>
+<p>1&lt;&#x3D;Ai&lt;&#x3D;10^9</p>
+<p>1&lt;&#x3D;k&lt;&#x3D;10^12</p>
+<p>输入：第一行第一数是长度n，第二个数是最多操作次数k</p>
+<p>第二行是n个数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">测试用例</span><br><span class="line">输入:</span><br><span class="line">5 3</span><br><span class="line">6 3 20 8 1</span><br><span class="line">输出: 2</span><br><span class="line">用例解释：</span><br><span class="line">输入5表示有5个元素</span><br><span class="line">输入3表示最多进行k次操作</span><br><span class="line">输入一行表示5个元素的值</span><br><span class="line">输出2表示最多进行k次操作后，数组出现次数最多的元素个数是2个</span><br><span class="line">举例：</span><br><span class="line">6 3 20 8 1   //原始</span><br><span class="line">7 3 20 8 1   //第一个6 + 1</span><br><span class="line">7 3 20 7 1   //第四个8 - 1</span><br><span class="line">7 2 20 7 1   //第二个3 - 1</span><br><span class="line">结论:三次操作后有两个相同元素7</span><br><span class="line">答案不唯一,但是最多能统计出的相同元素个数唯一</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -101,21 +43,6 @@
       </categories>
       <tags>
         <tag>Unity笔试-编程题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>github配置DNS提速</title>
-    <url>/2025/10/22/github%E9%85%8D%E7%BD%AEDNS%E6%8F%90%E9%80%9F/</url>
-    <content><![CDATA[<h1 id="一、修改系统host文件"><a href="#一、修改系统host文件" class="headerlink" title="一、修改系统host文件"></a>一、修改系统host文件</h1><p>路径：C:\Windows\System32\drivers\etc</p>
-<p>文件末尾加上</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">140.82.113.3    github.com</span><br><span class="line">185.199.108.153 assets-cdn.github.com</span><br><span class="line">199.232.69.194  github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>github相关</category>
-      </categories>
-      <tags>
-        <tag>github</tag>
       </tags>
   </entry>
   <entry>
@@ -152,6 +79,79 @@
       </categories>
       <tags>
         <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenGL初级-渲染管线梳理</title>
+    <url>/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/</url>
+    <content><![CDATA[<h1 id="一、渲染管线流程"><a href="#一、渲染管线流程" class="headerlink" title="一、渲染管线流程"></a>一、渲染管线流程</h1><h2 id="顶点数据"><a href="#顶点数据" class="headerlink" title="顶点数据"></a>顶点数据</h2><p>定义基础顶点的位置和顶点的属性</p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026195418821.png" alt="image-20251026195418821"></p>
+<h2 id="三维变换"><a href="#三维变换" class="headerlink" title="三维变换"></a>三维变换</h2><p>对顶点的位置进行变换</p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026195713834.png" alt="image-20251026195713834"></p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026195856877.png" alt="image-20251026195856877"></p>
+<h2 id="图元装配"><a href="#图元装配" class="headerlink" title="图元装配"></a>图元装配</h2><p>变换完毕的顶点进行组装</p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200043482.png" alt="image-20251026200043482"></p>
+<h2 id="剪裁剔除"><a href="#剪裁剔除" class="headerlink" title="剪裁剔除"></a>剪裁剔除</h2><p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200422814.png" alt="image-20251026200422814"></p>
+<p>看箭头的顺时针和逆时针方向确定顺时针或逆时针</p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200541687.png" alt="image-20251026200541687"></p>
+<h2 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h2><p>顶点打到像素上</p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200909842.png" alt="image-20251026200909842"></p>
+<p>计算顶点围成的三角形的像素</p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200931193.png" alt="image-20251026200931193"></p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201029805.png" alt="image-20251026201029805"></p>
+<h2 id="片元着色"><a href="#片元着色" class="headerlink" title="片元着色"></a>片元着色</h2><p>每个像素都会单独计算</p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201121790.png" alt="image-20251026201121790"></p>
+<h2 id="混合与测试"><a href="#混合与测试" class="headerlink" title="混合与测试"></a>混合与测试</h2><p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201235637.png" alt="image-20251026201235637"></p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201344574.png" alt="image-20251026201344574"></p>
+]]></content>
+      <categories>
+        <category>OpenGL</category>
+      </categories>
+      <tags>
+        <tag>OpenGL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>github配置DNS提速</title>
+    <url>/2025/10/22/github%E9%85%8D%E7%BD%AEDNS%E6%8F%90%E9%80%9F/</url>
+    <content><![CDATA[<h1 id="一、修改系统host文件"><a href="#一、修改系统host文件" class="headerlink" title="一、修改系统host文件"></a>一、修改系统host文件</h1><p>路径：C:\Windows\System32\drivers\etc</p>
+<p>文件末尾加上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">140.82.113.3    github.com</span><br><span class="line">185.199.108.153 assets-cdn.github.com</span><br><span class="line">199.232.69.194  github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>github相关</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>abb型语句</title>
+    <url>/2025/10/26/abb%E5%9E%8B%E8%AF%AD%E5%8F%A5/</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>leafee最近爱上了abb型语句，比如”叠词词”、“恶心心”leafee拿到了一个只含有小写字母的字符串，她想知道有多少个”abb”型的子序列？</p>
+<p>定义：abb型字符串满足以下条件</p>
+<p>1：字符串长度为3</p>
+<p>2：字符串后两位相同</p>
+<p>3：字符串的前两位不同</p>
+<p>输入：第一行一个正整数n</p>
+<p>第二行一个长度为n的字符串(只包含小写字母)(1&lt;&#x3D;n&gt;&#x3D;10^5)</p>
+<p>输出：ab型的子序列个数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">测试用例</span><br><span class="line">示例1：</span><br><span class="line">输入：</span><br><span class="line">6</span><br><span class="line">a b c b c c</span><br><span class="line">输出：8   1个abb   3个acc   4个bcc</span><br><span class="line">示例2：</span><br><span class="line">输入：</span><br><span class="line">4</span><br><span class="line">a b b b</span><br><span class="line">输出：3</span><br></pre></td></tr></table></figure>
+
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>思路：</p>
+<p>对于每个字符，将其当作中间字符</p>
+<p>判断前面有几个和它不相同的字符   prefix</p>
+<p>判断后面有几个和它相同的字符   suffix</p>
+<p>能构成的abb型数量 &#x3D; prefix * suffix</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    </span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">suffix</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;   <span class="comment">//后缀</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">prefix</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;   <span class="comment">//前缀</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//统计后缀和</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        suffix[s[i] - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> idx = s[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        suffix[idx]--;   <span class="comment">//后缀不包含当前字符</span></span><br><span class="line">        <span class="type">int</span> front = i - prefix[idx];   <span class="comment">//计算前面有几个和当前字符不相同的字符</span></span><br><span class="line">        ans += front * suffix[idx];</span><br><span class="line">        prefix[idx]++;   <span class="comment">//当前字符遍历结束就变成前缀字符</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Unity笔试-编程题</category>
+      </categories>
+      <tags>
+        <tag>Unity笔试-编程题</tag>
       </tags>
   </entry>
   <entry>
@@ -238,12 +238,18 @@
   <entry>
     <title>编译与链接</title>
     <url>/2025/10/26/%E7%BC%96%E8%AF%91%E4%B8%8E%E9%93%BE%E6%8E%A5/</url>
-    <content><![CDATA[<h1 id="一、什么是CMake？"><a href="#一、什么是CMake？" class="headerlink" title="一、什么是CMake？"></a>一、什么是CMake？</h1>]]></content>
+    <content><![CDATA[<h1 id="一、什么是CMake？"><a href="#一、什么是CMake？" class="headerlink" title="一、什么是CMake？"></a>一、什么是CMake？</h1><p>CMake是一个跨平台的编译工具，可以用简单的语句来描述所有平台的编译链接过程</p>
+<h1 id="二、VisualStudio工程"><a href="#二、VisualStudio工程" class="headerlink" title="二、VisualStudio工程"></a>二、VisualStudio工程</h1><p>使用VisualStudio创建的工程，属于windows下，并且只能够用相同的IDE打开</p>
+<p><img src="/2025/10/26/%E7%BC%96%E8%AF%91%E4%B8%8E%E9%93%BE%E6%8E%A5/image-20251026202455594.png" alt="image-20251026202455594"></p>
+<h1 id="三、编译与链接"><a href="#三、编译与链接" class="headerlink" title="三、编译与链接"></a>三、编译与链接</h1><p>编译：将当前的C++代码通过编译器，编译成为目标代码的过程</p>
+<p>链接：将多段编译好的目标代码，互相进行链接，形成一个完整的可运行程序(exe)</p>
+]]></content>
       <categories>
         <category>C++工程管理</category>
       </categories>
       <tags>
         <tag>C++工程管理</tag>
+        <tag>OpenGL工程管理</tag>
       </tags>
   </entry>
 </search>
