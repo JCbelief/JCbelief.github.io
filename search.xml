@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>K次操作求数组出现次数最多的元素个数</title>
+    <url>/2025/10/23/K%E6%AC%A1%E6%93%8D%E4%BD%9C%E6%B1%82%E6%95%B0%E7%BB%84%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>小红拿到了一个长度为n的数组，<strong>每次操作可以让某个数加1或减1</strong>，最多可以进行k次操作，求数组出现次数最多的元素个数</p>
+<p>1&lt;&#x3D;n&lt;&#x3D;10^5</p>
+<p>1&lt;&#x3D;Ai&lt;&#x3D;10^9</p>
+<p>1&lt;&#x3D;k&lt;&#x3D;10^12</p>
+<p>输入：第一行第一数是长度n，第二个数是最多操作次数k</p>
+<p>第二行是n个数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">测试用例</span><br><span class="line">输入:</span><br><span class="line">5 3</span><br><span class="line">6 3 20 8 1</span><br><span class="line">输出: 2</span><br><span class="line">用例解释：</span><br><span class="line">输入5表示有5个元素</span><br><span class="line">输入3表示最多进行k次操作</span><br><span class="line">输入一行表示5个元素的值</span><br><span class="line">输出2表示最多进行k次操作后，数组出现次数最多的元素个数是2个</span><br><span class="line">举例：</span><br><span class="line">6 3 20 8 1   //原始</span><br><span class="line">7 3 20 8 1   //第一个6 + 1</span><br><span class="line">7 3 20 7 1   //第四个8 - 1</span><br><span class="line">7 2 20 7 1   //第二个3 - 1</span><br><span class="line">结论:三次操作后有两个相同元素7</span><br><span class="line">答案不唯一,但是最多能统计出的相同元素个数唯一</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Unity笔试-编程题</category>
+      </categories>
+      <tags>
+        <tag>Unity笔试-编程题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenGL初级-渲染管线梳理</title>
+    <url>/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/</url>
+    <content><![CDATA[<h1 id="一、渲染管线流程"><a href="#一、渲染管线流程" class="headerlink" title="一、渲染管线流程"></a>一、渲染管线流程</h1><h2 id="顶点数据"><a href="#顶点数据" class="headerlink" title="顶点数据"></a>顶点数据</h2><p>定义基础顶点的位置和顶点的属性</p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026195418821.png" alt="image-20251026195418821"></p>
+<h2 id="三维变换"><a href="#三维变换" class="headerlink" title="三维变换"></a>三维变换</h2><p>对顶点的位置进行变换</p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026195713834.png" alt="image-20251026195713834"></p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026195856877.png" alt="image-20251026195856877"></p>
+<h2 id="图元装配"><a href="#图元装配" class="headerlink" title="图元装配"></a>图元装配</h2><p>变换完毕的顶点进行组装</p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200043482.png" alt="image-20251026200043482"></p>
+<h2 id="剪裁剔除"><a href="#剪裁剔除" class="headerlink" title="剪裁剔除"></a>剪裁剔除</h2><p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200422814.png" alt="image-20251026200422814"></p>
+<p>看箭头的顺时针和逆时针方向确定顺时针或逆时针</p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200541687.png" alt="image-20251026200541687"></p>
+<h2 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h2><p>顶点打到像素上</p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200909842.png" alt="image-20251026200909842"></p>
+<p>计算顶点围成的三角形的像素</p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200931193.png" alt="image-20251026200931193"></p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201029805.png" alt="image-20251026201029805"></p>
+<h2 id="片元着色"><a href="#片元着色" class="headerlink" title="片元着色"></a>片元着色</h2><p>每个像素都会单独计算</p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201121790.png" alt="image-20251026201121790"></p>
+<h2 id="混合与测试"><a href="#混合与测试" class="headerlink" title="混合与测试"></a>混合与测试</h2><p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201235637.png" alt="image-20251026201235637"></p>
+<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201344574.png" alt="image-20251026201344574"></p>
+]]></content>
+      <categories>
+        <category>OpenGL</category>
+      </categories>
+      <tags>
+        <tag>OpenGL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo基本操作</title>
     <url>/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h1 id="一、Hexo创建新的博客"><a href="#一、Hexo创建新的博客" class="headerlink" title="一、Hexo创建新的博客"></a>一、Hexo创建新的博客</h1><h2 id="1、输入命令"><a href="#1、输入命令" class="headerlink" title="1、输入命令"></a>1、输入命令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new &quot;标题名&quot;</span><br></pre></td></tr></table></figure>
@@ -55,6 +104,21 @@
       </tags>
   </entry>
   <entry>
+    <title>github配置DNS提速</title>
+    <url>/2025/10/22/github%E9%85%8D%E7%BD%AEDNS%E6%8F%90%E9%80%9F/</url>
+    <content><![CDATA[<h1 id="一、修改系统host文件"><a href="#一、修改系统host文件" class="headerlink" title="一、修改系统host文件"></a>一、修改系统host文件</h1><p>路径：C:\Windows\System32\drivers\etc</p>
+<p>文件末尾加上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">140.82.113.3    github.com</span><br><span class="line">185.199.108.153 assets-cdn.github.com</span><br><span class="line">199.232.69.194  github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>github相关</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>List相关操作</title>
     <url>/2025/10/23/List%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>注意事项：</p>
@@ -91,85 +155,10 @@
       </tags>
   </entry>
   <entry>
-    <title>github配置DNS提速</title>
-    <url>/2025/10/22/github%E9%85%8D%E7%BD%AEDNS%E6%8F%90%E9%80%9F/</url>
-    <content><![CDATA[<h1 id="一、修改系统host文件"><a href="#一、修改系统host文件" class="headerlink" title="一、修改系统host文件"></a>一、修改系统host文件</h1><p>路径：C:\Windows\System32\drivers\etc</p>
-<p>文件末尾加上</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">140.82.113.3    github.com</span><br><span class="line">185.199.108.153 assets-cdn.github.com</span><br><span class="line">199.232.69.194  github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>github相关</category>
-      </categories>
-      <tags>
-        <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>K次操作求数组出现次数最多的元素个数</title>
-    <url>/2025/10/23/K%E6%AC%A1%E6%93%8D%E4%BD%9C%E6%B1%82%E6%95%B0%E7%BB%84%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0/</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>小红拿到了一个长度为n的数组，<strong>每次操作可以让某个数加1或减1</strong>，最多可以进行k次操作，求数组出现次数最多的元素个数</p>
-<p>1&lt;&#x3D;n&lt;&#x3D;10^5</p>
-<p>1&lt;&#x3D;Ai&lt;&#x3D;10^9</p>
-<p>1&lt;&#x3D;k&lt;&#x3D;10^12</p>
-<p>输入：第一行第一数是长度n，第二个数是最多操作次数k</p>
-<p>第二行是n个数</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">测试用例</span><br><span class="line">输入:</span><br><span class="line">5 3</span><br><span class="line">6 3 20 8 1</span><br><span class="line">输出: 2</span><br><span class="line">用例解释：</span><br><span class="line">输入5表示有5个元素</span><br><span class="line">输入3表示最多进行k次操作</span><br><span class="line">输入一行表示5个元素的值</span><br><span class="line">输出2表示最多进行k次操作后，数组出现次数最多的元素个数是2个</span><br><span class="line">举例：</span><br><span class="line">6 3 20 8 1   //原始</span><br><span class="line">7 3 20 8 1   //第一个6 + 1</span><br><span class="line">7 3 20 7 1   //第四个8 - 1</span><br><span class="line">7 2 20 7 1   //第二个3 - 1</span><br><span class="line">结论:三次操作后有两个相同元素7</span><br><span class="line">答案不唯一,但是最多能统计出的相同元素个数唯一</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Unity笔试-编程题</category>
-      </categories>
-      <tags>
-        <tag>Unity笔试-编程题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>栈实现队列</title>
-    <url>/2025/10/24/%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</url>
-    <content><![CDATA[<h1 id="栈实现队列"><a href="#栈实现队列" class="headerlink" title="栈实现队列"></a>栈实现队列</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解题思路：</span></span><br><span class="line"><span class="comment">//用两个栈实现队列，因为栈的特性，需要出队的时候，将之前栈的元素出栈并入栈即可翻转顺序，实现队列的效果</span></span><br><span class="line"><span class="comment">//所以核心思想就是入栈加入固定的一个栈，出栈的时候判断用来模拟队列出队的栈是否有值，有值就直接出栈，没有就将当作入队的栈的元素加入到当作出队的栈即可</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MagicStack</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 入队就是直接加入s1</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">enqueue</span><span class="params">(T element)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        s<span class="number">1.</span><span class="built_in">push</span>(element);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">T <span class="title">dequeue</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s<span class="number">1.</span><span class="built_in">empty</span>() &amp;&amp; s<span class="number">2.</span><span class="built_in">empty</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;魔法队列为空，无法获取元素&quot;</span> &lt;&lt; endl;</span><br><span class="line">            <span class="keyword">return</span> INT_MAX;   <span class="comment">//作异常值</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s<span class="number">2.</span><span class="built_in">empty</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(!s<span class="number">1.</span><span class="built_in">empty</span>())</span><br><span class="line">            &#123;</span><br><span class="line">                T top = s<span class="number">1.</span><span class="built_in">top</span>();</span><br><span class="line">                s<span class="number">1.</span><span class="built_in">pop</span>();</span><br><span class="line">                s<span class="number">2.</span><span class="built_in">push</span>(top);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        T top = s<span class="number">2.</span><span class="built_in">top</span>();</span><br><span class="line">    	s<span class="number">2.</span><span class="built_in">pop</span>();</span><br><span class="line">    	<span class="keyword">return</span> top;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s<span class="number">1.</span><span class="built_in">empty</span>() &amp;&amp; s<span class="number">2.</span><span class="built_in">empty</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    stack&lt;T&gt; s1;</span><br><span class="line">    stack&lt;T&gt; s2;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//示例</span></span><br><span class="line">    MagicStack&lt;<span class="type">int</span>&gt; magicStack;</span><br><span class="line">    <span class="type">bool</span> e = magicStack.<span class="built_in">isEmpty</span>();   <span class="comment">//1(true)</span></span><br><span class="line">    magicStack.<span class="built_in">enqueue</span>(<span class="number">1</span>);</span><br><span class="line">    magicStack.<span class="built_in">enqueue</span>(<span class="number">2</span>);</span><br><span class="line">    magicStack.<span class="built_in">enqueue</span>(<span class="number">3</span>);</span><br><span class="line">    e = magicStack.<span class="built_in">isEmpty</span>();    <span class="comment">//0(false)</span></span><br><span class="line">    <span class="type">int</span> res = magicStack.<span class="built_in">dequeue</span>();   <span class="comment">//1;</span></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    res = magicStack.<span class="built_in">dequeue</span>();   <span class="comment">//2;</span></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    res = magicStack.<span class="built_in">dequeue</span>();   <span class="comment">//3;</span></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    e = magicStack.<span class="built_in">isEmpty</span>();   <span class="comment">//1(true)</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Unity笔试-编程题</category>
-      </categories>
-      <tags>
-        <tag>Unity笔试-编程题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo添加网站运行时间</title>
     <url>/2025/10/22/hexo%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</url>
     <content><![CDATA[<h1 id="一、找到对应文件"><a href="#一、找到对应文件" class="headerlink" title="一、找到对应文件"></a>一、找到对应文件</h1><p>themes&#x2F;next&#x2F;layout&#x2F;_partial&#x2F;footer.swig</p>
 <h1 id="二、添加代码"><a href="#二、添加代码" class="headerlink" title="二、添加代码"></a>二、添加代码</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;timeDate&quot;</span>&gt;</span>载入天数...<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;times&quot;</span>&gt;</span>载入时分秒...<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>(); </span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">createtime</span>(<span class="params"></span>) &#123; </span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> grt= <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot;10/22/2025 14:35:06&quot;</span>);<span class="comment">//在此处修改你的建站时间</span></span></span><br><span class="line"><span class="language-javascript">        now.<span class="title function_">setTime</span>(now.<span class="title function_">getTime</span>()+<span class="number">250</span>); </span></span><br><span class="line"><span class="language-javascript">        days = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>; dnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(days); </span></span><br><span class="line"><span class="language-javascript">        hours = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> - (<span class="number">24</span> * dnum); hnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(hours); </span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span>(<span class="title class_">String</span>(hnum).<span class="property">length</span> ==<span class="number">1</span> )&#123;hnum = <span class="string">&quot;0&quot;</span> + hnum;&#125; minutes = (now - grt ) / <span class="number">1000</span> /<span class="number">60</span> - (<span class="number">24</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * hnum); </span></span><br><span class="line"><span class="language-javascript">        mnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(minutes); <span class="keyword">if</span>(<span class="title class_">String</span>(mnum).<span class="property">length</span> ==<span class="number">1</span> )&#123;mnum = <span class="string">&quot;0&quot;</span> + mnum;&#125; </span></span><br><span class="line"><span class="language-javascript">        seconds = (now - grt ) / <span class="number">1000</span> - (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * <span class="number">60</span> * hnum) - (<span class="number">60</span> * mnum); </span></span><br><span class="line"><span class="language-javascript">        snum = <span class="title class_">Math</span>.<span class="title function_">round</span>(seconds); <span class="keyword">if</span>(<span class="title class_">String</span>(snum).<span class="property">length</span> ==<span class="number">1</span> )&#123;snum = <span class="string">&quot;0&quot;</span> + snum;&#125; </span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;timeDate&quot;</span>).<span class="property">innerHTML</span> = <span class="string">&quot;已运行 &quot;</span>+dnum+<span class="string">&quot; 天 &quot;</span>; </span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;times&quot;</span>).<span class="property">innerHTML</span> = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>; </span></span><br><span class="line"><span class="language-javascript">    &#125; </span></span><br><span class="line"><span class="language-javascript"><span class="built_in">setInterval</span>(<span class="string">&quot;createtime()&quot;</span>,<span class="number">250</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Hexo使用说明</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何搭建hexo工程</title>
-    <url>/2025/10/22/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BAhexo%E5%B7%A5%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="一、安装git和Node-js"><a href="#一、安装git和Node-js" class="headerlink" title="一、安装git和Node.js"></a>一、安装git和Node.js</h1><p>1、<a href="https://git-scm.com/install/windows">git</a></p>
-<p>2、<a href="https://nodejs.org/en/download/">Node.js</a></p>
-<h1 id="二、用node安装Hexo"><a href="#二、用node安装Hexo" class="headerlink" title="二、用node安装Hexo"></a>二、用node安装Hexo</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<h1 id="三、搭建Hexo"><a href="#三、搭建Hexo" class="headerlink" title="三、搭建Hexo"></a>三、搭建Hexo</h1><h2 id="1、初始化"><a href="#1、初始化" class="headerlink" title="1、初始化"></a>1、初始化</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init myblog</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、安装依赖"><a href="#2、安装依赖" class="headerlink" title="2、安装依赖"></a>2、安装依赖</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd myblog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-
-<h1 id="3、启动服务"><a href="#3、启动服务" class="headerlink" title="3、启动服务"></a>3、启动服务</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-
-<h1 id="四、配置github推送"><a href="#四、配置github推送" class="headerlink" title="四、配置github推送"></a>四、配置github推送</h1><h2 id="1、安装hexo-deployer-git插件"><a href="#1、安装hexo-deployer-git插件" class="headerlink" title="1、安装hexo-deployer-git插件"></a>1、安装hexo-deployer-git插件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、修改配置"><a href="#2、修改配置" class="headerlink" title="2、修改配置"></a>2、修改配置</h2><p>工程文件&#x2F;_config.yml</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: 你的仓库路径</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<h2 id="3、推送"><a href="#3、推送" class="headerlink" title="3、推送"></a>3、推送</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -203,6 +192,58 @@
       </categories>
       <tags>
         <tag>Unity笔试-编程题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何搭建hexo工程</title>
+    <url>/2025/10/22/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BAhexo%E5%B7%A5%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="一、安装git和Node-js"><a href="#一、安装git和Node-js" class="headerlink" title="一、安装git和Node.js"></a>一、安装git和Node.js</h1><p>1、<a href="https://git-scm.com/install/windows">git</a></p>
+<p>2、<a href="https://nodejs.org/en/download/">Node.js</a></p>
+<h1 id="二、用node安装Hexo"><a href="#二、用node安装Hexo" class="headerlink" title="二、用node安装Hexo"></a>二、用node安装Hexo</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、搭建Hexo"><a href="#三、搭建Hexo" class="headerlink" title="三、搭建Hexo"></a>三、搭建Hexo</h1><h2 id="1、初始化"><a href="#1、初始化" class="headerlink" title="1、初始化"></a>1、初始化</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init myblog</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、安装依赖"><a href="#2、安装依赖" class="headerlink" title="2、安装依赖"></a>2、安装依赖</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd myblog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<h1 id="3、启动服务"><a href="#3、启动服务" class="headerlink" title="3、启动服务"></a>3、启动服务</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、配置github推送"><a href="#四、配置github推送" class="headerlink" title="四、配置github推送"></a>四、配置github推送</h1><h2 id="1、安装hexo-deployer-git插件"><a href="#1、安装hexo-deployer-git插件" class="headerlink" title="1、安装hexo-deployer-git插件"></a>1、安装hexo-deployer-git插件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、修改配置"><a href="#2、修改配置" class="headerlink" title="2、修改配置"></a>2、修改配置</h2><p>工程文件&#x2F;_config.yml</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: 你的仓库路径</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、推送"><a href="#3、推送" class="headerlink" title="3、推送"></a>3、推送</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Hexo使用说明</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>栈实现队列</title>
+    <url>/2025/10/24/%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</url>
+    <content><![CDATA[<h1 id="栈实现队列"><a href="#栈实现队列" class="headerlink" title="栈实现队列"></a>栈实现队列</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解题思路：</span></span><br><span class="line"><span class="comment">//用两个栈实现队列，因为栈的特性，需要出队的时候，将之前栈的元素出栈并入栈即可翻转顺序，实现队列的效果</span></span><br><span class="line"><span class="comment">//所以核心思想就是入栈加入固定的一个栈，出栈的时候判断用来模拟队列出队的栈是否有值，有值就直接出栈，没有就将当作入队的栈的元素加入到当作出队的栈即可</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MagicStack</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 入队就是直接加入s1</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">enqueue</span><span class="params">(T element)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        s<span class="number">1.</span><span class="built_in">push</span>(element);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">T <span class="title">dequeue</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s<span class="number">1.</span><span class="built_in">empty</span>() &amp;&amp; s<span class="number">2.</span><span class="built_in">empty</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;魔法队列为空，无法获取元素&quot;</span> &lt;&lt; endl;</span><br><span class="line">            <span class="keyword">return</span> INT_MAX;   <span class="comment">//作异常值</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s<span class="number">2.</span><span class="built_in">empty</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(!s<span class="number">1.</span><span class="built_in">empty</span>())</span><br><span class="line">            &#123;</span><br><span class="line">                T top = s<span class="number">1.</span><span class="built_in">top</span>();</span><br><span class="line">                s<span class="number">1.</span><span class="built_in">pop</span>();</span><br><span class="line">                s<span class="number">2.</span><span class="built_in">push</span>(top);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        T top = s<span class="number">2.</span><span class="built_in">top</span>();</span><br><span class="line">    	s<span class="number">2.</span><span class="built_in">pop</span>();</span><br><span class="line">    	<span class="keyword">return</span> top;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s<span class="number">1.</span><span class="built_in">empty</span>() &amp;&amp; s<span class="number">2.</span><span class="built_in">empty</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    stack&lt;T&gt; s1;</span><br><span class="line">    stack&lt;T&gt; s2;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//示例</span></span><br><span class="line">    MagicStack&lt;<span class="type">int</span>&gt; magicStack;</span><br><span class="line">    <span class="type">bool</span> e = magicStack.<span class="built_in">isEmpty</span>();   <span class="comment">//1(true)</span></span><br><span class="line">    magicStack.<span class="built_in">enqueue</span>(<span class="number">1</span>);</span><br><span class="line">    magicStack.<span class="built_in">enqueue</span>(<span class="number">2</span>);</span><br><span class="line">    magicStack.<span class="built_in">enqueue</span>(<span class="number">3</span>);</span><br><span class="line">    e = magicStack.<span class="built_in">isEmpty</span>();    <span class="comment">//0(false)</span></span><br><span class="line">    <span class="type">int</span> res = magicStack.<span class="built_in">dequeue</span>();   <span class="comment">//1;</span></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    res = magicStack.<span class="built_in">dequeue</span>();   <span class="comment">//2;</span></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    res = magicStack.<span class="built_in">dequeue</span>();   <span class="comment">//3;</span></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    e = magicStack.<span class="built_in">isEmpty</span>();   <span class="comment">//1(true)</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Unity笔试-编程题</category>
+      </categories>
+      <tags>
+        <tag>Unity笔试-编程题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>编译与链接</title>
+    <url>/2025/10/26/%E7%BC%96%E8%AF%91%E4%B8%8E%E9%93%BE%E6%8E%A5/</url>
+    <content><![CDATA[<h1 id="一、什么是CMake？"><a href="#一、什么是CMake？" class="headerlink" title="一、什么是CMake？"></a>一、什么是CMake？</h1>]]></content>
+      <categories>
+        <category>C++工程管理</category>
+      </categories>
+      <tags>
+        <tag>C++工程管理</tag>
       </tags>
   </entry>
 </search>
