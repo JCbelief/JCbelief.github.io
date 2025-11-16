@@ -292,4 +292,24 @@
         <tag>OpenGL工程管理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>多文件夹编译</title>
+    <url>/2025/11/16/%E5%A4%9A%E6%96%87%E4%BB%B6%E5%A4%B9%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<h1 id="一、多文件夹编译需求"><a href="#一、多文件夹编译需求" class="headerlink" title="一、多文件夹编译需求"></a>一、多文件夹编译需求</h1><p>需求：</p>
+<p>当代码分布在不同的文件夹下的时候，需要将其他文件夹下的cpp打包为lib库</p>
+<p>如图需要在main中链接funcs文件夹下的func.h和func.cpp</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116183114500.png" alt="image-20251116183114500"></p>
+<h1 id="二、CMake添加代码"><a href="#二、CMake添加代码" class="headerlink" title="二、CMake添加代码"></a>二、CMake添加代码</h1><p>子CMakeList内容</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116184604058.png" alt="image-20251116184604058"></p>
+<p>主CMakeList内容</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116190920628.png" alt="image-20251116190920628"></p>
+]]></content>
+      <categories>
+        <category>C++工程管理</category>
+      </categories>
+      <tags>
+        <tag>C++工程管理</tag>
+        <tag>OpenGL工程管理</tag>
+      </tags>
+  </entry>
 </search>
