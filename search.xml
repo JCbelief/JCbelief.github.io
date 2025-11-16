@@ -277,4 +277,19 @@
         <tag>OpenGL工程管理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>多C++文件编译</title>
+    <url>/2025/11/16/%E5%A4%9AC-%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<h1 id="一、CMake将新加的cpp文件纳入编译与链接"><a href="#一、CMake将新加的cpp文件纳入编译与链接" class="headerlink" title="一、CMake将新加的cpp文件纳入编译与链接"></a>一、CMake将新加的cpp文件纳入编译与链接</h1><p>重点：<strong>将所有cpp纳入编译与链接过程</strong>，如果不这样做，编译可以通过但是运行会报错，因为编译只进行语法检查(检查include的.h文件是否存在)，而不去检查是否有具体实现</p>
+<p>SRCS就是在add_executable的时候需要编译的cpp文件，统一放到SRCS变量保存，最后用${}解析</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/mage-20251116180813338.png" alt="image-20251116180813338"></p>
+]]></content>
+      <categories>
+        <category>C++工程管理</category>
+      </categories>
+      <tags>
+        <tag>C++工程管理</tag>
+        <tag>OpenGL工程管理</tag>
+      </tags>
+  </entry>
 </search>
