@@ -312,4 +312,114 @@
         <tag>OpenGL工程管理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>GLAD配置</title>
+    <url>/2025/11/16/GLAD%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="一、GLAD下载"><a href="#一、GLAD下载" class="headerlink" title="一、GLAD下载"></a>一、GLAD下载</h1><p><a href="https://glad.dav1d.de/">glad.dav1d.de</a></p>
+<h3 id="配置如下"><a href="#配置如下" class="headerlink" title="配置如下"></a>配置如下</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116225547547.png" alt="image-20251116225547547"></p>
+<h3 id="下载zip"><a href="#下载zip" class="headerlink" title="下载zip"></a>下载zip</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116225612856.png" alt="image-20251116225612856"></p>
+<p>glad内容如下</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116225709901.png" alt="image-20251116225709901"></p>
+<h1 id="二、glad如何配置"><a href="#二、glad如何配置" class="headerlink" title="二、glad如何配置"></a>二、glad如何配置</h1><p>需要</p>
+<p>1 将glad的include放到自己项目的thirdParty的include下(glad包含glad和KHR)</p>
+<p><strong>2 glad.c放到main.cpp同级下，方便加入cmake</strong>（glad.c为上面展示的glad内容的src中的文件)</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116230130140.png" alt="image-20251116230130140"></p>
+<p>配置完成后工程文件如下</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116230227170.png" alt="image-20251116230227170"></p>
+<h3 id="编写CMakeLists"><a href="#编写CMakeLists" class="headerlink" title="编写CMakeLists"></a>编写CMakeLists</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116230328403.png" alt="image-20251116230328403"></p>
+<h3 id="可以正常引用"><a href="#可以正常引用" class="headerlink" title="可以正常引用"></a>可以正常引用</h3><p>省略路径的原因见CMakeLists的include_directories</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116230431281.png" alt="image-20251116230431281"></p>
+]]></content>
+      <categories>
+        <category>C++工程管理</category>
+      </categories>
+      <tags>
+        <tag>C++工程管理</tag>
+        <tag>OpenGL工程管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GLFW配置</title>
+    <url>/2025/11/16/GLFW%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="一、GLFW介绍"><a href="#一、GLFW介绍" class="headerlink" title="一、GLFW介绍"></a>一、GLFW介绍</h1><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116202954856.png" alt="image-20251116202954856"></p>
+<h1 id="二、GLFW编译"><a href="#二、GLFW编译" class="headerlink" title="二、GLFW编译"></a>二、GLFW编译</h1><p>选择源代码版本，自己用cmake编译</p>
+<p>如果选择预编译版本可直接使用</p>
+<p><a href="https://www.glfw.org/download.html">Download | GLFW</a></p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116203337544.png" alt="image-20251116203337544"></p>
+<h2 id="1、创建Build"><a href="#1、创建Build" class="headerlink" title="1、创建Build"></a>1、创建Build</h2><p>新建文件夹名为Build</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116204523633.png" alt="image-20251116204523633"></p>
+<h2 id="2、创建install"><a href="#2、创建install" class="headerlink" title="2、创建install"></a>2、创建install</h2><p>Build文件夹下新建install文件夹</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116204612048.png" alt="image-20251116204612048"></p>
+<h2 id="3、编译"><a href="#3、编译" class="headerlink" title="3、编译"></a>3、编译</h2><h3 id="cmake界面介绍"><a href="#cmake界面介绍" class="headerlink" title="cmake界面介绍"></a>cmake界面介绍</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116211115046.png" alt="image-20251116211115046"></p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116211244969.png" alt="image-20251116211244969"></p>
+<h3 id="构建到创建的Build文件夹"><a href="#构建到创建的Build文件夹" class="headerlink" title="构建到创建的Build文件夹"></a>构建到创建的Build文件夹</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212116934.png" alt="image-20251116212116934"></p>
+<h3 id="编译好的库文件，放到install文件夹"><a href="#编译好的库文件，放到install文件夹" class="headerlink" title="编译好的库文件，放到install文件夹"></a>编译好的库文件，放到install文件夹</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212249590.png" alt="image-20251116212249590"></p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212354384.png" alt="image-20251116212354384"></p>
+<h3 id="打开Build的工程"><a href="#打开Build的工程" class="headerlink" title="打开Build的工程"></a>打开Build的工程</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212518707.png" alt="image-20251116212518707"></p>
+<p>右键ALL_BUILD，点击生成</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212646388.png" alt="image-20251116212646388"></p>
+<p>右键INSTALL点击生成</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212826805.png" alt="image-20251116212826805"></p>
+<h3 id="查看生成的结果"><a href="#查看生成的结果" class="headerlink" title="查看生成的结果"></a>查看生成的结果</h3><p>此时GLFW已经编译完成</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212846947.png" alt="image-20251116212846947"></p>
+<h1 id="三、GLFW面编译使用"><a href="#三、GLFW面编译使用" class="headerlink" title="三、GLFW面编译使用"></a>三、GLFW面编译使用</h1><p>直接下载SourceCode</p>
+]]></content>
+      <categories>
+        <category>C++工程管理</category>
+      </categories>
+      <tags>
+        <tag>C++工程管理</tag>
+        <tag>OpenGL工程管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>资源拷贝与多目标编译</title>
+    <url>/2025/11/16/%E8%B5%84%E6%BA%90%E6%8B%B7%E8%B4%9D%E4%B8%8E%E5%A4%9A%E7%9B%AE%E6%A0%87%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<h1 id="一、资源拷贝"><a href="#一、资源拷贝" class="headerlink" title="一、资源拷贝"></a>一、资源拷贝</h1><p>正常情况下可以手动拷贝资源文件到exe所在目录</p>
+<p><strong>cmake可以简化这一过程，相当于一个配置</strong>，在cmake文件中保存的时候自动拷贝</p>
+<p>exe在out文件夹</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/%E8%AF%91/image-20251116200114976.png" alt="image-20251116200114976"></p>
+<h1 id="二、多编译目标"><a href="#二、多编译目标" class="headerlink" title="二、多编译目标"></a>二、多编译目标</h1><p>通过add_exetutable对具体的main程序进行编译</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/%E8%AF%91/image-20251116202105611.png" alt="image-20251116202105611"></p>
+]]></content>
+      <categories>
+        <category>C++工程管理</category>
+      </categories>
+      <tags>
+        <tag>C++工程管理</tag>
+        <tag>OpenGL工程管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vs如何配置cmake编译的静态库依赖</title>
+    <url>/2025/11/16/vs%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEcmake%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/</url>
+    <content><![CDATA[<h1 id="一、基于cmake的工程创建"><a href="#一、基于cmake的工程创建" class="headerlink" title="一、基于cmake的工程创建"></a>一、基于cmake的工程创建</h1><p>创建文件夹</p>
+<p>新建CMakeListst</p>
+<p>新建main，写好主函数</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116215855905.png" alt="image-20251116215855905"></p>
+<h1 id="二、新建thirdParty文件夹"><a href="#二、新建thirdParty文件夹" class="headerlink" title="二、新建thirdParty文件夹"></a>二、新建thirdParty文件夹</h1><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116222554441.png" alt="image-20251116222554441"></p>
+<p>编译结果拷贝到thirdParty</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116222634494.png" alt="image-20251116222634494"></p>
+<h3 id="thirdParty下创建include和lib文件夹"><a href="#thirdParty下创建include和lib文件夹" class="headerlink" title="thirdParty下创建include和lib文件夹"></a>thirdParty下创建include和lib文件夹</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116222832721.png" alt="image-20251116222832721"></p>
+<h3 id="找到用cmake编译的glfw"><a href="#找到用cmake编译的glfw" class="headerlink" title="找到用cmake编译的glfw"></a>找到用cmake编译的glfw</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116222911675.png" alt="image-20251116222911675"></p>
+<h3 id="找到include的GLFW拷贝到自己项目的thirdParty"><a href="#找到include的GLFW拷贝到自己项目的thirdParty" class="headerlink" title="找到include的GLFW拷贝到自己项目的thirdParty"></a>找到include的GLFW拷贝到自己项目的thirdParty</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116222930033.png" alt="image-20251116222930033"></p>
+<h3 id="找到lib下的glfw3-lib拷贝到自己项目thrdParty"><a href="#找到lib下的glfw3-lib拷贝到自己项目thrdParty" class="headerlink" title="找到lib下的glfw3.lib拷贝到自己项目thrdParty"></a>找到lib下的glfw3.lib拷贝到自己项目thrdParty</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116223134865.png" alt="image-20251116223134865"></p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116223239082.png" alt="image-20251116223239082"></p>
+<h1 id="三、编写CMakeLists"><a href="#三、编写CMakeLists" class="headerlink" title="三、编写CMakeLists"></a>三、编写CMakeLists</h1><h3 id="增加cmake的include头文件搜索路径"><a href="#增加cmake的include头文件搜索路径" class="headerlink" title="增加cmake的include头文件搜索路径"></a>增加cmake的include头文件搜索路径</h3><p>配置完毕后可以直接找到当前CMakelists同级路径的thirdParty中的include</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116223629209.png" alt="image-20251116223629209"></p>
+<p>配置前</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116223734594.png" alt="image-20251116223734594"></p>
+<p>配置后</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116223647041.png" alt="image-20251116223647041"></p>
+<p>链接lib库到工程</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116224046210.png" alt="image-20251116224046210"></p>
+]]></content>
+      <categories>
+        <category>C++工程管理</category>
+      </categories>
+      <tags>
+        <tag>C++工程管理</tag>
+        <tag>OpenGL工程管理</tag>
+      </tags>
+  </entry>
 </search>

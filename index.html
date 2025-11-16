@@ -200,6 +200,392 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jcbelief.github.io/2025/11/16/GLAD%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Peng Jia Cheng">
+      <meta itemprop="description" content="雨下一整晚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JCbelief">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/11/16/GLAD%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">GLAD配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-11-16 22:51:10 / 修改时间：23:04:57" itemprop="dateCreated datePublished" datetime="2025-11-16T22:51:10+08:00">2025-11-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-%E5%B7%A5%E7%A8%8B%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">C++工程管理</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>231</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、GLAD下载"><a href="#一、GLAD下载" class="headerlink" title="一、GLAD下载"></a>一、GLAD下载</h1><p><a target="_blank" rel="noopener" href="https://glad.dav1d.de/">glad.dav1d.de</a></p>
+<h3 id="配置如下"><a href="#配置如下" class="headerlink" title="配置如下"></a>配置如下</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116225547547.png" alt="image-20251116225547547"></p>
+<h3 id="下载zip"><a href="#下载zip" class="headerlink" title="下载zip"></a>下载zip</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116225612856.png" alt="image-20251116225612856"></p>
+<p>glad内容如下</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116225709901.png" alt="image-20251116225709901"></p>
+<h1 id="二、glad如何配置"><a href="#二、glad如何配置" class="headerlink" title="二、glad如何配置"></a>二、glad如何配置</h1><p>需要</p>
+<p>1 将glad的include放到自己项目的thirdParty的include下(glad包含glad和KHR)</p>
+<p><strong>2 glad.c放到main.cpp同级下，方便加入cmake</strong>（glad.c为上面展示的glad内容的src中的文件)</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116230130140.png" alt="image-20251116230130140"></p>
+<p>配置完成后工程文件如下</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116230227170.png" alt="image-20251116230227170"></p>
+<h3 id="编写CMakeLists"><a href="#编写CMakeLists" class="headerlink" title="编写CMakeLists"></a>编写CMakeLists</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116230328403.png" alt="image-20251116230328403"></p>
+<h3 id="可以正常引用"><a href="#可以正常引用" class="headerlink" title="可以正常引用"></a>可以正常引用</h3><p>省略路径的原因见CMakeLists的include_directories</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116230431281.png" alt="image-20251116230431281"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jcbelief.github.io/2025/11/16/vs%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEcmake%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Peng Jia Cheng">
+      <meta itemprop="description" content="雨下一整晚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JCbelief">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/11/16/vs%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEcmake%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/" class="post-title-link" itemprop="url">vs如何配置cmake编译的静态库依赖</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-11-16 21:55:27 / 修改时间：22:41:09" itemprop="dateCreated datePublished" datetime="2025-11-16T21:55:27+08:00">2025-11-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-%E5%B7%A5%E7%A8%8B%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">C++工程管理</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>282</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、基于cmake的工程创建"><a href="#一、基于cmake的工程创建" class="headerlink" title="一、基于cmake的工程创建"></a>一、基于cmake的工程创建</h1><p>创建文件夹</p>
+<p>新建CMakeListst</p>
+<p>新建main，写好主函数</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116215855905.png" alt="image-20251116215855905"></p>
+<h1 id="二、新建thirdParty文件夹"><a href="#二、新建thirdParty文件夹" class="headerlink" title="二、新建thirdParty文件夹"></a>二、新建thirdParty文件夹</h1><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116222554441.png" alt="image-20251116222554441"></p>
+<p>编译结果拷贝到thirdParty</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116222634494.png" alt="image-20251116222634494"></p>
+<h3 id="thirdParty下创建include和lib文件夹"><a href="#thirdParty下创建include和lib文件夹" class="headerlink" title="thirdParty下创建include和lib文件夹"></a>thirdParty下创建include和lib文件夹</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116222832721.png" alt="image-20251116222832721"></p>
+<h3 id="找到用cmake编译的glfw"><a href="#找到用cmake编译的glfw" class="headerlink" title="找到用cmake编译的glfw"></a>找到用cmake编译的glfw</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116222911675.png" alt="image-20251116222911675"></p>
+<h3 id="找到include的GLFW拷贝到自己项目的thirdParty"><a href="#找到include的GLFW拷贝到自己项目的thirdParty" class="headerlink" title="找到include的GLFW拷贝到自己项目的thirdParty"></a>找到include的GLFW拷贝到自己项目的thirdParty</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116222930033.png" alt="image-20251116222930033"></p>
+<h3 id="找到lib下的glfw3-lib拷贝到自己项目thrdParty"><a href="#找到lib下的glfw3-lib拷贝到自己项目thrdParty" class="headerlink" title="找到lib下的glfw3.lib拷贝到自己项目thrdParty"></a>找到lib下的glfw3.lib拷贝到自己项目thrdParty</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116223134865.png" alt="image-20251116223134865"></p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116223239082.png" alt="image-20251116223239082"></p>
+<h1 id="三、编写CMakeLists"><a href="#三、编写CMakeLists" class="headerlink" title="三、编写CMakeLists"></a>三、编写CMakeLists</h1><h3 id="增加cmake的include头文件搜索路径"><a href="#增加cmake的include头文件搜索路径" class="headerlink" title="增加cmake的include头文件搜索路径"></a>增加cmake的include头文件搜索路径</h3><p>配置完毕后可以直接找到当前CMakelists同级路径的thirdParty中的include</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116223629209.png" alt="image-20251116223629209"></p>
+<p>配置前</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116223734594.png" alt="image-20251116223734594"></p>
+<p>配置后</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116223647041.png" alt="image-20251116223647041"></p>
+<p>链接lib库到工程</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116224046210.png" alt="image-20251116224046210"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jcbelief.github.io/2025/11/16/GLFW%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Peng Jia Cheng">
+      <meta itemprop="description" content="雨下一整晚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JCbelief">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/11/16/GLFW%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">GLFW配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-11-16 20:28:30 / 修改时间：21:29:46" itemprop="dateCreated datePublished" datetime="2025-11-16T20:28:30+08:00">2025-11-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-%E5%B7%A5%E7%A8%8B%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">C++工程管理</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>244</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、GLFW介绍"><a href="#一、GLFW介绍" class="headerlink" title="一、GLFW介绍"></a>一、GLFW介绍</h1><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116202954856.png" alt="image-20251116202954856"></p>
+<h1 id="二、GLFW编译"><a href="#二、GLFW编译" class="headerlink" title="二、GLFW编译"></a>二、GLFW编译</h1><p>选择源代码版本，自己用cmake编译</p>
+<p>如果选择预编译版本可直接使用</p>
+<p><a target="_blank" rel="noopener" href="https://www.glfw.org/download.html">Download | GLFW</a></p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116203337544.png" alt="image-20251116203337544"></p>
+<h2 id="1、创建Build"><a href="#1、创建Build" class="headerlink" title="1、创建Build"></a>1、创建Build</h2><p>新建文件夹名为Build</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116204523633.png" alt="image-20251116204523633"></p>
+<h2 id="2、创建install"><a href="#2、创建install" class="headerlink" title="2、创建install"></a>2、创建install</h2><p>Build文件夹下新建install文件夹</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116204612048.png" alt="image-20251116204612048"></p>
+<h2 id="3、编译"><a href="#3、编译" class="headerlink" title="3、编译"></a>3、编译</h2><h3 id="cmake界面介绍"><a href="#cmake界面介绍" class="headerlink" title="cmake界面介绍"></a>cmake界面介绍</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116211115046.png" alt="image-20251116211115046"></p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116211244969.png" alt="image-20251116211244969"></p>
+<h3 id="构建到创建的Build文件夹"><a href="#构建到创建的Build文件夹" class="headerlink" title="构建到创建的Build文件夹"></a>构建到创建的Build文件夹</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212116934.png" alt="image-20251116212116934"></p>
+<h3 id="编译好的库文件，放到install文件夹"><a href="#编译好的库文件，放到install文件夹" class="headerlink" title="编译好的库文件，放到install文件夹"></a>编译好的库文件，放到install文件夹</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212249590.png" alt="image-20251116212249590"></p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212354384.png" alt="image-20251116212354384"></p>
+<h3 id="打开Build的工程"><a href="#打开Build的工程" class="headerlink" title="打开Build的工程"></a>打开Build的工程</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212518707.png" alt="image-20251116212518707"></p>
+<p>右键ALL_BUILD，点击生成</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212646388.png" alt="image-20251116212646388"></p>
+<p>右键INSTALL点击生成</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212826805.png" alt="image-20251116212826805"></p>
+<h3 id="查看生成的结果"><a href="#查看生成的结果" class="headerlink" title="查看生成的结果"></a>查看生成的结果</h3><p>此时GLFW已经编译完成</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212846947.png" alt="image-20251116212846947"></p>
+<h1 id="三、GLFW面编译使用"><a href="#三、GLFW面编译使用" class="headerlink" title="三、GLFW面编译使用"></a>三、GLFW面编译使用</h1><p>直接下载SourceCode</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jcbelief.github.io/2025/11/16/%E8%B5%84%E6%BA%90%E6%8B%B7%E8%B4%9D%E4%B8%8E%E5%A4%9A%E7%9B%AE%E6%A0%87%E7%BC%96%E8%AF%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Peng Jia Cheng">
+      <meta itemprop="description" content="雨下一整晚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JCbelief">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/11/16/%E8%B5%84%E6%BA%90%E6%8B%B7%E8%B4%9D%E4%B8%8E%E5%A4%9A%E7%9B%AE%E6%A0%87%E7%BC%96%E8%AF%91/" class="post-title-link" itemprop="url">资源拷贝与多目标编译</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-11-16 19:58:45 / 修改时间：20:23:50" itemprop="dateCreated datePublished" datetime="2025-11-16T19:58:45+08:00">2025-11-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-%E5%B7%A5%E7%A8%8B%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">C++工程管理</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>116</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、资源拷贝"><a href="#一、资源拷贝" class="headerlink" title="一、资源拷贝"></a>一、资源拷贝</h1><p>正常情况下可以手动拷贝资源文件到exe所在目录</p>
+<p><strong>cmake可以简化这一过程，相当于一个配置</strong>，在cmake文件中保存的时候自动拷贝</p>
+<p>exe在out文件夹</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/%E8%AF%91/image-20251116200114976.png" alt="image-20251116200114976"></p>
+<h1 id="二、多编译目标"><a href="#二、多编译目标" class="headerlink" title="二、多编译目标"></a>二、多编译目标</h1><p>通过add_exetutable对具体的main程序进行编译</p>
+<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/%E8%AF%91/image-20251116202105611.png" alt="image-20251116202105611"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://jcbelief.github.io/2025/11/16/%E5%A4%9A%E6%96%87%E4%BB%B6%E5%A4%B9%E7%BC%96%E8%AF%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -747,380 +1133,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jcbelief.github.io/2025/10/24/%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Peng Jia Cheng">
-      <meta itemprop="description" content="雨下一整晚">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JCbelief">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/10/24/%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" class="post-title-link" itemprop="url">栈实现队列</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2025-10-24 15:17:56 / 修改时间：15:19:15" itemprop="dateCreated datePublished" datetime="2025-10-24T15:17:56+08:00">2025-10-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Unity%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">Unity笔试-编程题</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="栈实现队列"><a href="#栈实现队列" class="headerlink" title="栈实现队列"></a>栈实现队列</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解题思路：</span></span><br><span class="line"><span class="comment">//用两个栈实现队列，因为栈的特性，需要出队的时候，将之前栈的元素出栈并入栈即可翻转顺序，实现队列的效果</span></span><br><span class="line"><span class="comment">//所以核心思想就是入栈加入固定的一个栈，出栈的时候判断用来模拟队列出队的栈是否有值，有值就直接出栈，没有就将当作入队的栈的元素加入到当作出队的栈即可</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MagicStack</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 入队就是直接加入s1</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">enqueue</span><span class="params">(T element)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        s<span class="number">1.</span><span class="built_in">push</span>(element);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">T <span class="title">dequeue</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s<span class="number">1.</span><span class="built_in">empty</span>() &amp;&amp; s<span class="number">2.</span><span class="built_in">empty</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;魔法队列为空，无法获取元素&quot;</span> &lt;&lt; endl;</span><br><span class="line">            <span class="keyword">return</span> INT_MAX;   <span class="comment">//作异常值</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s<span class="number">2.</span><span class="built_in">empty</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(!s<span class="number">1.</span><span class="built_in">empty</span>())</span><br><span class="line">            &#123;</span><br><span class="line">                T top = s<span class="number">1.</span><span class="built_in">top</span>();</span><br><span class="line">                s<span class="number">1.</span><span class="built_in">pop</span>();</span><br><span class="line">                s<span class="number">2.</span><span class="built_in">push</span>(top);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        T top = s<span class="number">2.</span><span class="built_in">top</span>();</span><br><span class="line">    	s<span class="number">2.</span><span class="built_in">pop</span>();</span><br><span class="line">    	<span class="keyword">return</span> top;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s<span class="number">1.</span><span class="built_in">empty</span>() &amp;&amp; s<span class="number">2.</span><span class="built_in">empty</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    stack&lt;T&gt; s1;</span><br><span class="line">    stack&lt;T&gt; s2;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//示例</span></span><br><span class="line">    MagicStack&lt;<span class="type">int</span>&gt; magicStack;</span><br><span class="line">    <span class="type">bool</span> e = magicStack.<span class="built_in">isEmpty</span>();   <span class="comment">//1(true)</span></span><br><span class="line">    magicStack.<span class="built_in">enqueue</span>(<span class="number">1</span>);</span><br><span class="line">    magicStack.<span class="built_in">enqueue</span>(<span class="number">2</span>);</span><br><span class="line">    magicStack.<span class="built_in">enqueue</span>(<span class="number">3</span>);</span><br><span class="line">    e = magicStack.<span class="built_in">isEmpty</span>();    <span class="comment">//0(false)</span></span><br><span class="line">    <span class="type">int</span> res = magicStack.<span class="built_in">dequeue</span>();   <span class="comment">//1;</span></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    res = magicStack.<span class="built_in">dequeue</span>();   <span class="comment">//2;</span></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    res = magicStack.<span class="built_in">dequeue</span>();   <span class="comment">//3;</span></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    e = magicStack.<span class="built_in">isEmpty</span>();   <span class="comment">//1(true)</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jcbelief.github.io/2025/10/23/K%E6%AC%A1%E6%93%8D%E4%BD%9C%E6%B1%82%E6%95%B0%E7%BB%84%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Peng Jia Cheng">
-      <meta itemprop="description" content="雨下一整晚">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JCbelief">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/10/23/K%E6%AC%A1%E6%93%8D%E4%BD%9C%E6%B1%82%E6%95%B0%E7%BB%84%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0/" class="post-title-link" itemprop="url">K次操作求数组出现次数最多的元素个数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2025-10-23 21:38:48 / 修改时间：21:46:26" itemprop="dateCreated datePublished" datetime="2025-10-23T21:38:48+08:00">2025-10-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Unity%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">Unity笔试-编程题</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>382</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>小红拿到了一个长度为n的数组，<strong>每次操作可以让某个数加1或减1</strong>，最多可以进行k次操作，求数组出现次数最多的元素个数</p>
-<p>1&lt;&#x3D;n&lt;&#x3D;10^5</p>
-<p>1&lt;&#x3D;Ai&lt;&#x3D;10^9</p>
-<p>1&lt;&#x3D;k&lt;&#x3D;10^12</p>
-<p>输入：第一行第一数是长度n，第二个数是最多操作次数k</p>
-<p>第二行是n个数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">测试用例</span><br><span class="line">输入:</span><br><span class="line">5 3</span><br><span class="line">6 3 20 8 1</span><br><span class="line">输出: 2</span><br><span class="line">用例解释：</span><br><span class="line">输入5表示有5个元素</span><br><span class="line">输入3表示最多进行k次操作</span><br><span class="line">输入一行表示5个元素的值</span><br><span class="line">输出2表示最多进行k次操作后，数组出现次数最多的元素个数是2个</span><br><span class="line">举例：</span><br><span class="line">6 3 20 8 1   //原始</span><br><span class="line">7 3 20 8 1   //第一个6 + 1</span><br><span class="line">7 3 20 7 1   //第四个8 - 1</span><br><span class="line">7 2 20 7 1   //第二个3 - 1</span><br><span class="line">结论:三次操作后有两个相同元素7</span><br><span class="line">答案不唯一,但是最多能统计出的相同元素个数唯一</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jcbelief.github.io/2025/10/23/%E5%9B%B4%E6%A3%8B%E5%8A%AB%E4%BA%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Peng Jia Cheng">
-      <meta itemprop="description" content="雨下一整晚">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JCbelief">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/10/23/%E5%9B%B4%E6%A3%8B%E5%8A%AB%E4%BA%89/" class="post-title-link" itemprop="url">围棋劫争</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2025-10-23 21:27:58 / 修改时间：21:37:20" itemprop="dateCreated datePublished" datetime="2025-10-23T21:27:58+08:00">2025-10-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Unity%E7%AC%94%E8%AF%95-%E7%BC%96%E7%A8%8B%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">Unity笔试-编程题</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>众所周知，围棋是一项黑白双方轮流行动的棋类。在围棋中，还有打劫的概念，若一方落子在某一个劫争处，则另一方不能立刻也下在这个劫争处。</p>
-<p>一个合法的行棋子序列需要满足：</p>
-<ul>
-<li>任意相邻的两步，玩家不同(黑子或白子)</li>
-<li>任意相邻的两步，玩家不同</li>
-</ul>
-<p>输入：第一行是整数T，表示测试组数</p>
-<p>每组用例第一行是正数n(3&lt;&#x3D;n&lt;&#x3D;10^5)，表示你的记录谱子长度</p>
-<p>n行的每行两个数Ci(0&lt;&#x3D;Ci&lt;&#x3D;1)   Ai(1&lt;&#x3D;Ai&lt;&#x3D;10)</p>
-<p>Ci是下棋的人，Ai是劫争处</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">测试用例</span><br><span class="line">输入:</span><br><span class="line">1</span><br><span class="line">20</span><br><span class="line">1 10</span><br><span class="line">0 6</span><br><span class="line">0 9</span><br><span class="line">1 3</span><br><span class="line">0 3</span><br><span class="line">0 5</span><br><span class="line">0 3</span><br><span class="line">1 1</span><br><span class="line">0 2</span><br><span class="line">0 2</span><br><span class="line">0 2</span><br><span class="line">1 9</span><br><span class="line">1 10</span><br><span class="line">1 1</span><br><span class="line">1 10</span><br><span class="line">0 6</span><br><span class="line">0 8</span><br><span class="line">1 1</span><br><span class="line">1 9</span><br><span class="line">0 1</span><br><span class="line">输出:10</span><br><span class="line">用例解释：</span><br><span class="line">输入1表示测试1组</span><br><span class="line">输入20表示谱子长度为20(有20次落子行为)</span><br><span class="line">每行第一个参数表示当前下子的玩家(0和1分别表示黑白)</span><br><span class="line">每行第二个参数表示当前玩家落子的位置(劫争)</span><br><span class="line">输出10表示最大的合法子序列长度为10(最大合法子序列的意思是原序列中去掉某些元素之后的子序列)</span><br></pre></td></tr></table></figure>
-
-<h1 id="写题时用的解法"><a href="#写题时用的解法" class="headerlink" title="写题时用的解法"></a>写题时用的解法</h1><p>只通过了10%测试用例</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">NodeP</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">NodeP</span>(<span class="type">int</span> player, <span class="type">int</span> position)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;player = player;</span><br><span class="line">        <span class="keyword">this</span>-&gt;position = position;</span><br><span class="line">        next = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> player;</span><br><span class="line">    <span class="type">int</span> position;</span><br><span class="line">    NodeP* next;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">NodeList</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">NodeList</span>()</span><br><span class="line">    &#123;</span><br><span class="line">        head = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">insertNode</span><span class="params">(NodeP* node)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            head = tail = node;</span><br><span class="line">            tail-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        tail-&gt;next = node;</span><br><span class="line">        tail = node;</span><br><span class="line">        tail-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    NodeP* head;</span><br><span class="line">    NodeP* tail;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; v;</span><br><span class="line">    <span class="type">int</span> T;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> n;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> c, a;</span><br><span class="line">            cin &gt;&gt; c &gt;&gt; a;</span><br><span class="line">            v.<span class="built_in">push_back</span>(&#123;c, a&#125;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        NodeList* list = <span class="keyword">new</span> <span class="built_in">NodeList</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; v.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            NodeP* node = <span class="keyword">new</span> <span class="built_in">NodeP</span>(v[i].first, v[i].second);</span><br><span class="line">            list-&gt;<span class="built_in">insertNode</span>(node);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">        NodeP* curPlayer = list-&gt;head;</span><br><span class="line">        NodeP* lastPlayer = <span class="literal">nullptr</span>;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, vector&lt;<span class="type">int</span>&gt;&gt; mp;</span><br><span class="line">        <span class="keyword">while</span>(curPlayer != <span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//首个玩家，直接计算</span></span><br><span class="line">            <span class="keyword">if</span>(lastPlayer == <span class="literal">nullptr</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                count++;</span><br><span class="line">                lastPlayer = curPlayer;</span><br><span class="line">                curPlayer = curPlayer-&gt;next;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//是同一个玩家，统计到map</span></span><br><span class="line">            <span class="keyword">if</span>(curPlayer-&gt;player == lastPlayer-&gt;player)</span><br><span class="line">            &#123;</span><br><span class="line">                mp[curPlayer-&gt;player].<span class="built_in">push_back</span>(curPlayer-&gt;position);</span><br><span class="line">                mp[curPlayer-&gt;player].<span class="built_in">push_back</span>(lastPlayer-&gt;position);</span><br><span class="line">                lastPlayer = curPlayer;</span><br><span class="line">                curPlayer = curPlayer-&gt;next;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//不是同一个玩家，且位置不同</span></span><br><span class="line">            <span class="keyword">if</span>(lastPlayer != <span class="literal">nullptr</span> &amp;&amp; curPlayer-&gt;player != lastPlayer-&gt;player)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(curPlayer-&gt;position != lastPlayer-&gt;position)</span><br><span class="line">                &#123;</span><br><span class="line">                    count++;</span><br><span class="line">                    lastPlayer = curPlayer;</span><br><span class="line">                    curPlayer = curPlayer-&gt;next;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    vector&lt;<span class="type">int</span>&gt; tmp = mp[lastPlayer-&gt;player];   <span class="comment">//取出上一个玩家下过的棋</span></span><br><span class="line">                    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; tmp.<span class="built_in">size</span>(); i++)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">if</span>(tmp[i] != curPlayer-&gt;position)   <span class="comment">//找到了不同之处</span></span><br><span class="line">                        &#123;</span><br><span class="line">                            count++;</span><br><span class="line">                            NodeP* tmpNode = <span class="keyword">new</span> <span class="built_in">NodeP</span>(lastPlayer-&gt;player, tmp[i]);</span><br><span class="line">                            lastPlayer = tmpNode;</span><br><span class="line">                            curPlayer = curPlayer-&gt;next;</span><br><span class="line">                            mp[lastPlayer-&gt;player].<span class="built_in">clear</span>();   <span class="comment">//清空数组</span></span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            curPlayer = curPlayer-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; count &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 64 位输出请用 printf(&quot;%lld&quot;)</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jcbelief.github.io/2025/10/23/List%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Peng Jia Cheng">
-      <meta itemprop="description" content="雨下一整晚">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JCbelief">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/10/23/List%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">List相关操作</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2025-10-23 16:22:01 / 修改时间：16:51:06" itemprop="dateCreated datePublished" datetime="2025-10-23T16:22:01+08:00">2025-10-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>注意事项：</p>
-<p>用容器的话系统引用要加上</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="一、List的初始化"><a href="#一、List的初始化" class="headerlink" title="一、List的初始化"></a>一、List的初始化</h1><h2 id="1、一维List初始化"><a href="#1、一维List初始化" class="headerlink" title="1、一维List初始化"></a>1、一维List初始化</h2><h3 id="构造法"><a href="#构造法" class="headerlink" title="构造法"></a>构造法</h3><p>适用于写算法题，通过输入的参数来确定数组元素个数</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;<span class="built_in">int</span>&gt; lst = <span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt;(Enumerable.Repeat(<span class="number">0</span>, <span class="number">5</span>));   <span class="comment">//初始化5个0</span></span><br><span class="line">List&lt;<span class="built_in">int</span>&gt; lst = <span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt;(<span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">5</span>]);</span><br></pre></td></tr></table></figure>
-
-<h2 id="初始化列表"><a href="#初始化列表" class="headerlink" title="初始化列表"></a>初始化列表</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;<span class="built_in">int</span>&gt; list = <span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt; &#123; <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span> &#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="AddRange"><a href="#AddRange" class="headerlink" title="AddRange"></a>AddRange</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;<span class="built_in">int</span>&gt; list = <span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt;();</span><br><span class="line">list.AddRange(Enumerable.Repeat(<span class="number">0</span>, <span class="number">5</span>));</span><br></pre></td></tr></table></figure>
-
-<h2 id="循环初始化"><a href="#循环初始化" class="headerlink" title="循环初始化"></a>循环初始化</h2><p>构造法不记得的时候用这个</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;<span class="built_in">int</span>&gt; list = <span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">    list.Add(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、二维List初始化"><a href="#2、二维List初始化" class="headerlink" title="2、二维List初始化"></a>2、二维List初始化</h2><h2 id="构造法-1"><a href="#构造法-1" class="headerlink" title="构造法"></a>构造法</h2><p>适用于写算法题，初始化指定大小的List</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> rows = <span class="number">3</span>, cols = <span class="number">4</span>;</span><br><span class="line">List&lt;List&lt;<span class="built_in">int</span>&gt;&gt; lst = <span class="keyword">new</span> List&lt;List&lt;<span class="built_in">int</span>&gt;&gt;();</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; rows; i++)</span><br><span class="line">&#123;</span><br><span class="line">    lst.Add(<span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt;(Enumerable.Repeat(<span class="number">0</span>, cols)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="初始化列表-1"><a href="#初始化列表-1" class="headerlink" title="初始化列表"></a>初始化列表</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;List&lt;<span class="built_in">int</span>&gt;&gt; lst = <span class="keyword">new</span> List&lt;List&lt;<span class="built_in">int</span>&gt;&gt;&#123;</span><br><span class="line">    <span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt; &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;,</span><br><span class="line">    <span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt; &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;,</span><br><span class="line">    <span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt; &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Linq一次完成初始化"><a href="#Linq一次完成初始化" class="headerlink" title="Linq一次完成初始化"></a>Linq一次完成初始化</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> rows = <span class="number">3</span>, cols = <span class="number">4</span>;</span><br><span class="line">List&lt;List&lt;<span class="built_in">int</span>&gt;&gt; lst = Enumerable.Range(<span class="number">0</span>, rows)</span><br><span class="line">    .Select(i =&gt; <span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt;(Enumerable.Repeat(<span class="number">0</span>, cols)))</span><br><span class="line">    .ToList();</span><br></pre></td></tr></table></figure>
-
-<h2 id="循环初始化-1"><a href="#循环初始化-1" class="headerlink" title="循环初始化"></a>循环初始化</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> rows = <span class="number">3</span>, cols = <span class="number">4</span>;</span><br><span class="line">List&lt;List&lt;<span class="built_in">int</span>&gt;&gt; lst = <span class="keyword">new</span> List&lt;List&lt;<span class="built_in">int</span>&gt;&gt;();</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; rows; i++)</span><br><span class="line">&#123;</span><br><span class="line">    lst.Add(<span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt;());</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">int</span> j = <span class="number">0</span> j &lt; cols; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        lst[i].Add(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1192,7 +1204,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1242,13 +1254,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">9k</span>
+    <span title="站点总字数">10k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">8 分钟</span>
+    <span title="站点阅读时长">9 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
