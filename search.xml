@@ -1,41 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo基本操作</title>
-    <url>/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h1 id="一、Hexo创建新的博客"><a href="#一、Hexo创建新的博客" class="headerlink" title="一、Hexo创建新的博客"></a>一、Hexo创建新的博客</h1><h2 id="1、输入命令"><a href="#1、输入命令" class="headerlink" title="1、输入命令"></a>1、输入命令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new &quot;标题名&quot;</span><br></pre></td></tr></table></figure>
-
-<p>比如我这里标题名是：Hexo基本操作</p>
-<p>创建成功后，会保存到工程文件的<strong>source&#x2F;_posts文件下</strong></p>
-<h2 id="2、编写md即可"><a href="#2、编写md即可" class="headerlink" title="2、编写md即可"></a>2、编写md即可</h2><p>注意md的属性，categories用来进行博客分类，tags添加小标签</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20251022143018277.png" alt="image-20251022143018277"></p>
-<h1 id="二、Hexo创建新页面"><a href="#二、Hexo创建新页面" class="headerlink" title="二、Hexo创建新页面"></a>二、Hexo创建新页面</h1><h2 id="1、输入命令-1"><a href="#1、输入命令-1" class="headerlink" title="1、输入命令"></a>1、输入命令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page categories   //创建分类页面</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、修改配置文件"><a href="#2、修改配置文件" class="headerlink" title="2、修改配置文件"></a>2、修改配置文件</h2><p>直接创建页面后，主页面是不会显示分支页面的，需要修改配置文件</p>
-<p>我这里使用的是next主题</p>
-<p><strong>先找到对应的文件</strong>，工程文件&#x2F;themes&#x2F;next&#x2F;_config.yml</p>
-<p>找到menu，将对应的页面信息添加</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20251022143107406.png" alt="image-20251022143107406"></p>
-<p>完成后主页成功显示改分支页面</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20251022143120847.png" alt="image-20251022143120847"></p>
+    <title>Transformation</title>
+    <url>/2026/01/17/2026/Games101/Transformation/</url>
+    <content><![CDATA[<p>Games101</p>
 ]]></content>
       <categories>
-        <category>Hexo使用说明</category>
+        <category>Games101</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>Games1o1</tag>
       </tags>
   </entry>
   <entry>
-    <title>K次操作求数组出现次数最多的元素个数</title>
-    <url>/2025/10/23/K%E6%AC%A1%E6%93%8D%E4%BD%9C%E6%B1%82%E6%95%B0%E7%BB%84%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0/</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>小红拿到了一个长度为n的数组，<strong>每次操作可以让某个数加1或减1</strong>，最多可以进行k次操作，求数组出现次数最多的元素个数</p>
-<p>1&lt;&#x3D;n&lt;&#x3D;10^5</p>
-<p>1&lt;&#x3D;Ai&lt;&#x3D;10^9</p>
-<p>1&lt;&#x3D;k&lt;&#x3D;10^12</p>
-<p>输入：第一行第一数是长度n，第二个数是最多操作次数k</p>
-<p>第二行是n个数</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">测试用例</span><br><span class="line">输入:</span><br><span class="line">5 3</span><br><span class="line">6 3 20 8 1</span><br><span class="line">输出: 2</span><br><span class="line">用例解释：</span><br><span class="line">输入5表示有5个元素</span><br><span class="line">输入3表示最多进行k次操作</span><br><span class="line">输入一行表示5个元素的值</span><br><span class="line">输出2表示最多进行k次操作后，数组出现次数最多的元素个数是2个</span><br><span class="line">举例：</span><br><span class="line">6 3 20 8 1   //原始</span><br><span class="line">7 3 20 8 1   //第一个6 + 1</span><br><span class="line">7 3 20 7 1   //第四个8 - 1</span><br><span class="line">7 2 20 7 1   //第二个3 - 1</span><br><span class="line">结论:三次操作后有两个相同元素7</span><br><span class="line">答案不唯一,但是最多能统计出的相同元素个数唯一</span><br></pre></td></tr></table></figure>
+    <title>CMake简单使用</title>
+    <url>/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="一、VS配置"><a href="#一、VS配置" class="headerlink" title="一、VS配置"></a>一、VS配置</h1><p><img src="/2026/01/17/2026/Games101/Transformation/204940720.png" alt="image-20251026204940720"></p>
+<h1 id="二、CMakeList"><a href="#二、CMakeList" class="headerlink" title="二、CMakeList"></a>二、CMakeList</h1><p>CMakeLists.txt是整个CMake工程的描述文件</p>
+<p><img src="/2026/01/17/2026/Games101/Transformation/205359800.png" alt="image-20251026205359800"></p>
+<h1 id="三、VisualStudio打开CMake工程"><a href="#三、VisualStudio打开CMake工程" class="headerlink" title="三、VisualStudio打开CMake工程"></a>三、VisualStudio打开CMake工程</h1><p><img src="/2026/01/17/2026/Games101/Transformation/205739337.png" alt="image-20251026205739337"></p>
+<h1 id="四、工程文件说明"><a href="#四、工程文件说明" class="headerlink" title="四、工程文件说明"></a>四、工程文件说明</h1><p><img src="/2026/01/17/2026/Games101/Transformation/210327342.png" alt="image-20251026210327342"></p>
+<h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><p>笔记内容参考B站赵新政，主页url：<a href="https://space.bilibili.com/487734084?spm_id_from=333.788.upinfo.head.click">赵新政的个人空间-赵新政个人主页-哔哩哔哩视频</a></p>
+]]></content>
+      <categories>
+        <category>C++工程管理</category>
+      </categories>
+      <tags>
+        <tag>C++工程管理</tag>
+        <tag>OpenGL工程管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GLFW配置</title>
+    <url>/2025/11/16/2025/GLFW%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="一、GLFW介绍"><a href="#一、GLFW介绍" class="headerlink" title="一、GLFW介绍"></a>一、GLFW介绍</h1><p><img src="/image-20251116202954856.png" alt="image-20251116202954856"></p>
+<h1 id="二、GLFW编译"><a href="#二、GLFW编译" class="headerlink" title="二、GLFW编译"></a>二、GLFW编译</h1><p>选择源代码版本，自己用cmake编译</p>
+<p>如果选择预编译版本可直接使用</p>
+<p><a href="https://www.glfw.org/download.html">Download | GLFW</a></p>
+<p><img src="/image-20251116203337544.png" alt="image-20251116203337544"></p>
+<h2 id="1、创建Build"><a href="#1、创建Build" class="headerlink" title="1、创建Build"></a>1、创建Build</h2><p>新建文件夹名为Build</p>
+<p><img src="/image-20251116204523633.png" alt="image-20251116204523633"></p>
+<h2 id="2、创建install"><a href="#2、创建install" class="headerlink" title="2、创建install"></a>2、创建install</h2><p>Build文件夹下新建install文件夹</p>
+<p><img src="/image-20251116204612048.png" alt="image-20251116204612048"></p>
+<h2 id="3、编译"><a href="#3、编译" class="headerlink" title="3、编译"></a>3、编译</h2><h3 id="cmake界面介绍"><a href="#cmake界面介绍" class="headerlink" title="cmake界面介绍"></a>cmake界面介绍</h3><p><img src="/image-20251116211115046.png" alt="image-20251116211115046"></p>
+<p><img src="/image-20251116211244969.png" alt="image-20251116211244969"></p>
+<h3 id="构建到创建的Build文件夹"><a href="#构建到创建的Build文件夹" class="headerlink" title="构建到创建的Build文件夹"></a>构建到创建的Build文件夹</h3><p><img src="/image-20251116212116934.png" alt="image-20251116212116934"></p>
+<h3 id="编译好的库文件，放到install文件夹"><a href="#编译好的库文件，放到install文件夹" class="headerlink" title="编译好的库文件，放到install文件夹"></a>编译好的库文件，放到install文件夹</h3><p><img src="/image-20251116212249590.png" alt="image-20251116212249590"></p>
+<p><img src="/image-20251116212354384.png" alt="image-20251116212354384"></p>
+<h3 id="打开Build的工程"><a href="#打开Build的工程" class="headerlink" title="打开Build的工程"></a>打开Build的工程</h3><p><img src="/image-20251116212518707.png" alt="image-20251116212518707"></p>
+<p>右键ALL_BUILD，点击生成</p>
+<p><img src="/image-20251116212646388.png" alt="image-20251116212646388"></p>
+<p>右键INSTALL点击生成</p>
+<p><img src="/image-20251116212826805.png" alt="image-20251116212826805"></p>
+<h3 id="查看生成的结果"><a href="#查看生成的结果" class="headerlink" title="查看生成的结果"></a>查看生成的结果</h3><p>此时GLFW已经编译完成</p>
+<p><img src="/image-20251116212846947.png" alt="image-20251116212846947"></p>
+<h1 id="三、GLFW面编译使用"><a href="#三、GLFW面编译使用" class="headerlink" title="三、GLFW面编译使用"></a>三、GLFW面编译使用</h1><p>直接下载SourceCode</p>
+]]></content>
+      <categories>
+        <category>C++工程管理</category>
+      </categories>
+      <tags>
+        <tag>C++工程管理</tag>
+        <tag>OpenGL工程管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>abb型语句</title>
+    <url>/2025/10/26/2025/abb%E5%9E%8B%E8%AF%AD%E5%8F%A5/</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>leafee最近爱上了abb型语句，比如”叠词词”、“恶心心”leafee拿到了一个只含有小写字母的字符串，她想知道有多少个”abb”型的子序列？</p>
+<p>定义：abb型字符串满足以下条件</p>
+<p>1：字符串长度为3</p>
+<p>2：字符串后两位相同</p>
+<p>3：字符串的前两位不同</p>
+<p>输入：第一行一个正整数n</p>
+<p>第二行一个长度为n的字符串(只包含小写字母)(1&lt;&#x3D;n&gt;&#x3D;10^5)</p>
+<p>输出：ab型的子序列个数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">测试用例</span><br><span class="line">示例1：</span><br><span class="line">输入：</span><br><span class="line">6</span><br><span class="line">a b c b c c</span><br><span class="line">输出：8   1个abb   3个acc   4个bcc</span><br><span class="line">示例2：</span><br><span class="line">输入：</span><br><span class="line">4</span><br><span class="line">a b b b</span><br><span class="line">输出：3</span><br></pre></td></tr></table></figure>
+
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>思路：</p>
+<p>对于每个字符，将其当作中间字符</p>
+<p>判断前面有几个和它不相同的字符   prefix</p>
+<p>判断后面有几个和它相同的字符   suffix</p>
+<p>能构成的abb型数量 &#x3D; prefix * suffix</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    </span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">suffix</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;   <span class="comment">//后缀</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">prefix</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;   <span class="comment">//前缀</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//统计后缀和</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        suffix[s[i] - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> idx = s[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        suffix[idx]--;   <span class="comment">//后缀不包含当前字符</span></span><br><span class="line">        <span class="type">int</span> front = i - prefix[idx];   <span class="comment">//计算前面有几个和当前字符不相同的字符</span></span><br><span class="line">        ans += front * suffix[idx];</span><br><span class="line">        prefix[idx]++;   <span class="comment">//当前字符遍历结束就变成前缀字符</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -46,8 +93,60 @@
       </tags>
   </entry>
   <entry>
+    <title>GLAD配置</title>
+    <url>/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="一、GLAD下载"><a href="#一、GLAD下载" class="headerlink" title="一、GLAD下载"></a>一、GLAD下载</h1><p><a href="https://glad.dav1d.de/">glad.dav1d.de</a></p>
+<h3 id="配置如下"><a href="#配置如下" class="headerlink" title="配置如下"></a>配置如下</h3><p><img src="/image-20251116225547547.png" alt="image-20251116225547547"></p>
+<h3 id="下载zip"><a href="#下载zip" class="headerlink" title="下载zip"></a>下载zip</h3><p><img src="/image-20251116225612856.png" alt="image-20251116225612856"></p>
+<p>glad内容如下</p>
+<p><img src="/image-20251116225709901.png" alt="image-20251116225709901"></p>
+<h1 id="二、glad如何配置"><a href="#二、glad如何配置" class="headerlink" title="二、glad如何配置"></a>二、glad如何配置</h1><p>需要</p>
+<p>1 将glad的include放到自己项目的thirdParty的include下(glad包含glad和KHR)</p>
+<p><strong>2 glad.c放到main.cpp同级下，方便加入cmake</strong>（glad.c为上面展示的glad内容的src中的文件)</p>
+<p><img src="/image-20251116230130140.png" alt="image-20251116230130140"></p>
+<p>配置完成后工程文件如下</p>
+<p><img src="/image-20251116230227170.png" alt="image-20251116230227170"></p>
+<h3 id="编写CMakeLists"><a href="#编写CMakeLists" class="headerlink" title="编写CMakeLists"></a>编写CMakeLists</h3><p><img src="/image-20251116230328403.png" alt="image-20251116230328403"></p>
+<h3 id="可以正常引用"><a href="#可以正常引用" class="headerlink" title="可以正常引用"></a>可以正常引用</h3><p>省略路径的原因见CMakeLists的include_directories</p>
+<p><img src="/image-20251116230431281.png" alt="image-20251116230431281"></p>
+]]></content>
+      <categories>
+        <category>C++工程管理</category>
+      </categories>
+      <tags>
+        <tag>C++工程管理</tag>
+        <tag>OpenGL工程管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo基本操作</title>
+    <url>/2025/10/22/2025/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="一、Hexo创建新的博客"><a href="#一、Hexo创建新的博客" class="headerlink" title="一、Hexo创建新的博客"></a>一、Hexo创建新的博客</h1><h2 id="1、输入命令"><a href="#1、输入命令" class="headerlink" title="1、输入命令"></a>1、输入命令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new &quot;标题名&quot;</span><br></pre></td></tr></table></figure>
+
+<p>比如我这里标题名是：Hexo基本操作</p>
+<p>创建成功后，会保存到工程文件的<strong>source&#x2F;_posts文件下</strong></p>
+<h2 id="2、编写md即可"><a href="#2、编写md即可" class="headerlink" title="2、编写md即可"></a>2、编写md即可</h2><p>注意md的属性，categories用来进行博客分类，tags添加小标签</p>
+<p><img src="/image-20251022143018277.png" alt="image-20251022143018277"></p>
+<h1 id="二、Hexo创建新页面"><a href="#二、Hexo创建新页面" class="headerlink" title="二、Hexo创建新页面"></a>二、Hexo创建新页面</h1><h2 id="1、输入命令-1"><a href="#1、输入命令-1" class="headerlink" title="1、输入命令"></a>1、输入命令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page categories   //创建分类页面</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、修改配置文件"><a href="#2、修改配置文件" class="headerlink" title="2、修改配置文件"></a>2、修改配置文件</h2><p>直接创建页面后，主页面是不会显示分支页面的，需要修改配置文件</p>
+<p>我这里使用的是next主题</p>
+<p><strong>先找到对应的文件</strong>，工程文件&#x2F;themes&#x2F;next&#x2F;_config.yml</p>
+<p>找到menu，将对应的页面信息添加</p>
+<p><img src="/image-20251022143107406.png" alt="image-20251022143107406"></p>
+<p>完成后主页成功显示改分支页面</p>
+<p><img src="/image-20251022143120847.png" alt="image-20251022143120847"></p>
+]]></content>
+      <categories>
+        <category>Hexo使用说明</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>List相关操作</title>
-    <url>/2025/10/23/List%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/</url>
+    <url>/2025/10/23/2025/List%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>注意事项：</p>
 <p>用容器的话系统引用要加上</p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br></pre></td></tr></table></figure>
@@ -82,67 +181,8 @@
       </tags>
   </entry>
   <entry>
-    <title>abb型语句</title>
-    <url>/2025/10/26/abb%E5%9E%8B%E8%AF%AD%E5%8F%A5/</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>leafee最近爱上了abb型语句，比如”叠词词”、“恶心心”leafee拿到了一个只含有小写字母的字符串，她想知道有多少个”abb”型的子序列？</p>
-<p>定义：abb型字符串满足以下条件</p>
-<p>1：字符串长度为3</p>
-<p>2：字符串后两位相同</p>
-<p>3：字符串的前两位不同</p>
-<p>输入：第一行一个正整数n</p>
-<p>第二行一个长度为n的字符串(只包含小写字母)(1&lt;&#x3D;n&gt;&#x3D;10^5)</p>
-<p>输出：ab型的子序列个数</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">测试用例</span><br><span class="line">示例1：</span><br><span class="line">输入：</span><br><span class="line">6</span><br><span class="line">a b c b c c</span><br><span class="line">输出：8   1个abb   3个acc   4个bcc</span><br><span class="line">示例2：</span><br><span class="line">输入：</span><br><span class="line">4</span><br><span class="line">a b b b</span><br><span class="line">输出：3</span><br></pre></td></tr></table></figure>
-
-<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>思路：</p>
-<p>对于每个字符，将其当作中间字符</p>
-<p>判断前面有几个和它不相同的字符   prefix</p>
-<p>判断后面有几个和它相同的字符   suffix</p>
-<p>能构成的abb型数量 &#x3D; prefix * suffix</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    </span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">suffix</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;   <span class="comment">//后缀</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">prefix</span><span class="params">(<span class="number">26</span>, <span class="number">0</span>)</span></span>;   <span class="comment">//前缀</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//统计后缀和</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        suffix[s[i] - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> idx = s[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        suffix[idx]--;   <span class="comment">//后缀不包含当前字符</span></span><br><span class="line">        <span class="type">int</span> front = i - prefix[idx];   <span class="comment">//计算前面有几个和当前字符不相同的字符</span></span><br><span class="line">        ans += front * suffix[idx];</span><br><span class="line">        prefix[idx]++;   <span class="comment">//当前字符遍历结束就变成前缀字符</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Unity笔试-编程题</category>
-      </categories>
-      <tags>
-        <tag>Unity笔试-编程题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenGL初级-渲染管线梳理</title>
-    <url>/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/</url>
-    <content><![CDATA[<h1 id="一、渲染管线流程"><a href="#一、渲染管线流程" class="headerlink" title="一、渲染管线流程"></a>一、渲染管线流程</h1><h2 id="顶点数据"><a href="#顶点数据" class="headerlink" title="顶点数据"></a>顶点数据</h2><p>定义基础顶点的位置和顶点的属性</p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026195418821.png" alt="image-20251026195418821"></p>
-<h2 id="三维变换"><a href="#三维变换" class="headerlink" title="三维变换"></a>三维变换</h2><p>对顶点的位置进行变换</p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026195713834.png" alt="image-20251026195713834"></p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026195856877.png" alt="image-20251026195856877"></p>
-<h2 id="图元装配"><a href="#图元装配" class="headerlink" title="图元装配"></a>图元装配</h2><p>变换完毕的顶点进行组装</p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200043482.png" alt="image-20251026200043482"></p>
-<h2 id="剪裁剔除"><a href="#剪裁剔除" class="headerlink" title="剪裁剔除"></a>剪裁剔除</h2><p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200422814.png" alt="image-20251026200422814"></p>
-<p>看箭头的顺时针和逆时针方向确定顺时针或逆时针</p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200541687.png" alt="image-20251026200541687"></p>
-<h2 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h2><p>顶点打到像素上</p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200909842.png" alt="image-20251026200909842"></p>
-<p>计算顶点围成的三角形的像素</p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026200931193.png" alt="image-20251026200931193"></p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201029805.png" alt="image-20251026201029805"></p>
-<h2 id="片元着色"><a href="#片元着色" class="headerlink" title="片元着色"></a>片元着色</h2><p>每个像素都会单独计算</p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201121790.png" alt="image-20251026201121790"></p>
-<h2 id="混合与测试"><a href="#混合与测试" class="headerlink" title="混合与测试"></a>混合与测试</h2><p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201235637.png" alt="image-20251026201235637"></p>
-<p><img src="/2025/10/26/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/image-20251026201344574.png" alt="image-20251026201344574"></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>笔记内容参考B站赵新政，主页url：<a href="https://space.bilibili.com/487734084?spm_id_from=333.788.upinfo.head.click">赵新政的个人空间-赵新政个人主页-哔哩哔哩视频</a></p>
-]]></content>
-      <categories>
-        <category>OpenGL</category>
-      </categories>
-      <tags>
-        <tag>OpenGL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>github配置DNS提速</title>
-    <url>/2025/10/22/github%E9%85%8D%E7%BD%AEDNS%E6%8F%90%E9%80%9F/</url>
+    <url>/2025/10/22/2025/github%E9%85%8D%E7%BD%AEDNS%E6%8F%90%E9%80%9F/</url>
     <content><![CDATA[<h1 id="一、修改系统host文件"><a href="#一、修改系统host文件" class="headerlink" title="一、修改系统host文件"></a>一、修改系统host文件</h1><p>路径：C:\Windows\System32\drivers\etc</p>
 <p>文件末尾加上</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">140.82.113.3    github.com</span><br><span class="line">185.199.108.153 assets-cdn.github.com</span><br><span class="line">199.232.69.194  github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure>
@@ -156,40 +196,27 @@
       </tags>
   </entry>
   <entry>
-    <title>CMake简单使用</title>
-    <url>/2025/10/26/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="一、VS配置"><a href="#一、VS配置" class="headerlink" title="一、VS配置"></a>一、VS配置</h1><p><img src="/2025/10/26/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image-20251026204940720.png" alt="image-20251026204940720"></p>
-<h1 id="二、CMakeList"><a href="#二、CMakeList" class="headerlink" title="二、CMakeList"></a>二、CMakeList</h1><p>CMakeLists.txt是整个CMake工程的描述文件</p>
-<p><img src="/2025/10/26/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image-20251026205359800.png" alt="image-20251026205359800"></p>
-<h1 id="三、VisualStudio打开CMake工程"><a href="#三、VisualStudio打开CMake工程" class="headerlink" title="三、VisualStudio打开CMake工程"></a>三、VisualStudio打开CMake工程</h1><p><img src="/2025/10/26/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image-20251026205739337.png" alt="image-20251026205739337"></p>
-<h1 id="四、工程文件说明"><a href="#四、工程文件说明" class="headerlink" title="四、工程文件说明"></a>四、工程文件说明</h1><p><img src="/2025/10/26/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image-20251026210327342.png" alt="image-20251026210327342"></p>
-<h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><p>笔记内容参考B站赵新政，主页url：<a href="https://space.bilibili.com/487734084?spm_id_from=333.788.upinfo.head.click">赵新政的个人空间-赵新政个人主页-哔哩哔哩视频</a></p>
-]]></content>
-      <categories>
-        <category>C++工程管理</category>
-      </categories>
-      <tags>
-        <tag>C++工程管理</tag>
-        <tag>OpenGL工程管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo添加网站运行时间</title>
-    <url>/2025/10/22/hexo%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</url>
-    <content><![CDATA[<h1 id="一、找到对应文件"><a href="#一、找到对应文件" class="headerlink" title="一、找到对应文件"></a>一、找到对应文件</h1><p>themes&#x2F;next&#x2F;layout&#x2F;_partial&#x2F;footer.swig</p>
-<h1 id="二、添加代码"><a href="#二、添加代码" class="headerlink" title="二、添加代码"></a>二、添加代码</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;timeDate&quot;</span>&gt;</span>载入天数...<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;times&quot;</span>&gt;</span>载入时分秒...<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>(); </span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">createtime</span>(<span class="params"></span>) &#123; </span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> grt= <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot;10/22/2025 14:35:06&quot;</span>);<span class="comment">//在此处修改你的建站时间</span></span></span><br><span class="line"><span class="language-javascript">        now.<span class="title function_">setTime</span>(now.<span class="title function_">getTime</span>()+<span class="number">250</span>); </span></span><br><span class="line"><span class="language-javascript">        days = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>; dnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(days); </span></span><br><span class="line"><span class="language-javascript">        hours = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> - (<span class="number">24</span> * dnum); hnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(hours); </span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span>(<span class="title class_">String</span>(hnum).<span class="property">length</span> ==<span class="number">1</span> )&#123;hnum = <span class="string">&quot;0&quot;</span> + hnum;&#125; minutes = (now - grt ) / <span class="number">1000</span> /<span class="number">60</span> - (<span class="number">24</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * hnum); </span></span><br><span class="line"><span class="language-javascript">        mnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(minutes); <span class="keyword">if</span>(<span class="title class_">String</span>(mnum).<span class="property">length</span> ==<span class="number">1</span> )&#123;mnum = <span class="string">&quot;0&quot;</span> + mnum;&#125; </span></span><br><span class="line"><span class="language-javascript">        seconds = (now - grt ) / <span class="number">1000</span> - (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * <span class="number">60</span> * hnum) - (<span class="number">60</span> * mnum); </span></span><br><span class="line"><span class="language-javascript">        snum = <span class="title class_">Math</span>.<span class="title function_">round</span>(seconds); <span class="keyword">if</span>(<span class="title class_">String</span>(snum).<span class="property">length</span> ==<span class="number">1</span> )&#123;snum = <span class="string">&quot;0&quot;</span> + snum;&#125; </span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;timeDate&quot;</span>).<span class="property">innerHTML</span> = <span class="string">&quot;已运行 &quot;</span>+dnum+<span class="string">&quot; 天 &quot;</span>; </span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;times&quot;</span>).<span class="property">innerHTML</span> = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>; </span></span><br><span class="line"><span class="language-javascript">    &#125; </span></span><br><span class="line"><span class="language-javascript"><span class="built_in">setInterval</span>(<span class="string">&quot;createtime()&quot;</span>,<span class="number">250</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    <title>K次操作求数组出现次数最多的元素个数</title>
+    <url>/2025/10/23/2025/K%E6%AC%A1%E6%93%8D%E4%BD%9C%E6%B1%82%E6%95%B0%E7%BB%84%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>小红拿到了一个长度为n的数组，<strong>每次操作可以让某个数加1或减1</strong>，最多可以进行k次操作，求数组出现次数最多的元素个数</p>
+<p>1&lt;&#x3D;n&lt;&#x3D;10^5</p>
+<p>1&lt;&#x3D;Ai&lt;&#x3D;10^9</p>
+<p>1&lt;&#x3D;k&lt;&#x3D;10^12</p>
+<p>输入：第一行第一数是长度n，第二个数是最多操作次数k</p>
+<p>第二行是n个数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">测试用例</span><br><span class="line">输入:</span><br><span class="line">5 3</span><br><span class="line">6 3 20 8 1</span><br><span class="line">输出: 2</span><br><span class="line">用例解释：</span><br><span class="line">输入5表示有5个元素</span><br><span class="line">输入3表示最多进行k次操作</span><br><span class="line">输入一行表示5个元素的值</span><br><span class="line">输出2表示最多进行k次操作后，数组出现次数最多的元素个数是2个</span><br><span class="line">举例：</span><br><span class="line">6 3 20 8 1   //原始</span><br><span class="line">7 3 20 8 1   //第一个6 + 1</span><br><span class="line">7 3 20 7 1   //第四个8 - 1</span><br><span class="line">7 2 20 7 1   //第二个3 - 1</span><br><span class="line">结论:三次操作后有两个相同元素7</span><br><span class="line">答案不唯一,但是最多能统计出的相同元素个数唯一</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
-        <category>Hexo使用说明</category>
+        <category>Unity笔试-编程题</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>Unity笔试-编程题</tag>
       </tags>
   </entry>
   <entry>
     <title>围棋劫争</title>
-    <url>/2025/10/23/%E5%9B%B4%E6%A3%8B%E5%8A%AB%E4%BA%89/</url>
+    <url>/2025/10/23/2025/%E5%9B%B4%E6%A3%8B%E5%8A%AB%E4%BA%89/</url>
     <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>众所周知，围棋是一项黑白双方轮流行动的棋类。在围棋中，还有打劫的概念，若一方落子在某一个劫争处，则另一方不能立刻也下在这个劫争处。</p>
 <p>一个合法的行棋子序列需要满足：</p>
 <ul>
@@ -214,8 +241,120 @@
       </tags>
   </entry>
   <entry>
+    <title>OpenGL初级-渲染管线梳理</title>
+    <url>/2025/10/26/2025/OpenGL%E5%88%9D%E7%BA%A7-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A2%B3%E7%90%86/</url>
+    <content><![CDATA[<h1 id="一、渲染管线流程"><a href="#一、渲染管线流程" class="headerlink" title="一、渲染管线流程"></a>一、渲染管线流程</h1><h2 id="顶点数据"><a href="#顶点数据" class="headerlink" title="顶点数据"></a>顶点数据</h2><p>定义基础顶点的位置和顶点的属性</p>
+<p><img src="/image-20251026195418821.png" alt="image-20251026195418821"></p>
+<h2 id="三维变换"><a href="#三维变换" class="headerlink" title="三维变换"></a>三维变换</h2><p>对顶点的位置进行变换</p>
+<p><img src="/image-20251026195713834.png" alt="image-20251026195713834"></p>
+<p><img src="/image-20251026195856877.png" alt="image-20251026195856877"></p>
+<h2 id="图元装配"><a href="#图元装配" class="headerlink" title="图元装配"></a>图元装配</h2><p>变换完毕的顶点进行组装</p>
+<p><img src="/image-20251026200043482.png" alt="image-20251026200043482"></p>
+<h2 id="剪裁剔除"><a href="#剪裁剔除" class="headerlink" title="剪裁剔除"></a>剪裁剔除</h2><p><img src="/image-20251026200422814.png" alt="image-20251026200422814"></p>
+<p>看箭头的顺时针和逆时针方向确定顺时针或逆时针</p>
+<p><img src="/image-20251026200541687.png" alt="image-20251026200541687"></p>
+<h2 id="光栅化"><a href="#光栅化" class="headerlink" title="光栅化"></a>光栅化</h2><p>顶点打到像素上</p>
+<p><img src="/image-20251026200909842.png" alt="image-20251026200909842"></p>
+<p>计算顶点围成的三角形的像素</p>
+<p><img src="/image-20251026200931193.png" alt="image-20251026200931193"></p>
+<p><img src="/image-20251026201029805.png" alt="image-20251026201029805"></p>
+<h2 id="片元着色"><a href="#片元着色" class="headerlink" title="片元着色"></a>片元着色</h2><p>每个像素都会单独计算</p>
+<p><img src="/image-20251026201121790.png" alt="image-20251026201121790"></p>
+<h2 id="混合与测试"><a href="#混合与测试" class="headerlink" title="混合与测试"></a>混合与测试</h2><p><img src="/image-20251026201235637.png" alt="image-20251026201235637"></p>
+<p><img src="/image-20251026201344574.png" alt="image-20251026201344574"></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>笔记内容参考B站赵新政，主页url：<a href="https://space.bilibili.com/487734084?spm_id_from=333.788.upinfo.head.click">赵新政的个人空间-赵新政个人主页-哔哩哔哩视频</a></p>
+]]></content>
+      <categories>
+        <category>OpenGL</category>
+      </categories>
+      <tags>
+        <tag>OpenGL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多文件夹编译</title>
+    <url>/2025/11/16/2025/%E5%A4%9A%E6%96%87%E4%BB%B6%E5%A4%B9%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<h1 id="一、多文件夹编译需求"><a href="#一、多文件夹编译需求" class="headerlink" title="一、多文件夹编译需求"></a>一、多文件夹编译需求</h1><p>需求：</p>
+<p>当代码分布在不同的文件夹下的时候，需要将其他文件夹下的cpp打包为lib库</p>
+<p>如图需要在main中链接funcs文件夹下的func.h和func.cpp</p>
+<p><img src="/image-20251116183114500.png" alt="image-20251116183114500"></p>
+<h1 id="二、CMake添加代码"><a href="#二、CMake添加代码" class="headerlink" title="二、CMake添加代码"></a>二、CMake添加代码</h1><p>子CMakeList内容</p>
+<p><img src="/image-20251116184604058.png" alt="image-20251116184604058"></p>
+<p>主CMakeList内容</p>
+<p><img src="/image-20251116190920628.png" alt="image-20251116190920628"></p>
+]]></content>
+      <categories>
+        <category>C++工程管理</category>
+      </categories>
+      <tags>
+        <tag>C++工程管理</tag>
+        <tag>OpenGL工程管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vs如何配置cmake编译的静态库依赖</title>
+    <url>/2025/11/16/2025/vs%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEcmake%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/</url>
+    <content><![CDATA[<h1 id="一、基于cmake的工程创建"><a href="#一、基于cmake的工程创建" class="headerlink" title="一、基于cmake的工程创建"></a>一、基于cmake的工程创建</h1><p>创建文件夹</p>
+<p>新建CMakeListst</p>
+<p>新建main，写好主函数</p>
+<p><img src="/image-20251116215855905.png" alt="image-20251116215855905"></p>
+<h1 id="二、新建thirdParty文件夹"><a href="#二、新建thirdParty文件夹" class="headerlink" title="二、新建thirdParty文件夹"></a>二、新建thirdParty文件夹</h1><p><img src="/image-20251116222554441.png" alt="image-20251116222554441"></p>
+<p>编译结果拷贝到thirdParty</p>
+<p><img src="/image-20251116222634494.png" alt="image-20251116222634494"></p>
+<h3 id="thirdParty下创建include和lib文件夹"><a href="#thirdParty下创建include和lib文件夹" class="headerlink" title="thirdParty下创建include和lib文件夹"></a>thirdParty下创建include和lib文件夹</h3><p><img src="/image-20251116222832721.png" alt="image-20251116222832721"></p>
+<h3 id="找到用cmake编译的glfw"><a href="#找到用cmake编译的glfw" class="headerlink" title="找到用cmake编译的glfw"></a>找到用cmake编译的glfw</h3><p><img src="/image-20251116222911675.png" alt="image-20251116222911675"></p>
+<h3 id="找到include的GLFW拷贝到自己项目的thirdParty"><a href="#找到include的GLFW拷贝到自己项目的thirdParty" class="headerlink" title="找到include的GLFW拷贝到自己项目的thirdParty"></a>找到include的GLFW拷贝到自己项目的thirdParty</h3><p><img src="/image-20251116222930033.png" alt="image-20251116222930033"></p>
+<h3 id="找到lib下的glfw3-lib拷贝到自己项目thrdParty"><a href="#找到lib下的glfw3-lib拷贝到自己项目thrdParty" class="headerlink" title="找到lib下的glfw3.lib拷贝到自己项目thrdParty"></a>找到lib下的glfw3.lib拷贝到自己项目thrdParty</h3><p><img src="/image-20251116223134865.png" alt="image-20251116223134865"></p>
+<p><img src="/image-20251116223239082.png" alt="image-20251116223239082"></p>
+<h1 id="三、编写CMakeLists"><a href="#三、编写CMakeLists" class="headerlink" title="三、编写CMakeLists"></a>三、编写CMakeLists</h1><h3 id="增加cmake的include头文件搜索路径"><a href="#增加cmake的include头文件搜索路径" class="headerlink" title="增加cmake的include头文件搜索路径"></a>增加cmake的include头文件搜索路径</h3><p>配置完毕后可以直接找到当前CMakelists同级路径的thirdParty中的include</p>
+<p><img src="/image-20251116223629209.png" alt="image-20251116223629209"></p>
+<p>配置前</p>
+<p><img src="/image-20251116223734594.png" alt="image-20251116223734594"></p>
+<p>配置后</p>
+<p><img src="/image-20251116223647041.png" alt="image-20251116223647041"></p>
+<p>链接lib库到工程</p>
+<p><img src="/image-20251116224046210.png" alt="image-20251116224046210"></p>
+]]></content>
+      <categories>
+        <category>C++工程管理</category>
+      </categories>
+      <tags>
+        <tag>C++工程管理</tag>
+        <tag>OpenGL工程管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo添加网站运行时间</title>
+    <url>/2025/10/22/2025/hexo%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</url>
+    <content><![CDATA[<h1 id="一、找到对应文件"><a href="#一、找到对应文件" class="headerlink" title="一、找到对应文件"></a>一、找到对应文件</h1><p>themes&#x2F;next&#x2F;layout&#x2F;_partial&#x2F;footer.swig</p>
+<h1 id="二、添加代码"><a href="#二、添加代码" class="headerlink" title="二、添加代码"></a>二、添加代码</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;timeDate&quot;</span>&gt;</span>载入天数...<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;times&quot;</span>&gt;</span>载入时分秒...<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>(); </span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">createtime</span>(<span class="params"></span>) &#123; </span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> grt= <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot;10/22/2025 14:35:06&quot;</span>);<span class="comment">//在此处修改你的建站时间</span></span></span><br><span class="line"><span class="language-javascript">        now.<span class="title function_">setTime</span>(now.<span class="title function_">getTime</span>()+<span class="number">250</span>); </span></span><br><span class="line"><span class="language-javascript">        days = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>; dnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(days); </span></span><br><span class="line"><span class="language-javascript">        hours = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> - (<span class="number">24</span> * dnum); hnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(hours); </span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span>(<span class="title class_">String</span>(hnum).<span class="property">length</span> ==<span class="number">1</span> )&#123;hnum = <span class="string">&quot;0&quot;</span> + hnum;&#125; minutes = (now - grt ) / <span class="number">1000</span> /<span class="number">60</span> - (<span class="number">24</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * hnum); </span></span><br><span class="line"><span class="language-javascript">        mnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(minutes); <span class="keyword">if</span>(<span class="title class_">String</span>(mnum).<span class="property">length</span> ==<span class="number">1</span> )&#123;mnum = <span class="string">&quot;0&quot;</span> + mnum;&#125; </span></span><br><span class="line"><span class="language-javascript">        seconds = (now - grt ) / <span class="number">1000</span> - (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * <span class="number">60</span> * hnum) - (<span class="number">60</span> * mnum); </span></span><br><span class="line"><span class="language-javascript">        snum = <span class="title class_">Math</span>.<span class="title function_">round</span>(seconds); <span class="keyword">if</span>(<span class="title class_">String</span>(snum).<span class="property">length</span> ==<span class="number">1</span> )&#123;snum = <span class="string">&quot;0&quot;</span> + snum;&#125; </span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;timeDate&quot;</span>).<span class="property">innerHTML</span> = <span class="string">&quot;已运行 &quot;</span>+dnum+<span class="string">&quot; 天 &quot;</span>; </span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;times&quot;</span>).<span class="property">innerHTML</span> = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>; </span></span><br><span class="line"><span class="language-javascript">    &#125; </span></span><br><span class="line"><span class="language-javascript"><span class="built_in">setInterval</span>(<span class="string">&quot;createtime()&quot;</span>,<span class="number">250</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Hexo使用说明</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多C++文件编译</title>
+    <url>/2025/11/16/2025/%E5%A4%9AC-%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<h1 id="一、CMake将新加的cpp文件纳入编译与链接"><a href="#一、CMake将新加的cpp文件纳入编译与链接" class="headerlink" title="一、CMake将新加的cpp文件纳入编译与链接"></a>一、CMake将新加的cpp文件纳入编译与链接</h1><p>重点：<strong>将所有cpp纳入编译与链接过程</strong>，如果不这样做，编译可以通过但是运行会报错，因为编译只进行语法检查(检查include的.h文件是否存在)，而不去检查是否有具体实现</p>
+<p>SRCS就是在add_executable的时候需要编译的cpp文件，统一放到SRCS变量保存，最后用${}解析</p>
+<p><img src="/image-20251116180813338.png" alt="image-20251116180813338"></p>
+]]></content>
+      <categories>
+        <category>C++工程管理</category>
+      </categories>
+      <tags>
+        <tag>C++工程管理</tag>
+        <tag>OpenGL工程管理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何搭建hexo工程</title>
-    <url>/2025/10/22/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BAhexo%E5%B7%A5%E7%A8%8B/</url>
+    <url>/2025/10/22/2025/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BAhexo%E5%B7%A5%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="一、安装git和Node-js"><a href="#一、安装git和Node-js" class="headerlink" title="一、安装git和Node.js"></a>一、安装git和Node.js</h1><p>1、<a href="https://git-scm.com/install/windows">git</a></p>
 <p>2、<a href="https://nodejs.org/en/download/">Node.js</a></p>
 <h1 id="二、用node安装Hexo"><a href="#二、用node安装Hexo" class="headerlink" title="二、用node安装Hexo"></a>二、用node安装Hexo</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
@@ -243,7 +382,7 @@
   </entry>
   <entry>
     <title>栈实现队列</title>
-    <url>/2025/10/24/%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</url>
+    <url>/2025/10/24/2025/%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</url>
     <content><![CDATA[<h1 id="栈实现队列"><a href="#栈实现队列" class="headerlink" title="栈实现队列"></a>栈实现队列</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解题思路：</span></span><br><span class="line"><span class="comment">//用两个栈实现队列，因为栈的特性，需要出队的时候，将之前栈的元素出栈并入栈即可翻转顺序，实现队列的效果</span></span><br><span class="line"><span class="comment">//所以核心思想就是入栈加入固定的一个栈，出栈的时候判断用来模拟队列出队的栈是否有值，有值就直接出栈，没有就将当作入队的栈的元素加入到当作出队的栈即可</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MagicStack</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 入队就是直接加入s1</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">enqueue</span><span class="params">(T element)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        s<span class="number">1.</span><span class="built_in">push</span>(element);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">T <span class="title">dequeue</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s<span class="number">1.</span><span class="built_in">empty</span>() &amp;&amp; s<span class="number">2.</span><span class="built_in">empty</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;魔法队列为空，无法获取元素&quot;</span> &lt;&lt; endl;</span><br><span class="line">            <span class="keyword">return</span> INT_MAX;   <span class="comment">//作异常值</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(s<span class="number">2.</span><span class="built_in">empty</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(!s<span class="number">1.</span><span class="built_in">empty</span>())</span><br><span class="line">            &#123;</span><br><span class="line">                T top = s<span class="number">1.</span><span class="built_in">top</span>();</span><br><span class="line">                s<span class="number">1.</span><span class="built_in">pop</span>();</span><br><span class="line">                s<span class="number">2.</span><span class="built_in">push</span>(top);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        T top = s<span class="number">2.</span><span class="built_in">top</span>();</span><br><span class="line">    	s<span class="number">2.</span><span class="built_in">pop</span>();</span><br><span class="line">    	<span class="keyword">return</span> top;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s<span class="number">1.</span><span class="built_in">empty</span>() &amp;&amp; s<span class="number">2.</span><span class="built_in">empty</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    stack&lt;T&gt; s1;</span><br><span class="line">    stack&lt;T&gt; s2;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//示例</span></span><br><span class="line">    MagicStack&lt;<span class="type">int</span>&gt; magicStack;</span><br><span class="line">    <span class="type">bool</span> e = magicStack.<span class="built_in">isEmpty</span>();   <span class="comment">//1(true)</span></span><br><span class="line">    magicStack.<span class="built_in">enqueue</span>(<span class="number">1</span>);</span><br><span class="line">    magicStack.<span class="built_in">enqueue</span>(<span class="number">2</span>);</span><br><span class="line">    magicStack.<span class="built_in">enqueue</span>(<span class="number">3</span>);</span><br><span class="line">    e = magicStack.<span class="built_in">isEmpty</span>();    <span class="comment">//0(false)</span></span><br><span class="line">    <span class="type">int</span> res = magicStack.<span class="built_in">dequeue</span>();   <span class="comment">//1;</span></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    res = magicStack.<span class="built_in">dequeue</span>();   <span class="comment">//2;</span></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    res = magicStack.<span class="built_in">dequeue</span>();   <span class="comment">//3;</span></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    e = magicStack.<span class="built_in">isEmpty</span>();   <span class="comment">//1(true)</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
@@ -256,17 +395,17 @@
   </entry>
   <entry>
     <title>编译与链接</title>
-    <url>/2025/10/26/%E7%BC%96%E8%AF%91%E4%B8%8E%E9%93%BE%E6%8E%A5/</url>
+    <url>/2025/10/26/2025/%E7%BC%96%E8%AF%91%E4%B8%8E%E9%93%BE%E6%8E%A5/</url>
     <content><![CDATA[<h1 id="一、什么是CMake？"><a href="#一、什么是CMake？" class="headerlink" title="一、什么是CMake？"></a>一、什么是CMake？</h1><p>CMake是一个跨平台的编译工具，可以用简单的语句来描述所有平台的编译链接过程</p>
 <h1 id="二、VisualStudio工程"><a href="#二、VisualStudio工程" class="headerlink" title="二、VisualStudio工程"></a>二、VisualStudio工程</h1><p>使用VisualStudio创建的工程，属于windows下，并且只能够用相同的IDE打开</p>
-<p><img src="/2025/10/26/%E7%BC%96%E8%AF%91%E4%B8%8E%E9%93%BE%E6%8E%A5/image-20251026202455594.png" alt="image-20251026202455594"></p>
+<p><img src="/image-20251026202455594.png" alt="image-20251026202455594"></p>
 <h1 id="三、编译与链接"><a href="#三、编译与链接" class="headerlink" title="三、编译与链接"></a>三、编译与链接</h1><p>编译：将当前的C++代码通过编译器，编译成为目标代码的过程</p>
 <p>链接：将多段编译好的目标代码，互相进行链接，形成一个完整的可运行程序(exe)</p>
-<p><img src="/2025/10/26/%E7%BC%96%E8%AF%91%E4%B8%8E%E9%93%BE%E6%8E%A5/image-20251026203218665.png" alt="image-20251026203218665"></p>
+<p><img src="/image-20251026203218665.png" alt="image-20251026203218665"></p>
 <h1 id="四、静态链接-动态链接"><a href="#四、静态链接-动态链接" class="headerlink" title="四、静态链接&#x2F;动态链接"></a>四、静态链接&#x2F;动态链接</h1><p>静态链接库：包含代码与数据的文件，可在程序编译期间被链接入程序(.lib&#x2F;.o)</p>
 <p>动态链接库：包含代码与数据的文件，可在程序执行期间，被动态加载</p>
-<p><img src="/2025/10/26/%E7%BC%96%E8%AF%91%E4%B8%8E%E9%93%BE%E6%8E%A5/image-20251026203909933.png" alt="image-20251026203909933"></p>
-<p><img src="/2025/10/26/%E7%BC%96%E8%AF%91%E4%B8%8E%E9%93%BE%E6%8E%A5/image-20251026204237453.png" alt="image-20251026204237453"></p>
+<p><img src="/image-20251026203909933.png" alt="image-20251026203909933"></p>
+<p><img src="/image-20251026204237453.png" alt="image-20251026204237453"></p>
 <h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><p>笔记内容参考B站赵新政，主页url：<a href="https://space.bilibili.com/487734084?spm_id_from=333.788.upinfo.head.click">赵新政的个人空间-赵新政个人主页-哔哩哔哩视频</a></p>
 ]]></content>
       <categories>
@@ -278,141 +417,14 @@
       </tags>
   </entry>
   <entry>
-    <title>多C++文件编译</title>
-    <url>/2025/11/16/%E5%A4%9AC-%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91/</url>
-    <content><![CDATA[<h1 id="一、CMake将新加的cpp文件纳入编译与链接"><a href="#一、CMake将新加的cpp文件纳入编译与链接" class="headerlink" title="一、CMake将新加的cpp文件纳入编译与链接"></a>一、CMake将新加的cpp文件纳入编译与链接</h1><p>重点：<strong>将所有cpp纳入编译与链接过程</strong>，如果不这样做，编译可以通过但是运行会报错，因为编译只进行语法检查(检查include的.h文件是否存在)，而不去检查是否有具体实现</p>
-<p>SRCS就是在add_executable的时候需要编译的cpp文件，统一放到SRCS变量保存，最后用${}解析</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/mage-20251116180813338.png" alt="image-20251116180813338"></p>
-]]></content>
-      <categories>
-        <category>C++工程管理</category>
-      </categories>
-      <tags>
-        <tag>C++工程管理</tag>
-        <tag>OpenGL工程管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>多文件夹编译</title>
-    <url>/2025/11/16/%E5%A4%9A%E6%96%87%E4%BB%B6%E5%A4%B9%E7%BC%96%E8%AF%91/</url>
-    <content><![CDATA[<h1 id="一、多文件夹编译需求"><a href="#一、多文件夹编译需求" class="headerlink" title="一、多文件夹编译需求"></a>一、多文件夹编译需求</h1><p>需求：</p>
-<p>当代码分布在不同的文件夹下的时候，需要将其他文件夹下的cpp打包为lib库</p>
-<p>如图需要在main中链接funcs文件夹下的func.h和func.cpp</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116183114500.png" alt="image-20251116183114500"></p>
-<h1 id="二、CMake添加代码"><a href="#二、CMake添加代码" class="headerlink" title="二、CMake添加代码"></a>二、CMake添加代码</h1><p>子CMakeList内容</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116184604058.png" alt="image-20251116184604058"></p>
-<p>主CMakeList内容</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116190920628.png" alt="image-20251116190920628"></p>
-]]></content>
-      <categories>
-        <category>C++工程管理</category>
-      </categories>
-      <tags>
-        <tag>C++工程管理</tag>
-        <tag>OpenGL工程管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GLAD配置</title>
-    <url>/2025/11/16/GLAD%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="一、GLAD下载"><a href="#一、GLAD下载" class="headerlink" title="一、GLAD下载"></a>一、GLAD下载</h1><p><a href="https://glad.dav1d.de/">glad.dav1d.de</a></p>
-<h3 id="配置如下"><a href="#配置如下" class="headerlink" title="配置如下"></a>配置如下</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116225547547.png" alt="image-20251116225547547"></p>
-<h3 id="下载zip"><a href="#下载zip" class="headerlink" title="下载zip"></a>下载zip</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116225612856.png" alt="image-20251116225612856"></p>
-<p>glad内容如下</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116225709901.png" alt="image-20251116225709901"></p>
-<h1 id="二、glad如何配置"><a href="#二、glad如何配置" class="headerlink" title="二、glad如何配置"></a>二、glad如何配置</h1><p>需要</p>
-<p>1 将glad的include放到自己项目的thirdParty的include下(glad包含glad和KHR)</p>
-<p><strong>2 glad.c放到main.cpp同级下，方便加入cmake</strong>（glad.c为上面展示的glad内容的src中的文件)</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116230130140.png" alt="image-20251116230130140"></p>
-<p>配置完成后工程文件如下</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116230227170.png" alt="image-20251116230227170"></p>
-<h3 id="编写CMakeLists"><a href="#编写CMakeLists" class="headerlink" title="编写CMakeLists"></a>编写CMakeLists</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116230328403.png" alt="image-20251116230328403"></p>
-<h3 id="可以正常引用"><a href="#可以正常引用" class="headerlink" title="可以正常引用"></a>可以正常引用</h3><p>省略路径的原因见CMakeLists的include_directories</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116230431281.png" alt="image-20251116230431281"></p>
-]]></content>
-      <categories>
-        <category>C++工程管理</category>
-      </categories>
-      <tags>
-        <tag>C++工程管理</tag>
-        <tag>OpenGL工程管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GLFW配置</title>
-    <url>/2025/11/16/GLFW%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="一、GLFW介绍"><a href="#一、GLFW介绍" class="headerlink" title="一、GLFW介绍"></a>一、GLFW介绍</h1><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116202954856.png" alt="image-20251116202954856"></p>
-<h1 id="二、GLFW编译"><a href="#二、GLFW编译" class="headerlink" title="二、GLFW编译"></a>二、GLFW编译</h1><p>选择源代码版本，自己用cmake编译</p>
-<p>如果选择预编译版本可直接使用</p>
-<p><a href="https://www.glfw.org/download.html">Download | GLFW</a></p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116203337544.png" alt="image-20251116203337544"></p>
-<h2 id="1、创建Build"><a href="#1、创建Build" class="headerlink" title="1、创建Build"></a>1、创建Build</h2><p>新建文件夹名为Build</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116204523633.png" alt="image-20251116204523633"></p>
-<h2 id="2、创建install"><a href="#2、创建install" class="headerlink" title="2、创建install"></a>2、创建install</h2><p>Build文件夹下新建install文件夹</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116204612048.png" alt="image-20251116204612048"></p>
-<h2 id="3、编译"><a href="#3、编译" class="headerlink" title="3、编译"></a>3、编译</h2><h3 id="cmake界面介绍"><a href="#cmake界面介绍" class="headerlink" title="cmake界面介绍"></a>cmake界面介绍</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116211115046.png" alt="image-20251116211115046"></p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116211244969.png" alt="image-20251116211244969"></p>
-<h3 id="构建到创建的Build文件夹"><a href="#构建到创建的Build文件夹" class="headerlink" title="构建到创建的Build文件夹"></a>构建到创建的Build文件夹</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212116934.png" alt="image-20251116212116934"></p>
-<h3 id="编译好的库文件，放到install文件夹"><a href="#编译好的库文件，放到install文件夹" class="headerlink" title="编译好的库文件，放到install文件夹"></a>编译好的库文件，放到install文件夹</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212249590.png" alt="image-20251116212249590"></p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212354384.png" alt="image-20251116212354384"></p>
-<h3 id="打开Build的工程"><a href="#打开Build的工程" class="headerlink" title="打开Build的工程"></a>打开Build的工程</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212518707.png" alt="image-20251116212518707"></p>
-<p>右键ALL_BUILD，点击生成</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212646388.png" alt="image-20251116212646388"></p>
-<p>右键INSTALL点击生成</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212826805.png" alt="image-20251116212826805"></p>
-<h3 id="查看生成的结果"><a href="#查看生成的结果" class="headerlink" title="查看生成的结果"></a>查看生成的结果</h3><p>此时GLFW已经编译完成</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/age-20251116212846947.png" alt="image-20251116212846947"></p>
-<h1 id="三、GLFW面编译使用"><a href="#三、GLFW面编译使用" class="headerlink" title="三、GLFW面编译使用"></a>三、GLFW面编译使用</h1><p>直接下载SourceCode</p>
-]]></content>
-      <categories>
-        <category>C++工程管理</category>
-      </categories>
-      <tags>
-        <tag>C++工程管理</tag>
-        <tag>OpenGL工程管理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>资源拷贝与多目标编译</title>
-    <url>/2025/11/16/%E8%B5%84%E6%BA%90%E6%8B%B7%E8%B4%9D%E4%B8%8E%E5%A4%9A%E7%9B%AE%E6%A0%87%E7%BC%96%E8%AF%91/</url>
+    <url>/2025/11/16/2025/%E8%B5%84%E6%BA%90%E6%8B%B7%E8%B4%9D%E4%B8%8E%E5%A4%9A%E7%9B%AE%E6%A0%87%E7%BC%96%E8%AF%91/</url>
     <content><![CDATA[<h1 id="一、资源拷贝"><a href="#一、资源拷贝" class="headerlink" title="一、资源拷贝"></a>一、资源拷贝</h1><p>正常情况下可以手动拷贝资源文件到exe所在目录</p>
 <p><strong>cmake可以简化这一过程，相当于一个配置</strong>，在cmake文件中保存的时候自动拷贝</p>
 <p>exe在out文件夹</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/%E8%AF%91/image-20251116200114976.png" alt="image-20251116200114976"></p>
+<p><img src="/image-20251116200114976.png" alt="image-20251116200114976"></p>
 <h1 id="二、多编译目标"><a href="#二、多编译目标" class="headerlink" title="二、多编译目标"></a>二、多编译目标</h1><p>通过add_exetutable对具体的main程序进行编译</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/%E8%AF%91/image-20251116202105611.png" alt="image-20251116202105611"></p>
-]]></content>
-      <categories>
-        <category>C++工程管理</category>
-      </categories>
-      <tags>
-        <tag>C++工程管理</tag>
-        <tag>OpenGL工程管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vs如何配置cmake编译的静态库依赖</title>
-    <url>/2025/11/16/vs%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEcmake%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/</url>
-    <content><![CDATA[<h1 id="一、基于cmake的工程创建"><a href="#一、基于cmake的工程创建" class="headerlink" title="一、基于cmake的工程创建"></a>一、基于cmake的工程创建</h1><p>创建文件夹</p>
-<p>新建CMakeListst</p>
-<p>新建main，写好主函数</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116215855905.png" alt="image-20251116215855905"></p>
-<h1 id="二、新建thirdParty文件夹"><a href="#二、新建thirdParty文件夹" class="headerlink" title="二、新建thirdParty文件夹"></a>二、新建thirdParty文件夹</h1><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116222554441.png" alt="image-20251116222554441"></p>
-<p>编译结果拷贝到thirdParty</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116222634494.png" alt="image-20251116222634494"></p>
-<h3 id="thirdParty下创建include和lib文件夹"><a href="#thirdParty下创建include和lib文件夹" class="headerlink" title="thirdParty下创建include和lib文件夹"></a>thirdParty下创建include和lib文件夹</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116222832721.png" alt="image-20251116222832721"></p>
-<h3 id="找到用cmake编译的glfw"><a href="#找到用cmake编译的glfw" class="headerlink" title="找到用cmake编译的glfw"></a>找到用cmake编译的glfw</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116222911675.png" alt="image-20251116222911675"></p>
-<h3 id="找到include的GLFW拷贝到自己项目的thirdParty"><a href="#找到include的GLFW拷贝到自己项目的thirdParty" class="headerlink" title="找到include的GLFW拷贝到自己项目的thirdParty"></a>找到include的GLFW拷贝到自己项目的thirdParty</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116222930033.png" alt="image-20251116222930033"></p>
-<h3 id="找到lib下的glfw3-lib拷贝到自己项目thrdParty"><a href="#找到lib下的glfw3-lib拷贝到自己项目thrdParty" class="headerlink" title="找到lib下的glfw3.lib拷贝到自己项目thrdParty"></a>找到lib下的glfw3.lib拷贝到自己项目thrdParty</h3><p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116223134865.png" alt="image-20251116223134865"></p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116223239082.png" alt="image-20251116223239082"></p>
-<h1 id="三、编写CMakeLists"><a href="#三、编写CMakeLists" class="headerlink" title="三、编写CMakeLists"></a>三、编写CMakeLists</h1><h3 id="增加cmake的include头文件搜索路径"><a href="#增加cmake的include头文件搜索路径" class="headerlink" title="增加cmake的include头文件搜索路径"></a>增加cmake的include头文件搜索路径</h3><p>配置完毕后可以直接找到当前CMakelists同级路径的thirdParty中的include</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116223629209.png" alt="image-20251116223629209"></p>
-<p>配置前</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116223734594.png" alt="image-20251116223734594"></p>
-<p>配置后</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116223647041.png" alt="image-20251116223647041"></p>
-<p>链接lib库到工程</p>
-<p><img src="/2025/10/22/Hexo%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/ke%E7%BC%96%E8%AF%91%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93%E4%BE%9D%E8%B5%96/image-20251116224046210.png" alt="image-20251116224046210"></p>
+<p><img src="/image-20251116202105611.png" alt="image-20251116202105611"></p>
 ]]></content>
       <categories>
         <category>C++工程管理</category>
