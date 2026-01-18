@@ -435,4 +435,67 @@
         <tag>Games1o1</tag>
       </tags>
   </entry>
+  <entry>
+    <title>线性代数</title>
+    <url>/2026/01/17/2026/Games101/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="简单快速的线代入门"><a href="#简单快速的线代入门" class="headerlink" title="简单快速的线代入门"></a>简单快速的线代入门</h1><h2 id="一、向量"><a href="#一、向量" class="headerlink" title="一、向量"></a>一、向量</h2><h3 id="1、基本介绍"><a href="#1、基本介绍" class="headerlink" title="1、基本介绍"></a>1、基本介绍</h3><p>(1)、方向</p>
+<p>(2)、长度</p>
+<p>(3)、没有绝对起点，只有起点和终点的相对长度方向</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118000237427.png" alt="image-20260118000237427"></p>
+<h3 id="2、单位化"><a href="#2、单位化" class="headerlink" title="2、单位化"></a>2、单位化</h3><p>向量自己<strong>除以他的长度</strong>得到他的<strong>单位向量</strong></p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118004242857.png" alt="image-20260118004242857"></p>
+<h3 id="3、基本操作"><a href="#3、基本操作" class="headerlink" title="3、基本操作"></a>3、基本操作</h3><h4 id="向量加法"><a href="#向量加法" class="headerlink" title="向量加法"></a>向量加法</h4><p>平行四边形 VS 三角形</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118004808230.png" alt="image-20260118004808230"></p>
+<h4 id="笛卡尔积下的向量"><a href="#笛卡尔积下的向量" class="headerlink" title="笛卡尔积下的向量"></a>笛卡尔积下的向量</h4><p><font color="red">默认列向量</font>，转置为横向量</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118005233169.png" alt="image-20260118005233169"></p>
+<h3 id="4、向量点乘"><a href="#4、向量点乘" class="headerlink" title="4、向量点乘"></a>4、向量点乘</h3><h4 id="结果是一个值"><a href="#结果是一个值" class="headerlink" title="结果是一个值"></a><font color = "red">结果是一个值</font></h4><p>给两个向量，可以算出夹角余弦</p>
+<p><strong>单位向量的点乘就是夹角余弦</strong></p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118202028292.png" alt="image-20260118202028292"></p>
+<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><p>交换律、分配律、结合律</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118202206768.png" alt="image-20260118202206768"></p>
+<h4 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h4><p>点乘就是对应的元素相乘再相加</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118202302691.png" alt="image-20260118202302691"></p>
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><h5 id="1、计算两个向量的夹角"><a href="#1、计算两个向量的夹角" class="headerlink" title="1、计算两个向量的夹角"></a>1、计算两个向量的夹角</h5><h5 id="2、求一个向量在另一个向量上的投影"><a href="#2、求一个向量在另一个向量上的投影" class="headerlink" title="2、求一个向量在另一个向量上的投影"></a>2、求一个向量在另一个向量上的投影</h5><p>由点乘可以推出夹角余弦，继而推出投影</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118202934719.png" alt="image-20260118202934719"></p>
+<h5 id="3、将一个向量分为水平和竖直两个向量"><a href="#3、将一个向量分为水平和竖直两个向量" class="headerlink" title="3、将一个向量分为水平和竖直两个向量"></a>3、将一个向量分为水平和竖直两个向量</h5><p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118203009810.png" alt="image-20260118203009810"></p>
+<p>三维向量，拆分成以uvw为坐标系的分量</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118212313761.png" alt="image-20260118212313761"></p>
+<h5 id="4、重要：计算在正面还是背面"><a href="#4、重要：计算在正面还是背面" class="headerlink" title="4、重要：计算在正面还是背面"></a><font color = "red">4、重要：计算在正面还是背面</font></h5><p>以A向量为基准</p>
+<p>B向量与A向量点乘结果&gt;0   cos在0-90度大于0</p>
+<p>C向量与A向量点乘结果&lt;0   cos在90-180小于0</p>
+<p><strong>方向完全相同，点乘为1   cos0 &#x3D; 1</strong></p>
+<p><strong>方向完全相反，点乘为-1 cos180 &#x3D; -1</strong></p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118203539612.png" alt="image-20260118203539612"></p>
+<h3 id="5、向量叉乘"><a href="#5、向量叉乘" class="headerlink" title="5、向量叉乘"></a>5、向量叉乘</h3><h4 id="结果是一个向量"><a href="#结果是一个向量" class="headerlink" title="结果是一个向量"></a><font color = "red">结果是一个向量</font></h4><p>叉乘结果<strong>垂直于</strong>叉乘的两个向量所在的平面</p>
+<p>注意：a x b &#x3D; -b x a 可以用右手法则来理解，叉乘结果始终向上</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118204415453.png" alt="image-20260118204415453"></p>
+<h4 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h4><p>不满足交换律</p>
+<h4 id="运算-1"><a href="#运算-1" class="headerlink" title="运算"></a>运算</h4><p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118210754675.png" alt="image-20260118210754675"></p>
+<h4 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h4><h5 id="1、可以用于建立一个三维空间的坐标系"><a href="#1、可以用于建立一个三维空间的坐标系" class="headerlink" title="1、可以用于建立一个三维空间的坐标系"></a>1、可以用于建立一个三维空间的坐标系</h5><p><font color = "red">叉乘自己，得到的结果是0向量，因为sin0 &#x3D; 0</font></p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118210353444.png" alt="image-20260118210353444"></p>
+<h5 id="2、判断左右-判断内外"><a href="#2、判断左右-判断内外" class="headerlink" title="2、判断左右&#x2F;判断内外"></a>2、判断左右&#x2F;判断内外</h5><p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118210911281.png" alt="image-20260118210911281"></p>
+<p>观察叉乘的结果方向，判断左右</p>
+<p>同理可以判断点是否在三角形内部</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118211104939.png" alt="image-20260118211104939"></p>
+<h2 id="二、矩阵"><a href="#二、矩阵" class="headerlink" title="二、矩阵"></a>二、矩阵</h2><h3 id="1、基本介绍-1"><a href="#1、基本介绍-1" class="headerlink" title="1、基本介绍"></a>1、基本介绍</h3><p>矩阵就是一个m行n列的数组</p>
+<h3 id="2、矩阵乘法"><a href="#2、矩阵乘法" class="headerlink" title="2、矩阵乘法"></a>2、矩阵乘法</h3><p>左边的列数等于右边的行数才能相乘</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214126637.png" alt="image-20260118214126637"></p>
+<h4 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h4><p>1、没有交换律</p>
+<p>2、有结合律、分配律</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214450937.png" alt="image-20260118214450937"></p>
+<h4 id="和向量相乘"><a href="#和向量相乘" class="headerlink" title="和向量相乘"></a>和向量相乘</h4><p>向量永远当作一个m x 1 的矩阵，放在右边</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214619584.png" alt="image-20260118214619584"></p>
+<h4 id="转置"><a href="#转置" class="headerlink" title="转置"></a>转置</h4><p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214652040.png" alt="image-20260118214652040"></p>
+<h4 id="单位阵和逆矩阵"><a href="#单位阵和逆矩阵" class="headerlink" title="单位阵和逆矩阵"></a>单位阵和逆矩阵</h4><p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214717368.png" alt="image-20260118214717368"></p>
+<h3 id="3、向量的点乘和叉乘以矩阵形式"><a href="#3、向量的点乘和叉乘以矩阵形式" class="headerlink" title="3、向量的点乘和叉乘以矩阵形式"></a>3、向量的点乘和叉乘以矩阵形式</h3><p>点乘转化成a的转置乘以b</p>
+<p>叉乘转换成a的伴随矩阵乘以b</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214950171.png" alt="image-20260118214950171"></p>
+]]></content>
+      <categories>
+        <category>Games101</category>
+      </categories>
+      <tags>
+        <tag>Games101</tag>
+      </tags>
+  </entry>
 </search>

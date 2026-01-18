@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jcbelief.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="简单快速的线代入门一、向量1、基本介绍(1)、方向 (2)、长度 (3)、没有绝对起点，只有起点和终点的相对长度方向  2、单位化向量自己除以他的长度得到他的单位向量  3、基本操作向量加法平行四边形 VS 三角形  笛卡尔积下的向量默认列向量，转置为横向量  4、向量点乘结果是一个值给两个向量，可以算出夹角余弦 单位向量的点乘就是夹角余弦  性质交换律、分配律、结合律  运算点乘就是对应的元素相">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性代数">
+<meta property="og:url" content="https://jcbelief.github.io/2026/01/17/2026/Games101/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/index.html">
+<meta property="og:site_name" content="JCbelief">
+<meta property="og:description" content="简单快速的线代入门一、向量1、基本介绍(1)、方向 (2)、长度 (3)、没有绝对起点，只有起点和终点的相对长度方向  2、单位化向量自己除以他的长度得到他的单位向量  3、基本操作向量加法平行四边形 VS 三角形  笛卡尔积下的向量默认列向量，转置为横向量  4、向量点乘结果是一个值给两个向量，可以算出夹角余弦 单位向量的点乘就是夹角余弦  性质交换律、分配律、结合律  运算点乘就是对应的元素相">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118000237427.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118004242857.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118004808230.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118005233169.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118202028292.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118202206768.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118202302691.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118202934719.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118203009810.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118212313761.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118203539612.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118204415453.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118210754675.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118210353444.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118210911281.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118211104939.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214126637.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214450937.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214619584.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214652040.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214717368.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214950171.png">
+<meta property="article:published_time" content="2026-01-17T12:31:05.000Z">
+<meta property="article:modified_time" content="2026-01-18T13:50:34.850Z">
+<meta property="article:author" content="Peng Jia Cheng">
+<meta property="article:tag" content="Games101">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jcbelief.github.io/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118000237427.png">
+
+<link rel="canonical" href="https://jcbelief.github.io/2026/01/17/2026/Games101/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>线性代数 | JCbelief</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+  
+  <script src="/js/rain-effect.js"></script>
+  
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">JCbelief</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-portfolio">
+
+    <a href="/portfolio/" rel="section"><i class="fa fa-palette fa-fw"></i>作品集</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jcbelief.github.io/2026/01/17/2026/Games101/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Peng Jia Cheng">
+      <meta itemprop="description" content="雨下一整晚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JCbelief">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          线性代数
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2026-01-17 20:31:05" itemprop="dateCreated datePublished" datetime="2026-01-17T20:31:05+08:00">2026-01-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-01-18 21:50:34" itemprop="dateModified" datetime="2026-01-18T21:50:34+08:00">2026-01-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Games101/" itemprop="url" rel="index"><span itemprop="name">Games101</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>706</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="简单快速的线代入门"><a href="#简单快速的线代入门" class="headerlink" title="简单快速的线代入门"></a>简单快速的线代入门</h1><h2 id="一、向量"><a href="#一、向量" class="headerlink" title="一、向量"></a>一、向量</h2><h3 id="1、基本介绍"><a href="#1、基本介绍" class="headerlink" title="1、基本介绍"></a>1、基本介绍</h3><p>(1)、方向</p>
+<p>(2)、长度</p>
+<p>(3)、没有绝对起点，只有起点和终点的相对长度方向</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118000237427.png" alt="image-20260118000237427"></p>
+<h3 id="2、单位化"><a href="#2、单位化" class="headerlink" title="2、单位化"></a>2、单位化</h3><p>向量自己<strong>除以他的长度</strong>得到他的<strong>单位向量</strong></p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118004242857.png" alt="image-20260118004242857"></p>
+<h3 id="3、基本操作"><a href="#3、基本操作" class="headerlink" title="3、基本操作"></a>3、基本操作</h3><h4 id="向量加法"><a href="#向量加法" class="headerlink" title="向量加法"></a>向量加法</h4><p>平行四边形 VS 三角形</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118004808230.png" alt="image-20260118004808230"></p>
+<h4 id="笛卡尔积下的向量"><a href="#笛卡尔积下的向量" class="headerlink" title="笛卡尔积下的向量"></a>笛卡尔积下的向量</h4><p><font color="red">默认列向量</font>，转置为横向量</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118005233169.png" alt="image-20260118005233169"></p>
+<h3 id="4、向量点乘"><a href="#4、向量点乘" class="headerlink" title="4、向量点乘"></a>4、向量点乘</h3><h4 id="结果是一个值"><a href="#结果是一个值" class="headerlink" title="结果是一个值"></a><font color = "red">结果是一个值</font></h4><p>给两个向量，可以算出夹角余弦</p>
+<p><strong>单位向量的点乘就是夹角余弦</strong></p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118202028292.png" alt="image-20260118202028292"></p>
+<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><p>交换律、分配律、结合律</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118202206768.png" alt="image-20260118202206768"></p>
+<h4 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h4><p>点乘就是对应的元素相乘再相加</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118202302691.png" alt="image-20260118202302691"></p>
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><h5 id="1、计算两个向量的夹角"><a href="#1、计算两个向量的夹角" class="headerlink" title="1、计算两个向量的夹角"></a>1、计算两个向量的夹角</h5><h5 id="2、求一个向量在另一个向量上的投影"><a href="#2、求一个向量在另一个向量上的投影" class="headerlink" title="2、求一个向量在另一个向量上的投影"></a>2、求一个向量在另一个向量上的投影</h5><p>由点乘可以推出夹角余弦，继而推出投影</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118202934719.png" alt="image-20260118202934719"></p>
+<h5 id="3、将一个向量分为水平和竖直两个向量"><a href="#3、将一个向量分为水平和竖直两个向量" class="headerlink" title="3、将一个向量分为水平和竖直两个向量"></a>3、将一个向量分为水平和竖直两个向量</h5><p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118203009810.png" alt="image-20260118203009810"></p>
+<p>三维向量，拆分成以uvw为坐标系的分量</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118212313761.png" alt="image-20260118212313761"></p>
+<h5 id="4、重要：计算在正面还是背面"><a href="#4、重要：计算在正面还是背面" class="headerlink" title="4、重要：计算在正面还是背面"></a><font color = "red">4、重要：计算在正面还是背面</font></h5><p>以A向量为基准</p>
+<p>B向量与A向量点乘结果&gt;0   cos在0-90度大于0</p>
+<p>C向量与A向量点乘结果&lt;0   cos在90-180小于0</p>
+<p><strong>方向完全相同，点乘为1   cos0 &#x3D; 1</strong></p>
+<p><strong>方向完全相反，点乘为-1 cos180 &#x3D; -1</strong></p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118203539612.png" alt="image-20260118203539612"></p>
+<h3 id="5、向量叉乘"><a href="#5、向量叉乘" class="headerlink" title="5、向量叉乘"></a>5、向量叉乘</h3><h4 id="结果是一个向量"><a href="#结果是一个向量" class="headerlink" title="结果是一个向量"></a><font color = "red">结果是一个向量</font></h4><p>叉乘结果<strong>垂直于</strong>叉乘的两个向量所在的平面</p>
+<p>注意：a x b &#x3D; -b x a 可以用右手法则来理解，叉乘结果始终向上</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118204415453.png" alt="image-20260118204415453"></p>
+<h4 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h4><p>不满足交换律</p>
+<h4 id="运算-1"><a href="#运算-1" class="headerlink" title="运算"></a>运算</h4><p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118210754675.png" alt="image-20260118210754675"></p>
+<h4 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h4><h5 id="1、可以用于建立一个三维空间的坐标系"><a href="#1、可以用于建立一个三维空间的坐标系" class="headerlink" title="1、可以用于建立一个三维空间的坐标系"></a>1、可以用于建立一个三维空间的坐标系</h5><p><font color = "red">叉乘自己，得到的结果是0向量，因为sin0 &#x3D; 0</font></p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118210353444.png" alt="image-20260118210353444"></p>
+<h5 id="2、判断左右-判断内外"><a href="#2、判断左右-判断内外" class="headerlink" title="2、判断左右&#x2F;判断内外"></a>2、判断左右&#x2F;判断内外</h5><p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118210911281.png" alt="image-20260118210911281"></p>
+<p>观察叉乘的结果方向，判断左右</p>
+<p>同理可以判断点是否在三角形内部</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118211104939.png" alt="image-20260118211104939"></p>
+<h2 id="二、矩阵"><a href="#二、矩阵" class="headerlink" title="二、矩阵"></a>二、矩阵</h2><h3 id="1、基本介绍-1"><a href="#1、基本介绍-1" class="headerlink" title="1、基本介绍"></a>1、基本介绍</h3><p>矩阵就是一个m行n列的数组</p>
+<h3 id="2、矩阵乘法"><a href="#2、矩阵乘法" class="headerlink" title="2、矩阵乘法"></a>2、矩阵乘法</h3><p>左边的列数等于右边的行数才能相乘</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214126637.png" alt="image-20260118214126637"></p>
+<h4 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h4><p>1、没有交换律</p>
+<p>2、有结合律、分配律</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214450937.png" alt="image-20260118214450937"></p>
+<h4 id="和向量相乘"><a href="#和向量相乘" class="headerlink" title="和向量相乘"></a>和向量相乘</h4><p>向量永远当作一个m x 1 的矩阵，放在右边</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214619584.png" alt="image-20260118214619584"></p>
+<h4 id="转置"><a href="#转置" class="headerlink" title="转置"></a>转置</h4><p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214652040.png" alt="image-20260118214652040"></p>
+<h4 id="单位阵和逆矩阵"><a href="#单位阵和逆矩阵" class="headerlink" title="单位阵和逆矩阵"></a>单位阵和逆矩阵</h4><p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214717368.png" alt="image-20260118214717368"></p>
+<h3 id="3、向量的点乘和叉乘以矩阵形式"><a href="#3、向量的点乘和叉乘以矩阵形式" class="headerlink" title="3、向量的点乘和叉乘以矩阵形式"></a>3、向量的点乘和叉乘以矩阵形式</h3><p>点乘转化成a的转置乘以b</p>
+<p>叉乘转换成a的伴随矩阵乘以b</p>
+<p><img src="/2025/11/16/2025/GLAD%E9%85%8D%E7%BD%AE/1/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/image-20260118214950171.png" alt="image-20260118214950171"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Games101/" rel="tag"># Games101</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/01/17/2026/Games101/Transformation/" rel="prev" title="Transformation">
+      <i class="fa fa-chevron-left"></i> Transformation
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E5%BF%AB%E9%80%9F%E7%9A%84%E7%BA%BF%E4%BB%A3%E5%85%A5%E9%97%A8"><span class="nav-number">1.</span> <span class="nav-text">简单快速的线代入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%90%91%E9%87%8F"><span class="nav-number">1.1.</span> <span class="nav-text">一、向量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%8D%95%E4%BD%8D%E5%8C%96"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、单位化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.3.</span> <span class="nav-text">3、基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E5%8A%A0%E6%B3%95"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">向量加法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%E4%B8%8B%E7%9A%84%E5%90%91%E9%87%8F"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">笛卡尔积下的向量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%90%91%E9%87%8F%E7%82%B9%E4%B9%98"><span class="nav-number">1.1.4.</span> <span class="nav-text">4、向量点乘</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E6%98%AF%E4%B8%80%E4%B8%AA%E5%80%BC"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">结果是一个值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E7%AE%97"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">1.1.4.4.</span> <span class="nav-text">作用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E3%80%81%E8%AE%A1%E7%AE%97%E4%B8%A4%E4%B8%AA%E5%90%91%E9%87%8F%E7%9A%84%E5%A4%B9%E8%A7%92"><span class="nav-number">1.1.4.4.1.</span> <span class="nav-text">1、计算两个向量的夹角</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E3%80%81%E6%B1%82%E4%B8%80%E4%B8%AA%E5%90%91%E9%87%8F%E5%9C%A8%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%90%91%E9%87%8F%E4%B8%8A%E7%9A%84%E6%8A%95%E5%BD%B1"><span class="nav-number">1.1.4.4.2.</span> <span class="nav-text">2、求一个向量在另一个向量上的投影</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3%E3%80%81%E5%B0%86%E4%B8%80%E4%B8%AA%E5%90%91%E9%87%8F%E5%88%86%E4%B8%BA%E6%B0%B4%E5%B9%B3%E5%92%8C%E7%AB%96%E7%9B%B4%E4%B8%A4%E4%B8%AA%E5%90%91%E9%87%8F"><span class="nav-number">1.1.4.4.3.</span> <span class="nav-text">3、将一个向量分为水平和竖直两个向量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4%E3%80%81%E9%87%8D%E8%A6%81%EF%BC%9A%E8%AE%A1%E7%AE%97%E5%9C%A8%E6%AD%A3%E9%9D%A2%E8%BF%98%E6%98%AF%E8%83%8C%E9%9D%A2"><span class="nav-number">1.1.4.4.4.</span> <span class="nav-text">4、重要：计算在正面还是背面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E5%90%91%E9%87%8F%E5%8F%89%E4%B9%98"><span class="nav-number">1.1.5.</span> <span class="nav-text">5、向量叉乘</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E6%98%AF%E4%B8%80%E4%B8%AA%E5%90%91%E9%87%8F"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">结果是一个向量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8-1"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E7%AE%97-1"><span class="nav-number">1.1.5.3.</span> <span class="nav-text">运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8-1"><span class="nav-number">1.1.5.4.</span> <span class="nav-text">作用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E3%80%81%E5%8F%AF%E4%BB%A5%E7%94%A8%E4%BA%8E%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AA%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E7%9A%84%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="nav-number">1.1.5.4.1.</span> <span class="nav-text">1、可以用于建立一个三维空间的坐标系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E3%80%81%E5%88%A4%E6%96%AD%E5%B7%A6%E5%8F%B3-%E5%88%A4%E6%96%AD%E5%86%85%E5%A4%96"><span class="nav-number">1.1.5.4.2.</span> <span class="nav-text">2、判断左右&#x2F;判断内外</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%9F%A9%E9%98%B5"><span class="nav-number">1.2.</span> <span class="nav-text">二、矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、矩阵乘法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8-2"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%92%8C%E5%90%91%E9%87%8F%E7%9B%B8%E4%B9%98"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">和向量相乘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AC%E7%BD%AE"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">转置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E4%BD%8D%E9%98%B5%E5%92%8C%E9%80%86%E7%9F%A9%E9%98%B5"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">单位阵和逆矩阵</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%90%91%E9%87%8F%E7%9A%84%E7%82%B9%E4%B9%98%E5%92%8C%E5%8F%89%E4%B9%98%E4%BB%A5%E7%9F%A9%E9%98%B5%E5%BD%A2%E5%BC%8F"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、向量的点乘和叉乘以矩阵形式</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Peng Jia Cheng"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Peng Jia Cheng</p>
+  <div class="site-description" itemprop="description">雨下一整晚</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Peng Jia Cheng</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">11k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">10 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+<div>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("10/22/2025 14:35:06");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "已运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+</div>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":180,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
