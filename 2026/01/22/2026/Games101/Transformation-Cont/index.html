@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jcbelief.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="旋转的补充转置推出逆矩阵矩阵的旋转，取逆，和转置相等 由此可以推出，求一个矩阵的逆矩阵，可以将其转置  三维变换 绕xyz旋转 绕哪个轴旋转，他就不变 绕y轴的负号，因为右手法则，绕哪个轴旋转就大拇指指向哪个，然后看旋转方向，到绕y轴的时候，旋转是从z到x而不是x到z，反过来了  飞机的旋转参考上下抬头：Pitch 左右横扫：Yaw 翻滚：Roll  旋转公式R(n, a)   n旋转轴默认过原点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Transformation Cont">
+<meta property="og:url" content="https://jcbelief.github.io/2026/01/22/2026/Games101/Transformation-Cont/index.html">
+<meta property="og:site_name" content="JCbelief">
+<meta property="og:description" content="旋转的补充转置推出逆矩阵矩阵的旋转，取逆，和转置相等 由此可以推出，求一个矩阵的逆矩阵，可以将其转置  三维变换 绕xyz旋转 绕哪个轴旋转，他就不变 绕y轴的负号，因为右手法则，绕哪个轴旋转就大拇指指向哪个，然后看旋转方向，到绕y轴的时候，旋转是从z到x而不是x到z，反过来了  飞机的旋转参考上下抬头：Pitch 左右横扫：Yaw 翻滚：Roll  旋转公式R(n, a)   n旋转轴默认过原点">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122214615297.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122230854665.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122230915627.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122233843950.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122234030712.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124210107206.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124210457342.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124215754608.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124225642064.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124222752379.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124225102932.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124233952514.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124234231777.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124234447482.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125001736880.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125002252833.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125002411364.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125003309710.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125003613180.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125003739291.png">
+<meta property="article:published_time" content="2026-01-22T13:43:36.000Z">
+<meta property="article:modified_time" content="2026-01-24T16:37:55.389Z">
+<meta property="article:author" content="Peng Jia Cheng">
+<meta property="article:tag" content="Games101">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122214615297.png">
+
+<link rel="canonical" href="https://jcbelief.github.io/2026/01/22/2026/Games101/Transformation-Cont/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Transformation Cont | JCbelief</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+  
+  <script src="/js/rain-effect.js"></script>
+  
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">JCbelief</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-portfolio">
+
+    <a href="/portfolio/" rel="section"><i class="fa fa-palette fa-fw"></i>作品集</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jcbelief.github.io/2026/01/22/2026/Games101/Transformation-Cont/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Peng Jia Cheng">
+      <meta itemprop="description" content="雨下一整晚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JCbelief">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Transformation Cont
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2026-01-22 21:43:36" itemprop="dateCreated datePublished" datetime="2026-01-22T21:43:36+08:00">2026-01-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-01-25 00:37:55" itemprop="dateModified" datetime="2026-01-25T00:37:55+08:00">2026-01-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Games101/" itemprop="url" rel="index"><span itemprop="name">Games101</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="旋转的补充"><a href="#旋转的补充" class="headerlink" title="旋转的补充"></a>旋转的补充</h1><h2 id="转置推出逆矩阵"><a href="#转置推出逆矩阵" class="headerlink" title="转置推出逆矩阵"></a>转置推出逆矩阵</h2><p>矩阵的旋转，取逆，和转置相等</p>
+<p>由此可以推出，<font color="red">求一个矩阵的逆矩阵，可以将其转置</font></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122214615297.png" alt="image-20260122214615297"></p>
+<h1 id="三维变换"><a href="#三维变换" class="headerlink" title="三维变换"></a>三维变换</h1><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122230854665.png" alt="image-20260122230854665"></p>
+<p>绕xyz旋转</p>
+<p>绕哪个轴旋转，他就不变</p>
+<p>绕y轴的负号，因为右手法则，绕哪个轴旋转就大拇指指向哪个，然后看旋转方向，到绕y轴的时候，旋转是从z到x而不是x到z，反过来了</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122230915627.png" alt="image-20260122230915627"></p>
+<h2 id="飞机的旋转参考"><a href="#飞机的旋转参考" class="headerlink" title="飞机的旋转参考"></a>飞机的旋转参考</h2><p>上下抬头：Pitch</p>
+<p>左右横扫：Yaw</p>
+<p>翻滚：Roll</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122233843950.png" alt="image-20260122233843950"></p>
+<h2 id="旋转公式"><a href="#旋转公式" class="headerlink" title="旋转公式"></a>旋转公式</h2><p>R(n, a)   n旋转轴默认过原点、a旋转角度</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122234030712.png" alt="image-20260122234030712"></p>
+<h1 id="MVP变换"><a href="#MVP变换" class="headerlink" title="MVP变换"></a>MVP变换</h1><p>M 模型位置变换</p>
+<p>V 相机视图位置变换</p>
+<p>P 投影变换</p>
+<p><strong><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124210107206.png" alt="image-20260124210107206"></strong></p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="View-Transformation"><a href="#View-Transformation" class="headerlink" title="View Transformation"></a>View Transformation</h2><p>定义相机</p>
+<p>1、位置</p>
+<p>2、朝向</p>
+<p>3、向上方向</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124210457342.png" alt="image-20260124210457342"></p>
+<p>核心是<strong>理解成</strong>把相机移到原点</p>
+<p><font color="red">先把坐标轴中心移动到原点</font></p>
+<p>旋转Z、旋转Y、叉乘推出X</p>
+<p>因为类比真实世界观看一个物体，<strong>他的世界空间始终没变</strong>，我的视角在变(我是可以从不同角度观看，类比相机视角)，物体相对我的视角是在变的，<strong>最终投影结果(我看到的)，是物体在我的视角下的样子</strong>，所以要根据我的视角做对应变化，这里计算就是理解为，我的视角每次都挪到原点(最初物体的观测角度)，这样物体也会跟着挪，后面就可以通过这个挪(变换矩阵)的<strong>逆矩阵</strong>来计算出物体实际变换</p>
+<h2 id="Projection-Transformation"><a href="#Projection-Transformation" class="headerlink" title="Projection Transformation"></a>Projection Transformation</h2><h3 id="正交投影"><a href="#正交投影" class="headerlink" title="正交投影"></a>正交投影</h3><p>和透视投影</p>
+<p>本质区别：正交投影没有近大远小</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124215754608.png" alt="image-20260124215754608"></p>
+<p>看向的-Z，所以离相机近的话Z会更大(Z的正方向)</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124225642064.png" alt="image-20260124225642064"></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124222752379.png" alt="image-20260124222752379"></p>
+<p>投影矩阵计算NDC(Normalized Device Coordinates)</p>
+<p>这个是固定流程，计算投影矩阵，投影到NDC‘</p>
+<p>后面会有从NDC投影到屏幕的过程</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124225102932.png" alt="image-20260124225102932"></p>
+<h3 id="透视投影"><a href="#透视投影" class="headerlink" title="透视投影"></a>透视投影</h3><p><strong>想象成挤压远平面，然后正交投影</strong></p>
+<p>近平面不变</p>
+<p>远平面中心不变</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124233952514.png" alt="image-20260124233952514"></p>
+<p>x’ y’ z’   近平面</p>
+<p>x y z 远平面</p>
+<p>可以根据相似三角形，算出y’和y的比例关系</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124234231777.png" alt="image-20260124234231777"></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124234447482.png" alt="image-20260124234447482"></p>
+<p>核心原理可以理解为</p>
+<p><strong>最终结果显示在近平面上</strong>(绝对核心的点)</p>
+<p>远近平面有无数个点，可以理解为无数个平面</p>
+<p><strong>针对一个平面，将其拉伸为和近平面一样大小</strong>，所有平面都这样然后投影到近平面</p>
+<p><font color="red">拉伸的过程就是理解为相似三角形</font></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125001736880.png" alt="image-20260125001736880"></p>
+<p>构建透视矩阵过程</p>
+<p><strong>可以发现第三行z的变化不确定</strong></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125002252833.png" alt="image-20260125002252833"></p>
+<p><font color="red">解释上面为什么z是unknown</font></p>
+<p><strong>近平面和远平面的z是不变的</strong></p>
+<p>其余的会有变化，需要将变化后的z能映射到原始z，来区分深度，如果按照相似三角形的公式计算，会发现都是n，都在近平面上，丢失深度信息，因此可以发现他的z肯定变化了，但是有一个映射的关系</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125002411364.png" alt="image-20260125002411364"></p>
+<p><strong>通过近平面确认第三行前两个数</strong></p>
+<p>根据近平面z不变，确认了前两个数为0，因为结果是n方</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125003309710.png" alt="image-20260125003309710"></p>
+<p><strong>通过远平面中心点不变推算第三行后两个数</strong></p>
+<p>0 0 f 1映射为 0 0 f方 f</p>
+<p>根据近平面和远平面的式子</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125003613180.png" alt="image-20260125003613180"></p>
+<p>到此为止计算结束了透视投影变换矩阵</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125003739291.png" alt="image-20260125003739291"></p>
+<p>变换之后做正交投影就是最后的结果</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Games101/" rel="tag"># Games101</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/01/17/2026/Games101/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" rel="prev" title="线性代数">
+      <i class="fa fa-chevron-left"></i> 线性代数
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E7%9A%84%E8%A1%A5%E5%85%85"><span class="nav-number">1.</span> <span class="nav-text">旋转的补充</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E7%BD%AE%E6%8E%A8%E5%87%BA%E9%80%86%E7%9F%A9%E9%98%B5"><span class="nav-number">1.1.</span> <span class="nav-text">转置推出逆矩阵</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E7%BB%B4%E5%8F%98%E6%8D%A2"><span class="nav-number">2.</span> <span class="nav-text">三维变换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A3%9E%E6%9C%BA%E7%9A%84%E6%97%8B%E8%BD%AC%E5%8F%82%E8%80%83"><span class="nav-number">2.1.</span> <span class="nav-text">飞机的旋转参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E5%85%AC%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">旋转公式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MVP%E5%8F%98%E6%8D%A2"><span class="nav-number">3.</span> <span class="nav-text">MVP变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.0.1.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View-Transformation"><span class="nav-number">3.1.</span> <span class="nav-text">View Transformation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Projection-Transformation"><span class="nav-number">3.2.</span> <span class="nav-text">Projection Transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1"><span class="nav-number">3.2.1.</span> <span class="nav-text">正交投影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1"><span class="nav-number">3.2.2.</span> <span class="nav-text">透视投影</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Peng Jia Cheng"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Peng Jia Cheng</p>
+  <div class="site-description" itemprop="description">雨下一整晚</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Peng Jia Cheng</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">12k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">11 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+<div>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("10/22/2025 14:35:06");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "已运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+</div>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":180,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

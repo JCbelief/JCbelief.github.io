@@ -535,4 +535,84 @@
         <tag>Games101</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Transformation Cont</title>
+    <url>/2026/01/22/2026/Games101/Transformation-Cont/</url>
+    <content><![CDATA[<h1 id="旋转的补充"><a href="#旋转的补充" class="headerlink" title="旋转的补充"></a>旋转的补充</h1><h2 id="转置推出逆矩阵"><a href="#转置推出逆矩阵" class="headerlink" title="转置推出逆矩阵"></a>转置推出逆矩阵</h2><p>矩阵的旋转，取逆，和转置相等</p>
+<p>由此可以推出，<font color="red">求一个矩阵的逆矩阵，可以将其转置</font></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122214615297.png" alt="image-20260122214615297"></p>
+<h1 id="三维变换"><a href="#三维变换" class="headerlink" title="三维变换"></a>三维变换</h1><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122230854665.png" alt="image-20260122230854665"></p>
+<p>绕xyz旋转</p>
+<p>绕哪个轴旋转，他就不变</p>
+<p>绕y轴的负号，因为右手法则，绕哪个轴旋转就大拇指指向哪个，然后看旋转方向，到绕y轴的时候，旋转是从z到x而不是x到z，反过来了</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122230915627.png" alt="image-20260122230915627"></p>
+<h2 id="飞机的旋转参考"><a href="#飞机的旋转参考" class="headerlink" title="飞机的旋转参考"></a>飞机的旋转参考</h2><p>上下抬头：Pitch</p>
+<p>左右横扫：Yaw</p>
+<p>翻滚：Roll</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122233843950.png" alt="image-20260122233843950"></p>
+<h2 id="旋转公式"><a href="#旋转公式" class="headerlink" title="旋转公式"></a>旋转公式</h2><p>R(n, a)   n旋转轴默认过原点、a旋转角度</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260122234030712.png" alt="image-20260122234030712"></p>
+<h1 id="MVP变换"><a href="#MVP变换" class="headerlink" title="MVP变换"></a>MVP变换</h1><p>M 模型位置变换</p>
+<p>V 相机视图位置变换</p>
+<p>P 投影变换</p>
+<p><strong><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124210107206.png" alt="image-20260124210107206"></strong></p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="View-Transformation"><a href="#View-Transformation" class="headerlink" title="View Transformation"></a>View Transformation</h2><p>定义相机</p>
+<p>1、位置</p>
+<p>2、朝向</p>
+<p>3、向上方向</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124210457342.png" alt="image-20260124210457342"></p>
+<p>核心是<strong>理解成</strong>把相机移到原点</p>
+<p><font color="red">先把坐标轴中心移动到原点</font></p>
+<p>旋转Z、旋转Y、叉乘推出X</p>
+<p>因为类比真实世界观看一个物体，<strong>他的世界空间始终没变</strong>，我的视角在变(我是可以从不同角度观看，类比相机视角)，物体相对我的视角是在变的，<strong>最终投影结果(我看到的)，是物体在我的视角下的样子</strong>，所以要根据我的视角做对应变化，这里计算就是理解为，我的视角每次都挪到原点(最初物体的观测角度)，这样物体也会跟着挪，后面就可以通过这个挪(变换矩阵)的<strong>逆矩阵</strong>来计算出物体实际变换</p>
+<h2 id="Projection-Transformation"><a href="#Projection-Transformation" class="headerlink" title="Projection Transformation"></a>Projection Transformation</h2><h3 id="正交投影"><a href="#正交投影" class="headerlink" title="正交投影"></a>正交投影</h3><p>和透视投影</p>
+<p>本质区别：正交投影没有近大远小</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124215754608.png" alt="image-20260124215754608"></p>
+<p>看向的-Z，所以离相机近的话Z会更大(Z的正方向)</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124225642064.png" alt="image-20260124225642064"></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124222752379.png" alt="image-20260124222752379"></p>
+<p>投影矩阵计算NDC(Normalized Device Coordinates)</p>
+<p>这个是固定流程，计算投影矩阵，投影到NDC‘</p>
+<p>后面会有从NDC投影到屏幕的过程</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124225102932.png" alt="image-20260124225102932"></p>
+<h3 id="透视投影"><a href="#透视投影" class="headerlink" title="透视投影"></a>透视投影</h3><p><strong>想象成挤压远平面，然后正交投影</strong></p>
+<p>近平面不变</p>
+<p>远平面中心不变</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124233952514.png" alt="image-20260124233952514"></p>
+<p>x’ y’ z’   近平面</p>
+<p>x y z 远平面</p>
+<p>可以根据相似三角形，算出y’和y的比例关系</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124234231777.png" alt="image-20260124234231777"></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260124234447482.png" alt="image-20260124234447482"></p>
+<p>核心原理可以理解为</p>
+<p><strong>最终结果显示在近平面上</strong>(绝对核心的点)</p>
+<p>远近平面有无数个点，可以理解为无数个平面</p>
+<p><strong>针对一个平面，将其拉伸为和近平面一样大小</strong>，所有平面都这样然后投影到近平面</p>
+<p><font color="red">拉伸的过程就是理解为相似三角形</font></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125001736880.png" alt="image-20260125001736880"></p>
+<p>构建透视矩阵过程</p>
+<p><strong>可以发现第三行z的变化不确定</strong></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125002252833.png" alt="image-20260125002252833"></p>
+<p><font color="red">解释上面为什么z是unknown</font></p>
+<p><strong>近平面和远平面的z是不变的</strong></p>
+<p>其余的会有变化，需要将变化后的z能映射到原始z，来区分深度，如果按照相似三角形的公式计算，会发现都是n，都在近平面上，丢失深度信息，因此可以发现他的z肯定变化了，但是有一个映射的关系</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125002411364.png" alt="image-20260125002411364"></p>
+<p><strong>通过近平面确认第三行前两个数</strong></p>
+<p>根据近平面z不变，确认了前两个数为0，因为结果是n方</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125003309710.png" alt="image-20260125003309710"></p>
+<p><strong>通过远平面中心点不变推算第三行后两个数</strong></p>
+<p>0 0 f 1映射为 0 0 f方 f</p>
+<p>根据近平面和远平面的式子</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125003613180.png" alt="image-20260125003613180"></p>
+<p>到此为止计算结束了透视投影变换矩阵</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/ransformation-Cont/image-20260125003739291.png" alt="image-20260125003739291"></p>
+<p>变换之后做正交投影就是最后的结果</p>
+]]></content>
+      <categories>
+        <category>Games101</category>
+      </categories>
+      <tags>
+        <tag>Games101</tag>
+      </tags>
+  </entry>
 </search>
