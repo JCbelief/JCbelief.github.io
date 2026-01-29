@@ -615,4 +615,44 @@
         <tag>Games101</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Rasterization 1</title>
+    <url>/2026/01/25/2026/Games101/Rasterization-1/</url>
+    <content><![CDATA[<h1 id="透视投影"><a href="#透视投影" class="headerlink" title="透视投影"></a>透视投影</h1><h2 id="两个概念"><a href="#两个概念" class="headerlink" title="两个概念"></a>两个概念</h2><p>宽高比、垂直可视角度(fieldofview)</p>
+<p>垂直可视角度，相机当作一个点，到近平面的上中间和下中间连线形成的结果</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260125231110117.png" alt="image-20260125231110117"></p>
+<p>根据垂直可视角度和近平面距离可以推出近平面高度</p>
+<p>aspect是近平面的宽高比 r是宽</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260126224802384.png" alt="image-20260126224802384"></p>
+<h1 id="MVP之后是什么"><a href="#MVP之后是什么" class="headerlink" title="MVP之后是什么"></a>MVP之后是什么</h1><p>屏幕：一个二维数组，数组的每个元素是一个像素</p>
+<p>光栅化：把东西画到屏幕上</p>
+<p>像素：一个个红绿蓝方块</p>
+<h2 id="屏幕空间"><a href="#屏幕空间" class="headerlink" title="屏幕空间"></a>屏幕空间</h2><p>就是屏幕上定义的一个坐标系</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260126230234024.png" alt="image-20260126230234024"></p>
+<h2 id="投影空间映射到屏幕空间"><a href="#投影空间映射到屏幕空间" class="headerlink" title="投影空间映射到屏幕空间"></a>投影空间映射到屏幕空间</h2><p>整个过程就是把投影空间的[-1, 1]立方体映射到屏幕空间</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260126230827924.png" alt="image-20260126230827924"></p>
+<p>先把[-1, 1]空间的立方体(先忽视z)拉伸成[width, height]并位移到左下角原点</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260126230836083.png" alt="image-20260126230836083"></p>
+<h2 id="投影之后做了什么"><a href="#投影之后做了什么" class="headerlink" title="投影之后做了什么"></a>投影之后做了什么</h2><p>投影之后，需要将三角形做光栅化</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260127232336809.png" alt="image-20260127232336809"></p>
+<h1 id="采样"><a href="#采样" class="headerlink" title="采样"></a>采样</h1><p>用函数判断像素中心点是否在三角形内，在的就做光栅化</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260127232144176.png" alt="image-20260127232144176"></p>
+<p>如何判断像素中心点在三角形内</p>
+<p>叉乘，判断叉乘结果方向，三个相同就是在三角形内</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260128230902501.png" alt="image-20260128230902501"></p>
+<p>边界情况按自己规则</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260128231608518.png" alt="image-20260128231608518"></p>
+<h2 id="光栅化加速"><a href="#光栅化加速" class="headerlink" title="光栅化加速"></a>光栅化加速</h2><h3 id="Bounding-Box"><a href="#Bounding-Box" class="headerlink" title="Bounding Box"></a>Bounding Box</h3><p>根据x轴和y轴的范围，计算最小包围盒</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260128231705573.png" alt="image-20260128231705573"></p>
+<p>每一行都考虑一个左右包围盒</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260128231946984.png" alt="image-20260128231946984"></p>
+<h2 id="光栅化的采用问题"><a href="#光栅化的采用问题" class="headerlink" title="光栅化的采用问题"></a>光栅化的采用问题</h2><h3 id="锯齿"><a href="#锯齿" class="headerlink" title="锯齿"></a>锯齿</h3><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260129000159750.png" alt="image-20260129000159750"></p>
+]]></content>
+      <categories>
+        <category>Games101</category>
+      </categories>
+      <tags>
+        <tag>Games101</tag>
+      </tags>
+  </entry>
 </search>

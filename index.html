@@ -200,6 +200,122 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jcbelief.github.io/2026/01/25/2026/Games101/Rasterization-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Peng Jia Cheng">
+      <meta itemprop="description" content="雨下一整晚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JCbelief">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2026/01/25/2026/Games101/Rasterization-1/" class="post-title-link" itemprop="url">Rasterization 1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2026-01-25 21:21:47" itemprop="dateCreated datePublished" datetime="2026-01-25T21:21:47+08:00">2026-01-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-01-29 00:02:09" itemprop="dateModified" datetime="2026-01-29T00:02:09+08:00">2026-01-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Games101/" itemprop="url" rel="index"><span itemprop="name">Games101</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>413</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="透视投影"><a href="#透视投影" class="headerlink" title="透视投影"></a>透视投影</h1><h2 id="两个概念"><a href="#两个概念" class="headerlink" title="两个概念"></a>两个概念</h2><p>宽高比、垂直可视角度(fieldofview)</p>
+<p>垂直可视角度，相机当作一个点，到近平面的上中间和下中间连线形成的结果</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260125231110117.png" alt="image-20260125231110117"></p>
+<p>根据垂直可视角度和近平面距离可以推出近平面高度</p>
+<p>aspect是近平面的宽高比 r是宽</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260126224802384.png" alt="image-20260126224802384"></p>
+<h1 id="MVP之后是什么"><a href="#MVP之后是什么" class="headerlink" title="MVP之后是什么"></a>MVP之后是什么</h1><p>屏幕：一个二维数组，数组的每个元素是一个像素</p>
+<p>光栅化：把东西画到屏幕上</p>
+<p>像素：一个个红绿蓝方块</p>
+<h2 id="屏幕空间"><a href="#屏幕空间" class="headerlink" title="屏幕空间"></a>屏幕空间</h2><p>就是屏幕上定义的一个坐标系</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260126230234024.png" alt="image-20260126230234024"></p>
+<h2 id="投影空间映射到屏幕空间"><a href="#投影空间映射到屏幕空间" class="headerlink" title="投影空间映射到屏幕空间"></a>投影空间映射到屏幕空间</h2><p>整个过程就是把投影空间的[-1, 1]立方体映射到屏幕空间</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260126230827924.png" alt="image-20260126230827924"></p>
+<p>先把[-1, 1]空间的立方体(先忽视z)拉伸成[width, height]并位移到左下角原点</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260126230836083.png" alt="image-20260126230836083"></p>
+<h2 id="投影之后做了什么"><a href="#投影之后做了什么" class="headerlink" title="投影之后做了什么"></a>投影之后做了什么</h2><p>投影之后，需要将三角形做光栅化</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260127232336809.png" alt="image-20260127232336809"></p>
+<h1 id="采样"><a href="#采样" class="headerlink" title="采样"></a>采样</h1><p>用函数判断像素中心点是否在三角形内，在的就做光栅化</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260127232144176.png" alt="image-20260127232144176"></p>
+<p>如何判断像素中心点在三角形内</p>
+<p>叉乘，判断叉乘结果方向，三个相同就是在三角形内</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260128230902501.png" alt="image-20260128230902501"></p>
+<p>边界情况按自己规则</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260128231608518.png" alt="image-20260128231608518"></p>
+<h2 id="光栅化加速"><a href="#光栅化加速" class="headerlink" title="光栅化加速"></a>光栅化加速</h2><h3 id="Bounding-Box"><a href="#Bounding-Box" class="headerlink" title="Bounding Box"></a>Bounding Box</h3><p>根据x轴和y轴的范围，计算最小包围盒</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260128231705573.png" alt="image-20260128231705573"></p>
+<p>每一行都考虑一个左右包围盒</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260128231946984.png" alt="image-20260128231946984"></p>
+<h2 id="光栅化的采用问题"><a href="#光栅化的采用问题" class="headerlink" title="光栅化的采用问题"></a>光栅化的采用问题</h2><h3 id="锯齿"><a href="#锯齿" class="headerlink" title="锯齿"></a>锯齿</h3><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-1/image-20260129000159750.png" alt="image-20260129000159750"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://jcbelief.github.io/2026/01/22/2026/Games101/Transformation-Cont/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1182,99 +1298,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Peng Jia Cheng">
-      <meta itemprop="description" content="雨下一整晚">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JCbelief">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">CMake简单使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-10-26 20:46:25" itemprop="dateCreated datePublished" datetime="2025-10-26T20:46:25+08:00">2025-10-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-01-17 14:09:37" itemprop="dateModified" datetime="2026-01-17T14:09:37+08:00">2026-01-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C-%E5%B7%A5%E7%A8%8B%E7%AE%A1%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">C++工程管理</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>120</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一、VS配置"><a href="#一、VS配置" class="headerlink" title="一、VS配置"></a>一、VS配置</h1><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image-20251026204940720.png" alt="image-20251026204940720"></p>
-<h1 id="二、CMakeList"><a href="#二、CMakeList" class="headerlink" title="二、CMakeList"></a>二、CMakeList</h1><p>CMakeLists.txt是整个CMake工程的描述文件</p>
-<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image-20251026205359800.png" alt="image-20251026205359800"></p>
-<h1 id="三、VisualStudio打开CMake工程"><a href="#三、VisualStudio打开CMake工程" class="headerlink" title="三、VisualStudio打开CMake工程"></a>三、VisualStudio打开CMake工程</h1><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image-20251026205739337.png" alt="image-20251026205739337"></p>
-<h1 id="四、工程文件说明"><a href="#四、工程文件说明" class="headerlink" title="四、工程文件说明"></a>四、工程文件说明</h1><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/image-20251026210327342.png" alt="image-20251026210327342"></p>
-<h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><p>笔记内容参考B站赵新政，主页url：<a target="_blank" rel="noopener" href="https://space.bilibili.com/487734084?spm_id_from=333.788.upinfo.head.click">赵新政的个人空间-赵新政个人主页-哔哩哔哩视频</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1346,7 +1369,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1396,13 +1419,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">12k</span>
+    <span title="站点总字数">13k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11 分钟</span>
+    <span title="站点阅读时长">12 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
