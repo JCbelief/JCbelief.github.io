@@ -655,4 +655,137 @@
         <tag>Games101</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Rasterization-2</title>
+    <url>/2026/01/29/2026/Games101/Rasterization-2/</url>
+    <content><![CDATA[<h1 id="锯齿"><a href="#锯齿" class="headerlink" title="锯齿"></a>锯齿</h1><p>继续上节课内容，锯齿的成因是，光栅化的像素，采样率不够，会导致边缘不平滑</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260129234012008.png" alt="image-20260129234012008"></p>
+<p>可见，红色是中心在三角形内部</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260129234040071.png" alt="image-20260129234040071"></p>
+<p>光栅化就是在屏幕空间用离散点进行像素中心是否在三角形内采样</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260129234144831.png" alt="image-20260129234144831"></p>
+<h1 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h1><p>时间的采样</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260130220218057.png" alt="image-20260130220218057"></p>
+<h1 id="摩尔纹"><a href="#摩尔纹" class="headerlink" title="摩尔纹"></a>摩尔纹</h1><p>去掉奇数行和列产生</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260130220322991.png" alt="image-20260130220322991"></p>
+<h1 id="车轮效应"><a href="#车轮效应" class="headerlink" title="车轮效应"></a>车轮效应</h1><p>顺时针旋转的车轮，告诉下会看到有的边缘在逆时针旋转</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260130220354631.png" alt="image-20260130220354631"></p>
+<p>以上锯齿、摩尔纹都是采样的瑕疵   SamplingArtifact</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260130220254698.png" alt="image-20260130220254698"></p>
+<h1 id="采样瑕疵的本质问题"><a href="#采样瑕疵的本质问题" class="headerlink" title="采样瑕疵的本质问题"></a>采样瑕疵的本质问题</h1><p>信号变化太快，采样太慢</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260130220529392.png" alt="image-20260130220529392"></p>
+<h1 id="反走样"><a href="#反走样" class="headerlink" title="反走样"></a>反走样</h1><h2 id="采样之前做模糊"><a href="#采样之前做模糊" class="headerlink" title="采样之前做模糊"></a>采样之前做模糊</h2><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260130220623032.png" alt="image-20260130220623032"></p>
+<p>边缘模糊</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260130220752147.png" alt="image-20260130220752147"></p>
+<p>先模糊滤波，再采样的效果如下图</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260130220853130.png" alt="image-20260130220853130"></p>
+<p><font color="red">无法先采样，得到走样结果再做模糊滤波！</font></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260130220956874.png" alt="image-20260130220956874"></p>
+<h1 id="与信号相关的知识"><a href="#与信号相关的知识" class="headerlink" title="与信号相关的知识"></a>与信号相关的知识</h1><p>作用：解释为什么先模糊后采样可以反走样</p>
+<h2 id="傅里叶变换和逆傅里叶变换"><a href="#傅里叶变换和逆傅里叶变换" class="headerlink" title="傅里叶变换和逆傅里叶变换"></a>傅里叶变换和逆傅里叶变换</h2><p>给定任何一个函数</p>
+<p>可以经过一个复杂变换成另一个函数</p>
+<p>也可以反向复原</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131142416566.png" alt="image-20260131142416566"></p>
+<p>原因是任何函数都存在不同的频率</p>
+<p>而三角函数通过改变周期，可以表示不同的频率</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131142539975.png" alt="image-20260131142539975"></p>
+<p><font color="red">傅里叶变换：把函数变成不同频率的段</font></p>
+<p>高频函数需要高采样率</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131142612728.png" alt="image-20260131142612728"></p>
+<h2 id="理解采样频率解决反走样"><a href="#理解采样频率解决反走样" class="headerlink" title="理解采样频率解决反走样"></a>理解采样频率解决反走样</h2><h3 id="走样"><a href="#走样" class="headerlink" title="走样"></a>走样</h3><p><font color="red">同一个采样频率，对两个不同的函数，得到同样的结果</font></p>
+<p>蓝色函数，黑色函数，完全不同的频率，但是得到了一样的采样点和结果，出现走样</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131143155756.png" alt="image-20260131143155756"></p>
+<h2 id="滤波"><a href="#滤波" class="headerlink" title="滤波"></a>滤波</h2><p>从频率的角度：把某个特定的频段给删掉</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131143319533.png" alt="image-20260131143319533"></p>
+<h3 id="高通滤波"><a href="#高通滤波" class="headerlink" title="高通滤波"></a>高通滤波</h3><p>通过滤波器，只保留高频信息</p>
+<p>怎么找到高频信息：信号的两边差距很大，找到边界，比如人的衣服袖口和图片上面的部分，差异很大</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131143839484.png" alt="image-20260131143839484"></p>
+<h3 id="低通滤波"><a href="#低通滤波" class="headerlink" title="低通滤波"></a>低通滤波</h3><p>去掉高频信息</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131162455967.png" alt="image-20260131162455967"></p>
+<p>去掉高频和低频信息</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131164758262.png" alt="image-20260131164758262"></p>
+<p>同样去点高频和低频信息，比上一张多保留一点高频</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131170627392.png" alt="image-20260131170627392"></p>
+<p>滤波&#x3D;平均&#x3D;卷积</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131172514890.png" alt="image-20260131172514890"></p>
+<h3 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h3><p>时域的卷积等于频域的乘积</p>
+<p>卷积在这里打比方就是用一个3 x 3的矩阵，对图片中每一个像素点，计算他周围3 x 3 矩阵的结果的平均</p>
+<p>对应到频域</p>
+<p>原图片进行傅里叶变换，卷积对应一个低频信息，对图片卷积(上面一行的步骤)相当于用他们的频域相乘(下面一行的步骤)，得到低频信息，逆傅里叶变换之后还原成模糊图像(对应保留低频信息后，得到模糊图像)</p>
+<p><strong>为什么会变模糊？</strong></p>
+<p><strong>因为取了周围一圈的平均，容易让高频信息被平均</strong></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131173357494.png" alt="image-20260131173357494"></p>
+<h3 id="卷积核"><a href="#卷积核" class="headerlink" title="卷积核"></a>卷积核</h3><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131180437463.png" alt="image-20260131180437463"></p>
+<p><strong>卷积核越大，保留的高频信息越小</strong></p>
+<p>原理就是，卷积核就是取周围一圈的频率的平均，越大的话，取得范围越大，丢失得高频信息越多</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131181157739.png" alt="image-20260131181157739"></td>
+<td><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131181213229.png" alt="image-20260131181213229"></td>
+</tr>
+</tbody></table>
+<h1 id="采样"><a href="#采样" class="headerlink" title="采样"></a>采样</h1><p>重复频率的内容</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131181356184.png" alt="image-20260131181356184"></p>
+<p>采样一个函数，就是用一个<strong>冲激函数</strong>和它相乘，得到离散点</p>
+<p>冲激函数：只在固定点有值</p>
+<p>(a)原函数 和(c) 冲激函数   相乘</p>
+<p>在时域上 (b) (d)</p>
+<p>相当于(b)原函数的傅里叶变换结果 和 (d)做卷积</p>
+<p>卷积结果是(f)</p>
+<p><strong>采样的结论就是：对一个函数采样，相当于在频域上，对其做频谱的复制</strong>   简而言之：重复一个原始信号的频谱</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131181659585.png" alt="image-20260131181659585"></p>
+<p>采样步长对频谱的影响：采样率不足会造成信号混叠，产生走样</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131183013725.png" alt="image-20260131183013725"></p>
+<h1 id="反走样方法"><a href="#反走样方法" class="headerlink" title="反走样方法"></a>反走样方法</h1><h2 id="增加采样率"><a href="#增加采样率" class="headerlink" title="增加采样率"></a>增加采样率</h2><p>简单说是用更高分辨率的显示器，像素更多，像素间隔更小，相对而言能采样到的间隔越大，能覆盖一个像素，采样率更高</p>
+<h2 id="反走样-抗锯齿"><a href="#反走样-抗锯齿" class="headerlink" title="反走样(抗锯齿)"></a>反走样(抗锯齿)</h2><p><font color="red">先做模糊，把一个信息高频信息拿掉</font></p>
+<p>再做采样</p>
+<h3 id="为什么行？"><a href="#为什么行？" class="headerlink" title="为什么行？"></a>为什么行？</h3><p>相当于让信号变”窄”之后，可以采样到完整的单个信号</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131183937273.png" alt="image-20260131183937273"></p>
+<h1 id="实际如何操作"><a href="#实际如何操作" class="headerlink" title="实际如何操作"></a>实际如何操作</h1><h2 id="模糊"><a href="#模糊" class="headerlink" title="模糊"></a>模糊</h2><p>卷积需要光栅化的图像</p>
+<p>四种不同的三角形<strong>覆盖的情况</strong></p>
+<p>将其做卷积，会让一个色块以颜色深度的方式表示三角形的覆盖程度</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131200858608.png" alt="image-20260131200858608"></p>
+<h3 id="MSAA"><a href="#MSAA" class="headerlink" title="MSAA"></a>MSAA</h3><p>将像素继续划分成小像素</p>
+<p>判断小像素的中心是否在三角形内</p>
+<p>计算所有小像素的平均情况</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131201157070.png" alt="image-20260131201157070"></p>
+<p>1、初始状态</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131201314206.png" alt="image-20260131201314206"></p>
+<p>2、划分像素</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131201327063.png" alt="image-20260131201327063"></p>
+<p>3、计算像素占比</p>
+<p>以第一行的像素为例，他有三个小像素在三角形内部，可以认为其占了75%，注意颜色的不同，呈浅红色</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131201425147.png" alt="image-20260131201425147"></p>
+<h2 id="采样-1"><a href="#采样-1" class="headerlink" title="采样"></a>采样</h2><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131201607334.png" alt="image-20260131201607334"></p>
+<h1 id="MSAA代价"><a href="#MSAA代价" class="headerlink" title="MSAA代价"></a>MSAA代价</h1><p>增加计算量，一个像素划分成2 x 2，变成四倍计算量</p>
+<h2 id="其他抗锯齿"><a href="#其他抗锯齿" class="headerlink" title="其他抗锯齿"></a>其他抗锯齿</h2><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260131202344955.png" alt="image-20260131202344955"></p>
+<h1 id="深度缓冲Z-Buffer"><a href="#深度缓冲Z-Buffer" class="headerlink" title="深度缓冲Z-Buffer"></a>深度缓冲Z-Buffer</h1><h2 id="画家算法"><a href="#画家算法" class="headerlink" title="画家算法"></a>画家算法</h2><p>由远及近绘画</p>
+<p>远处先做光栅化</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260202225345461.png" alt="image-20260202225345461"></p>
+<p>画家算法没法解决互相遮挡问题</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260202225751208.png" alt="image-20260202225751208"></p>
+<p>Z-Buffer</p>
+<p>需要将每个像素都保存一个深度</p>
+<p>因为看的-z方向，不方便计算，这里z就当正的看</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260206000121166.png" alt="image-20260206000121166"></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260206000245219.png" alt="image-20260206000245219"></p>
+<p>1、先认为所有物体都是无限远</p>
+<p>2、对于每个像素，如果当前的要画的三角形的深度，比之前记录的小，就画上</p>
+<p>3、循环画</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/asterization-2/image-20260206001309997.png" alt="image-20260206001309997"></p>
+<p>深度缓存不被顺序影响</p>
+]]></content>
+      <categories>
+        <category>Games101</category>
+      </categories>
+      <tags>
+        <tag>Games101</tag>
+      </tags>
+  </entry>
 </search>
