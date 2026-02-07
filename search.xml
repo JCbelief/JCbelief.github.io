@@ -788,4 +788,32 @@
         <tag>Games101</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Shading 1</title>
+    <url>/2026/02/06/2026/Games101/Shading-1/</url>
+    <content><![CDATA[<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>对不同物体应用不同材质</p>
+<h1 id="基础着色模型"><a href="#基础着色模型" class="headerlink" title="基础着色模型"></a>基础着色模型</h1><h2 id="Blinn-Phong"><a href="#Blinn-Phong" class="headerlink" title="Blinn-Phong"></a>Blinn-Phong</h2><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-1/image-20260207191854008.png" alt="image-20260207191854008"></p>
+<p>考虑任何一个点的着色情况，只看他自己，不考虑其他物体，所以没有阴影</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-1/image-20260207192150788.png" alt="image-20260207192150788"></p>
+<h3 id="漫反射"><a href="#漫反射" class="headerlink" title="漫反射"></a>漫反射</h3><p>光线打到物体表面的点，会被均匀的反射，反射周围任意角度观察到的光一样</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-1/image-20260207192253314.png" alt="image-20260207192253314"></p>
+<p><strong>结论1：光线和物体法线来源方向的夹角(l 和 n)决定了物体表面有多么亮</strong></p>
+<p>更学术的说法是考虑表面收到的光线能量有多少</p>
+<p>考虑任何一个shading point，周围单位面积接收到的光线能量，和光照方向和法线方向的余弦有关(没有夹角最大)</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-1/image-20260207192456362.png" alt="image-20260207192456362"></p>
+<h3 id="光衰减"><a href="#光衰减" class="headerlink" title="光衰减"></a>光衰减</h3><p><strong>结论2：知道点光源，知道shading point离点光源有多远，能计算出有多少光传播至shading point</strong></p>
+<p>光的能量在不同的球壳上(从中心扩散到边缘)衰减</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-1/image-20260207194422074.png" alt="image-20260207194422074"></p>
+<h3 id="如何计算漫反射"><a href="#如何计算漫反射" class="headerlink" title="如何计算漫反射"></a>如何计算漫反射</h3><p>I&#x2F;r的平方 计算光到达这个点时，衰减后的能量(结论2)</p>
+<p>n * l 计算夹角余弦(结论1)</p>
+<p>kd 系数，表示这个点吸收多少能量，可以改成向量rgb控制具体颜色的吸收</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-1/image-20260207194817069.png" alt="image-20260207194817069"></p>
+]]></content>
+      <categories>
+        <category>Games101</category>
+      </categories>
+      <tags>
+        <tag>Games101</tag>
+      </tags>
+  </entry>
 </search>
