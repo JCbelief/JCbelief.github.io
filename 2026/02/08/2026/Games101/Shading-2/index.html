@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jcbelief.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="什么是高光表面接近镜面反射 观察方向和镜面反射方向接近可以看到高光 高光的计算衡量标准：半程向量和法线是否接近，用点乘 ks：多少能量到达这个点 指数p：控制夹角余弦，只有特定角度可以看到明显高光，偏离角度就会有明显的高光衰减  blinn-phong模型用100-200的p，下图是p对cos的影响  ks影响亮度，p影响范围  环境光1、环境光和实际直接光照l无关 2、和观测方向无关 3、和法线">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shading 2">
+<meta property="og:url" content="https://jcbelief.github.io/2026/02/08/2026/Games101/Shading-2/index.html">
+<meta property="og:site_name" content="JCbelief">
+<meta property="og:description" content="什么是高光表面接近镜面反射 观察方向和镜面反射方向接近可以看到高光 高光的计算衡量标准：半程向量和法线是否接近，用点乘 ks：多少能量到达这个点 指数p：控制夹角余弦，只有特定角度可以看到明显高光，偏离角度就会有明显的高光衰减  blinn-phong模型用100-200的p，下图是p对cos的影响  ks影响亮度，p影响范围  环境光1、环境光和实际直接光照l无关 2、和观测方向无关 3、和法线">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208181507907.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208182320858.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208182419383.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208182829810.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208182913688.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208184027849.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208184226992.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208184355815.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208184830768.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208185222166.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208194349240.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208194917972.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208194940818.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208195034096.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208195109910.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208200342663.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208201803482.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208202222086.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208202414579.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208202645135.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208202921941.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208202950316.png">
+<meta property="og:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208203030540.png">
+<meta property="article:published_time" content="2026-02-08T09:24:30.000Z">
+<meta property="article:modified_time" content="2026-02-08T12:30:32.000Z">
+<meta property="article:author" content="Peng Jia Cheng">
+<meta property="article:tag" content="Games101">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jcbelief.github.io/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208181507907.png">
+
+<link rel="canonical" href="https://jcbelief.github.io/2026/02/08/2026/Games101/Shading-2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Shading 2 | JCbelief</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+  
+  <script src="/js/rain-effect.js"></script>
+  
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">JCbelief</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-portfolio">
+
+    <a href="/portfolio/" rel="section"><i class="fa fa-palette fa-fw"></i>作品集</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jcbelief.github.io/2026/02/08/2026/Games101/Shading-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Peng Jia Cheng">
+      <meta itemprop="description" content="雨下一整晚">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JCbelief">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Shading 2
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-02-08 17:24:30 / 修改时间：20:30:32" itemprop="dateCreated datePublished" datetime="2026-02-08T17:24:30+08:00">2026-02-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Games101/" itemprop="url" rel="index"><span itemprop="name">Games101</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>949</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="什么是高光"><a href="#什么是高光" class="headerlink" title="什么是高光"></a>什么是高光</h1><p>表面接近镜面反射</p>
+<p>观察方向和镜面反射方向接近可以看到高光</p>
+<h2 id="高光的计算"><a href="#高光的计算" class="headerlink" title="高光的计算"></a>高光的计算</h2><p>衡量标准：半程向量和法线是否接近，用点乘</p>
+<p>ks：多少能量到达这个点</p>
+<p>指数p：控制夹角余弦，只有特定角度可以看到明显高光，偏离角度就会有明显的高光衰减</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208181507907.png" alt="image-20260208181507907"></p>
+<p>blinn-phong模型用100-200的p，下图是p对cos的影响</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208182320858.png" alt="image-20260208182320858"></p>
+<p>ks影响亮度，p影响范围</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208182419383.png" alt="image-20260208182419383"></p>
+<h1 id="环境光"><a href="#环境光" class="headerlink" title="环境光"></a>环境光</h1><p>1、环境光和实际直接光照l无关</p>
+<p>2、和观测方向无关</p>
+<p>3、和法线无关，是一个常数</p>
+<p>作用：保证没有地方全黑</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208182829810.png" alt="image-20260208182829810"></p>
+<h1 id="Blinn-Phong反射模型"><a href="#Blinn-Phong反射模型" class="headerlink" title="Blinn-Phong反射模型"></a>Blinn-Phong反射模型</h1><p>所有光加起来(全局光、漫反射、高光)</p>
+<p>最终图像结果，就是这个光照模型的公式，对每一格着色点进行计算</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208182913688.png" alt="image-20260208182913688"></p>
+<h1 id="着色频率"><a href="#着色频率" class="headerlink" title="着色频率"></a>着色频率</h1><h2 id="Flat-Shading"><a href="#Flat-Shading" class="headerlink" title="Flat Shading"></a>Flat Shading</h2><p>计算一个<strong>三角形面的法线</strong></p>
+<p>根据这个法线计算此三角形着色情况</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208184027849.png" alt="image-20260208184027849"></p>
+<h2 id="Gouraud-Shading"><a href="#Gouraud-Shading" class="headerlink" title="Gouraud Shading"></a>Gouraud Shading</h2><p>对于一个三角形，计算<strong>每个顶点的法线</strong></p>
+<p>这样就对三个顶点进行着色，<strong>内部点通过三点插值得到颜色</strong></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208184226992.png" alt="image-20260208184226992"></p>
+<h2 id="Phong-Shading"><a href="#Phong-Shading" class="headerlink" title="Phong Shading"></a>Phong Shading</h2><p>对每一个像素计算法线，<strong>逐像素进行着色</strong></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208184355815.png" alt="image-20260208184355815"></p>
+<p>模型复杂度很高的时候，FlatShading不一定差，因为三角形数量很大</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208184830768.png" alt="image-20260208184830768"></p>
+<h2 id="计算三角形顶点的法线"><a href="#计算三角形顶点的法线" class="headerlink" title="计算三角形顶点的法线"></a>计算三角形顶点的法线</h2><p>顶点的法线可以用相邻的三角形面法线求加权平均得到</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208185222166.png" alt="image-20260208185222166"></p>
+<h1 id="渲染管线"><a href="#渲染管线" class="headerlink" title="渲染管线"></a>渲染管线</h1><p>为什么叫管线：如何从场景到渲染结果的一张图，中间经历的过程</p>
+<p>主要有顶点处理、光栅化、着色三块</p>
+<p>1、点投影到屏幕上</p>
+<p>2、形成三角形</p>
+<p>3、光栅化离散成fragment</p>
+<p>4、着色</p>
+<p>5、显示器显示</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208194349240.png" alt="image-20260208194349240"></p>
+<h2 id="MVP变换是顶点处理"><a href="#MVP变换是顶点处理" class="headerlink" title="MVP变换是顶点处理"></a>MVP变换是顶点处理</h2><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208194917972.png" alt="image-20260208194917972"></p>
+<h2 id="采样是光栅化"><a href="#采样是光栅化" class="headerlink" title="采样是光栅化"></a>采样是光栅化</h2><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208194940818.png" alt="image-20260208194940818"></p>
+<h2 id="z-buffer可见行是片段处理"><a href="#z-buffer可见行是片段处理" class="headerlink" title="z-buffer可见行是片段处理"></a>z-buffer可见行是片段处理</h2><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208195034096.png" alt="image-20260208195034096"></p>
+<h2 id="着色既可以发生在顶点、也可以发生在像素，参考GouraudShading、PhongShading"><a href="#着色既可以发生在顶点、也可以发生在像素，参考GouraudShading、PhongShading" class="headerlink" title="着色既可以发生在顶点、也可以发生在像素，参考GouraudShading、PhongShading"></a>着色既可以发生在顶点、也可以发生在像素，参考GouraudShading、PhongShading</h2><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208195109910.png" alt="image-20260208195109910"></p>
+<h1 id="shader"><a href="#shader" class="headerlink" title="shader"></a>shader</h1><p>本质是能在硬件上执行的语言</p>
+<p>GLSL案例</p>
+<p>shader里面只管一个顶点&#x2F;一个像素怎么运作</p>
+<p>顶点着色器：vertexshader，做顶点的操作</p>
+<p>像素着色器：fragmentshader、pixelshader，决定像素的颜色</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208200342663.png" alt="image-20260208200342663"></p>
+<p>GPU是高度并行化的处理器</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208201803482.png" alt="image-20260208201803482"></p>
+<h1 id="纹理映射"><a href="#纹理映射" class="headerlink" title="纹理映射"></a>纹理映射</h1><p>纹理映射：定义任何一个点的属性</p>
+<p>任何一个3d物体的表面为2d</p>
+<p>物体表面任何一个点都可以找到纹理图的映射</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208202222086.png" alt="image-20260208202222086"></p>
+<p><strong>纹理映射可以想象成把一张图贴到物体表面</strong></p>
+<p>任意一个三角形的顶点，可以找到他在纹理图的哪个顶点</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208202414579.png" alt="image-20260208202414579"></p>
+<h2 id="纹理坐标系"><a href="#纹理坐标系" class="headerlink" title="纹理坐标系"></a>纹理坐标系</h2><p><strong>UV表示</strong></p>
+<p>红色表示在U方向很大   u范围0-1</p>
+<p>绿色表示在V方向大   v范围0-1</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208202645135.png" alt="image-20260208202645135"></p>
+<p>不同位置可以映射相同纹理</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208202921941.png" alt="image-20260208202921941"></p>
+<p>纹理本身设计的好，上下重复无缝</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208202950316.png" alt="image-20260208202950316"></p>
+<p>tiled texture</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208203030540.png" alt="image-20260208203030540"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Games101/" rel="tag"># Games101</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/02/06/2026/Games101/Shading-1/" rel="prev" title="Shading 1">
+      <i class="fa fa-chevron-left"></i> Shading 1
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%AB%98%E5%85%89"><span class="nav-number">1.</span> <span class="nav-text">什么是高光</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E5%85%89%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="nav-number">1.1.</span> <span class="nav-text">高光的计算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%85%89"><span class="nav-number">2.</span> <span class="nav-text">环境光</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Blinn-Phong%E5%8F%8D%E5%B0%84%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">Blinn-Phong反射模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9D%80%E8%89%B2%E9%A2%91%E7%8E%87"><span class="nav-number">4.</span> <span class="nav-text">着色频率</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flat-Shading"><span class="nav-number">4.1.</span> <span class="nav-text">Flat Shading</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gouraud-Shading"><span class="nav-number">4.2.</span> <span class="nav-text">Gouraud Shading</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Phong-Shading"><span class="nav-number">4.3.</span> <span class="nav-text">Phong Shading</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E4%B8%89%E8%A7%92%E5%BD%A2%E9%A1%B6%E7%82%B9%E7%9A%84%E6%B3%95%E7%BA%BF"><span class="nav-number">4.4.</span> <span class="nav-text">计算三角形顶点的法线</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="nav-number">5.</span> <span class="nav-text">渲染管线</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP%E5%8F%98%E6%8D%A2%E6%98%AF%E9%A1%B6%E7%82%B9%E5%A4%84%E7%90%86"><span class="nav-number">5.1.</span> <span class="nav-text">MVP变换是顶点处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%87%E6%A0%B7%E6%98%AF%E5%85%89%E6%A0%85%E5%8C%96"><span class="nav-number">5.2.</span> <span class="nav-text">采样是光栅化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#z-buffer%E5%8F%AF%E8%A7%81%E8%A1%8C%E6%98%AF%E7%89%87%E6%AE%B5%E5%A4%84%E7%90%86"><span class="nav-number">5.3.</span> <span class="nav-text">z-buffer可见行是片段处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9D%80%E8%89%B2%E6%97%A2%E5%8F%AF%E4%BB%A5%E5%8F%91%E7%94%9F%E5%9C%A8%E9%A1%B6%E7%82%B9%E3%80%81%E4%B9%9F%E5%8F%AF%E4%BB%A5%E5%8F%91%E7%94%9F%E5%9C%A8%E5%83%8F%E7%B4%A0%EF%BC%8C%E5%8F%82%E8%80%83GouraudShading%E3%80%81PhongShading"><span class="nav-number">5.4.</span> <span class="nav-text">着色既可以发生在顶点、也可以发生在像素，参考GouraudShading、PhongShading</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shader"><span class="nav-number">6.</span> <span class="nav-text">shader</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%B9%E7%90%86%E6%98%A0%E5%B0%84"><span class="nav-number">7.</span> <span class="nav-text">纹理映射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%B9%E7%90%86%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="nav-number">7.1.</span> <span class="nav-text">纹理坐标系</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Peng Jia Cheng"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Peng Jia Cheng</p>
+  <div class="site-description" itemprop="description">雨下一整晚</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Peng Jia Cheng</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">15k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">14 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+<div>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("10/22/2025 14:35:06");//在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "已运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+</div>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":180,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

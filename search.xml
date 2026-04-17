@@ -816,4 +816,82 @@
         <tag>Games101</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Shading 2</title>
+    <url>/2026/02/08/2026/Games101/Shading-2/</url>
+    <content><![CDATA[<h1 id="什么是高光"><a href="#什么是高光" class="headerlink" title="什么是高光"></a>什么是高光</h1><p>表面接近镜面反射</p>
+<p>观察方向和镜面反射方向接近可以看到高光</p>
+<h2 id="高光的计算"><a href="#高光的计算" class="headerlink" title="高光的计算"></a>高光的计算</h2><p>衡量标准：半程向量和法线是否接近，用点乘</p>
+<p>ks：多少能量到达这个点</p>
+<p>指数p：控制夹角余弦，只有特定角度可以看到明显高光，偏离角度就会有明显的高光衰减</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208181507907.png" alt="image-20260208181507907"></p>
+<p>blinn-phong模型用100-200的p，下图是p对cos的影响</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208182320858.png" alt="image-20260208182320858"></p>
+<p>ks影响亮度，p影响范围</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208182419383.png" alt="image-20260208182419383"></p>
+<h1 id="环境光"><a href="#环境光" class="headerlink" title="环境光"></a>环境光</h1><p>1、环境光和实际直接光照l无关</p>
+<p>2、和观测方向无关</p>
+<p>3、和法线无关，是一个常数</p>
+<p>作用：保证没有地方全黑</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208182829810.png" alt="image-20260208182829810"></p>
+<h1 id="Blinn-Phong反射模型"><a href="#Blinn-Phong反射模型" class="headerlink" title="Blinn-Phong反射模型"></a>Blinn-Phong反射模型</h1><p>所有光加起来(全局光、漫反射、高光)</p>
+<p>最终图像结果，就是这个光照模型的公式，对每一格着色点进行计算</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208182913688.png" alt="image-20260208182913688"></p>
+<h1 id="着色频率"><a href="#着色频率" class="headerlink" title="着色频率"></a>着色频率</h1><h2 id="Flat-Shading"><a href="#Flat-Shading" class="headerlink" title="Flat Shading"></a>Flat Shading</h2><p>计算一个<strong>三角形面的法线</strong></p>
+<p>根据这个法线计算此三角形着色情况</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208184027849.png" alt="image-20260208184027849"></p>
+<h2 id="Gouraud-Shading"><a href="#Gouraud-Shading" class="headerlink" title="Gouraud Shading"></a>Gouraud Shading</h2><p>对于一个三角形，计算<strong>每个顶点的法线</strong></p>
+<p>这样就对三个顶点进行着色，<strong>内部点通过三点插值得到颜色</strong></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208184226992.png" alt="image-20260208184226992"></p>
+<h2 id="Phong-Shading"><a href="#Phong-Shading" class="headerlink" title="Phong Shading"></a>Phong Shading</h2><p>对每一个像素计算法线，<strong>逐像素进行着色</strong></p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208184355815.png" alt="image-20260208184355815"></p>
+<p>模型复杂度很高的时候，FlatShading不一定差，因为三角形数量很大</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208184830768.png" alt="image-20260208184830768"></p>
+<h2 id="计算三角形顶点的法线"><a href="#计算三角形顶点的法线" class="headerlink" title="计算三角形顶点的法线"></a>计算三角形顶点的法线</h2><p>顶点的法线可以用相邻的三角形面法线求加权平均得到</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208185222166.png" alt="image-20260208185222166"></p>
+<h1 id="渲染管线"><a href="#渲染管线" class="headerlink" title="渲染管线"></a>渲染管线</h1><p>为什么叫管线：如何从场景到渲染结果的一张图，中间经历的过程</p>
+<p>主要有顶点处理、光栅化、着色三块</p>
+<p>1、点投影到屏幕上</p>
+<p>2、形成三角形</p>
+<p>3、光栅化离散成fragment</p>
+<p>4、着色</p>
+<p>5、显示器显示</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208194349240.png" alt="image-20260208194349240"></p>
+<h2 id="MVP变换是顶点处理"><a href="#MVP变换是顶点处理" class="headerlink" title="MVP变换是顶点处理"></a>MVP变换是顶点处理</h2><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208194917972.png" alt="image-20260208194917972"></p>
+<h2 id="采样是光栅化"><a href="#采样是光栅化" class="headerlink" title="采样是光栅化"></a>采样是光栅化</h2><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208194940818.png" alt="image-20260208194940818"></p>
+<h2 id="z-buffer可见行是片段处理"><a href="#z-buffer可见行是片段处理" class="headerlink" title="z-buffer可见行是片段处理"></a>z-buffer可见行是片段处理</h2><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208195034096.png" alt="image-20260208195034096"></p>
+<h2 id="着色既可以发生在顶点、也可以发生在像素，参考GouraudShading、PhongShading"><a href="#着色既可以发生在顶点、也可以发生在像素，参考GouraudShading、PhongShading" class="headerlink" title="着色既可以发生在顶点、也可以发生在像素，参考GouraudShading、PhongShading"></a>着色既可以发生在顶点、也可以发生在像素，参考GouraudShading、PhongShading</h2><p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208195109910.png" alt="image-20260208195109910"></p>
+<h1 id="shader"><a href="#shader" class="headerlink" title="shader"></a>shader</h1><p>本质是能在硬件上执行的语言</p>
+<p>GLSL案例</p>
+<p>shader里面只管一个顶点&#x2F;一个像素怎么运作</p>
+<p>顶点着色器：vertexshader，做顶点的操作</p>
+<p>像素着色器：fragmentshader、pixelshader，决定像素的颜色</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208200342663.png" alt="image-20260208200342663"></p>
+<p>GPU是高度并行化的处理器</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208201803482.png" alt="image-20260208201803482"></p>
+<h1 id="纹理映射"><a href="#纹理映射" class="headerlink" title="纹理映射"></a>纹理映射</h1><p>纹理映射：定义任何一个点的属性</p>
+<p>任何一个3d物体的表面为2d</p>
+<p>物体表面任何一个点都可以找到纹理图的映射</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208202222086.png" alt="image-20260208202222086"></p>
+<p><strong>纹理映射可以想象成把一张图贴到物体表面</strong></p>
+<p>任意一个三角形的顶点，可以找到他在纹理图的哪个顶点</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208202414579.png" alt="image-20260208202414579"></p>
+<h2 id="纹理坐标系"><a href="#纹理坐标系" class="headerlink" title="纹理坐标系"></a>纹理坐标系</h2><p><strong>UV表示</strong></p>
+<p>红色表示在U方向很大   u范围0-1</p>
+<p>绿色表示在V方向大   v范围0-1</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208202645135.png" alt="image-20260208202645135"></p>
+<p>不同位置可以映射相同纹理</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208202921941.png" alt="image-20260208202921941"></p>
+<p>纹理本身设计的好，上下重复无缝</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208202950316.png" alt="image-20260208202950316"></p>
+<p>tiled texture</p>
+<p><img src="/2025/10/26/2025/CMake%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/hading-2/image-20260208203030540.png" alt="image-20260208203030540"></p>
+]]></content>
+      <categories>
+        <category>Games101</category>
+      </categories>
+      <tags>
+        <tag>Games101</tag>
+      </tags>
+  </entry>
 </search>
